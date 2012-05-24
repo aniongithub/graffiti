@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F681FACB-BD4C-4B34-BE2D-E58A40564977}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Graffiti.Windows.OpenGL.Core</RootNamespace>
+    <AssemblyName>Graffiti.Windows.OpenGL.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Graffiti.Core\Animation\Animatable.cs">
+      <Link>Animation\Animatable.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Animation\IAnimatable.cs">
+      <Link>Animation\IAnimatable.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Animation\IKeyframes.cs">
+      <Link>Animation\IKeyframes.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Animation\Keyframes.cs">
+      <Link>Animation\Keyframes.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Animation\Mode.cs">
+      <Link>Animation\Mode.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Behaviors.cs">
+      <Link>Behaviors.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\Brush.cs">
+      <Link>Brushes\Brush.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\IBrush.cs">
+      <Link>Brushes\IBrush.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\ILayer.cs">
+      <Link>Brushes\ILayer.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\ILayerTransform.cs">
+      <Link>Brushes\ILayerTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\Layer.cs">
+      <Link>Brushes\Layer.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\LayerTransform.cs">
+      <Link>Brushes\LayerTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Collections\ArrayList.cs">
+      <Link>Collections\ArrayList.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Geometry\AnimatedIndexedMesh.cs">
+      <Link>Geometry\AnimatedIndexedMesh.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Geometry\IAnimatedIndexedMesh.cs">
+      <Link>Geometry\IAnimatedIndexedMesh.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Geometry\IIndexedMesh.cs">
+      <Link>Geometry\IIndexedMesh.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Geometry\IndexedMesh.cs">
+      <Link>Geometry\IndexedMesh.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Math\Axes.cs">
+      <Link>Math\Axes.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Math\Functions.cs">
+      <Link>Math\Functions.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Math\IInterpolator.cs">
+      <Link>Math\IInterpolator.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Math\Transforms.cs">
+      <Link>Math\Transforms.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Primitives\Quad.cs">
+      <Link>Primitives\Quad.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\IRenderBucket.cs">
+      <Link>Rendering\IRenderBucket.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\IRenderer.cs">
+      <Link>Rendering\IRenderer.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\IVertex.cs">
+      <Link>Rendering\IVertex.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\PreTransformedRenderBucket.cs">
+      <Link>Rendering\PreTransformedRenderBucket.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\Renderers\MultipassSimpleEffectRenderer_SingleChannel.cs">
+      <Link>Rendering\Renderers\MultipassSimpleEffectRenderer_SingleChannel.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\Vertex.cs">
+      <Link>Rendering\Vertex.cs</Link>
+    </Compile>
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\Projects\MonoGame\MonoGame.Framework\MonoGame.Framework.Windows.csproj">
+      <Project>{7DE47032-A904-4C29-BD22-2D235E8D91BA}</Project>
+      <Name>MonoGame.Framework.Windows</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

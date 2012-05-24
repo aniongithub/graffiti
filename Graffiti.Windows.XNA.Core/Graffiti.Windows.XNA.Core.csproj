@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{1C173E59-7EBE-401B-88B0-53B01FF828E5}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Graffiti.Core</RootNamespace>
+    <AssemblyName>Graffiti.Windows.XNA.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <XnaPlatform>Windows</XnaPlatform>
+    <XnaProfile>Reach</XnaProfile>
+    <XnaCrossPlatformGroupID>5ab91f9f-3a9f-43a0-ae84-0d1a943c817f</XnaCrossPlatformGroupID>
+    <XnaOutputType>Library</XnaOutputType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>false</XnaCompressContent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>true</XnaCompressContent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Graffiti.Core\Animation\Animatable.cs">
+      <Link>Animation\Animatable.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Animation\IAnimatable.cs">
+      <Link>Animation\IAnimatable.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Animation\IKeyframes.cs">
+      <Link>Animation\IKeyframes.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Animation\Keyframes.cs">
+      <Link>Animation\Keyframes.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Animation\Mode.cs">
+      <Link>Animation\Mode.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Behaviors.cs">
+      <Link>Behaviors.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\Brush.cs">
+      <Link>Brushes\Brush.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\IBrush.cs">
+      <Link>Brushes\IBrush.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\ILayer.cs">
+      <Link>Brushes\ILayer.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\ILayerTransform.cs">
+      <Link>Brushes\ILayerTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\Layer.cs">
+      <Link>Brushes\Layer.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\LayerTransform.cs">
+      <Link>Brushes\LayerTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Collections\ArrayList.cs">
+      <Link>Collections\ArrayList.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Geometry\AnimatedIndexedMesh.cs">
+      <Link>Geometry\AnimatedIndexedMesh.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Geometry\IAnimatedIndexedMesh.cs">
+      <Link>Geometry\IAnimatedIndexedMesh.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Geometry\IIndexedMesh.cs">
+      <Link>Geometry\IIndexedMesh.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Geometry\IndexedMesh.cs">
+      <Link>Geometry\IndexedMesh.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Math\Axes.cs">
+      <Link>Math\Axes.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Math\Functions.cs">
+      <Link>Math\Functions.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Math\IInterpolator.cs">
+      <Link>Math\IInterpolator.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Math\Transforms.cs">
+      <Link>Math\Transforms.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Primitives\Quad.cs">
+      <Link>Primitives\Quad.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\IRenderBucket.cs">
+      <Link>Rendering\IRenderBucket.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\IRenderer.cs">
+      <Link>Rendering\IRenderer.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\IVertex.cs">
+      <Link>Rendering\IVertex.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\PreTransformedRenderBucket.cs">
+      <Link>Rendering\PreTransformedRenderBucket.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\Renderers\MultipassSimpleEffectRenderer_SingleChannel.cs">
+      <Link>Rendering\Renderers\MultipassSimpleEffectRenderer_SingleChannel.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\Vertex.cs">
+      <Link>Rendering\Vertex.cs</Link>
+    </Compile>
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
+  <!--
+      To modify your build process, add your task inside one of the targets below and uncomment it. 
+      Other similar extension points exist, see Microsoft.Common.targets.
+      <Target Name="BeforeBuild">
+      </Target>
+      <Target Name="AfterBuild">
+      </Target>
+    -->
+</Project>
