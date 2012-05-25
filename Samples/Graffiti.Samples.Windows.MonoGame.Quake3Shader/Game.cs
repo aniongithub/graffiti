@@ -46,31 +46,31 @@ namespace Graffiti.Samples.Windows.MonoGame.Quake3Shader
                             BlendState = BlendState.Opaque,
                             Texture = Content.Load<Texture2D>("Content/basewall01bit")
                         },
-                    //new Layer
-                    //    {
-                    //        BlendState = BlendState.Additive,
-                    //        Texture = Content.Load<Texture2D>("Content/basewall01bitfx"),
-                    //        LayerTransforms = new LayerTransforms
-                    //        {
-                    //            t => Transforms.Translation<Axes.X>(Functions.Linear(t, 0.005f)),
-                    //            t => Transforms.Translation<Axes.Y>(Functions.Linear(t, 0.001f))
-                    //        }
-                    //    },
-                    //new Layer
-                    //    {
-                    //        BlendState = BlendState.Additive,
-                    //        Texture = Content.Load<Texture2D>("Content/envmap2"),
-                    //        LayerTransforms = new LayerTransforms
-                    //        {
-                    //            t => Transforms.ScaleAt<Axes.X>(0.5f, 0.5f, 0.5f),
-                    //            t => Transforms.ScaleAt<Axes.Y>(0.5f, 0.5f, 0.5f)
-                    //        }
-                    //    },
-                    //new Layer
-                    //    {
-                    //        BlendState = BlendState.AlphaBlend,
-                    //        Texture = Content.Load<Texture2D>("Content/basewall01bit")
-                    //    }
+                    new Layer
+                        {
+                            BlendState = BlendState.Additive,
+                            Texture = Content.Load<Texture2D>("Content/basewall01bitfx"),
+                            LayerTransforms = new LayerTransforms
+                            {
+                                t => Transforms.Translation<Axes.X>(Functions.Linear(t, 0.005f)),
+                                t => Transforms.Translation<Axes.Y>(Functions.Linear(t, 0.001f))
+                            }
+                        },
+                    new Layer
+                        {
+                            BlendState = BlendState.Additive,
+                            Texture = Content.Load<Texture2D>("Content/envmap2"),
+                            LayerTransforms = new LayerTransforms
+                            {
+                                t => Transforms.ScaleAt<Axes.X>(0.5f, 0.5f, 0.5f),
+                                t => Transforms.ScaleAt<Axes.Y>(0.5f, 0.5f, 0.5f)
+                            }
+                        },
+                    new Layer
+                        {
+                            BlendState = BlendState.AlphaBlend,
+                            Texture = Content.Load<Texture2D>("Content/basewall01bit")
+                        }
                 }
             };
         }
