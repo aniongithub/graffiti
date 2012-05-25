@@ -5,3 +5,4 @@ obj
 # mstest test results
 TestResults
 /Samples/.gitignore
+/Samples/Graffiti.Samples.Windows.XNA.Quake3Shader/.gitignore
