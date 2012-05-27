@@ -23,13 +23,17 @@
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Assets\Quake3Shader\basewall01bit.png">
-      <Link>Content\basewall01bit.png</Link>
+    <Compile Include="..\Assets\Quake3Shader\basewall01bit.tga">
+      <Link>Content\basewall01bit.tga</Link>
       <Name>basewall01bit</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <ProcessorParameters_PremultiplyAlpha>False</ProcessorParameters_PremultiplyAlpha>
+      <ProcessorParameters_ColorKeyEnabled>False</ProcessorParameters_ColorKeyEnabled>
+      <ProcessorParameters_TextureFormat>NoChange</ProcessorParameters_TextureFormat>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="..\Assets\Quake3Shader\basewall01bitfx.jpg">
       <Link>Content\basewall01bitfx.jpg</Link>
       <Name>basewall01bitfx</Name>

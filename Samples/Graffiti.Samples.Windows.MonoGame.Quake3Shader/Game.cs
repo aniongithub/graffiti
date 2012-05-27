@@ -56,7 +56,7 @@ namespace Graffiti.Samples.Windows.MonoGame.Quake3Shader
                 {
                     new Layer
                         {
-                            BlendState = BlendState.Opaque,
+                            BlendState = BlendState.NonPremultiplied,
                             Texture = Content.Load<Texture2D>("Content/basewall01bit")
                         },
                     new Layer

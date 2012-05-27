@@ -53,17 +53,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="OpenTK" />
-    <Reference Include="Lidgren.Network" />
-    <Reference Include="Tao.Sdl" />
     <Reference Include="System" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\Assets\Quake3Shader\basewall01bit.png">
-      <Link>Content\basewall01bit.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Assets\Quake3Shader\basewall01bitfx.jpg">
       <Link>Content\basewall01bitfx.jpg</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -83,6 +76,16 @@
       <Project>{7DE47032-A904-4C29-BD22-2D235E8D91BA}</Project>
       <Name>MonoGame.Framework.Windows</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\MonoGame\ThirdParty\Lidgren.Network\Lidgren.Network.Windows.csproj">
+      <Project>{AE483C29-042E-4226-BA52-D247CE7676DA}</Project>
+      <Name>Lidgren.Network.Windows</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Assets\Quake3Shader\basewall01bit.xnb">
+      <Link>Content\basewall01bit.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
