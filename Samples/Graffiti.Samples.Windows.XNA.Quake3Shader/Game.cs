@@ -81,7 +81,7 @@ namespace Graffiti.Samples.Windows.XNA.Quake3Shader
                         },
                     new Layer
                         {
-                            BlendState = BlendState.AlphaBlend,
+                            BlendState = BlendState.NonPremultiplied,
                             Texture = Content.Load<Texture2D>("Content/basewall01bit")
                         }
                 }
