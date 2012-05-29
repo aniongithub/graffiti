@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.Windows.Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Windows.MonoGame.Core", "..\Graffiti.Windows.MonoGame.Core\Graffiti.Windows.MonoGame.Core.csproj", "{F681FACB-BD4C-4B34-BE2D-E58A40564977}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Quake3Shader", "Quake3Shader", "{6AE33C6E-EEC0-4451-9E9C-1E1C3BA50F52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{7DE47032-A904-4C29-BD22-2D235E8D91BA} = {381D74F1-9E92-4DC0-AC2E-34B3872E34E8}
 		{AE483C29-042E-4226-BA52-D247CE7676DA} = {381D74F1-9E92-4DC0-AC2E-34B3872E34E8}
+		{307D6535-8D52-45DE-AB0B-8C5DC742C09C} = {6AE33C6E-EEC0-4451-9E9C-1E1C3BA50F52}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = MonoGame.Framework\MonoGame.Framework.Windows.csproj

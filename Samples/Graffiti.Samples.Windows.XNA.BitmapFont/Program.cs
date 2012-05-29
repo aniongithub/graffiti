@@ -1,6 +1,6 @@
-using Graffiti.Samples.Quake3Shader;
+using System;
 
-namespace Graffiti.Samples.Windows.XNA.Quake3Shader
+namespace Graffiti.Samples.Windows.XNA.BitmapFont
 {
 #if WINDOWS || XBOX
     static class Program

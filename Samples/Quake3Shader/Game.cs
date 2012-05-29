@@ -1,4 +1,4 @@
-﻿#region License and Copyright Notice
+#region License and Copyright Notice
 // Copyright (c) 2010 Ananth Balasubramaniam
 // All rights reserved.
 // 
@@ -23,16 +23,15 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace Graffiti.Samples.Windows.MonoGame.Quake3Shader
+namespace Graffiti.Samples.Quake3Shader
 {
     public class Game : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
+        private readonly GraphicsDeviceManager graphics;
 
         public Game()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = ".";
         }
 
         private IRenderer _renderer;
@@ -40,11 +39,13 @@ namespace Graffiti.Samples.Windows.MonoGame.Quake3Shader
 
         protected override void Initialize()
         {
+            GraphicsDevice.Viewport = new Viewport(0, 0, 800, 480);
+            
             base.Initialize();
 
             var halfWidth = GraphicsDevice.Viewport.Width / 2f;
             var halfHeight = GraphicsDevice.Viewport.Height / 2f;
-
+            
             _renderer = Renderer.Create(
                 GraphicsDevice, Features.MultiPass | Features.PreTransformed | Features.SingleChannelTexCoords,
                 projection: Matrix.CreateOrthographicOffCenter(-halfWidth, halfWidth, halfHeight, -halfHeight, 0, 1));
@@ -56,7 +57,7 @@ namespace Graffiti.Samples.Windows.MonoGame.Quake3Shader
                 {
                     new Layer
                         {
-                            BlendState = BlendState.NonPremultiplied,
+                            BlendState = BlendState.Opaque,
                             Texture = Content.Load<Texture2D>("Content/basewall01bit")
                         },
                     new Layer
@@ -81,7 +82,7 @@ namespace Graffiti.Samples.Windows.MonoGame.Quake3Shader
                         },
                     new Layer
                         {
-                            BlendState = BlendState.AlphaBlend,
+                            BlendState = BlendState.NonPremultiplied,
                             Texture = Content.Load<Texture2D>("Content/basewall01bit")
                         }
                 }
@@ -99,7 +100,7 @@ namespace Graffiti.Samples.Windows.MonoGame.Quake3Shader
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 Exit();
 
             _quad.Brush.Update((float)gameTime.ElapsedGameTime.TotalMilliseconds);

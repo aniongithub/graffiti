@@ -93,6 +93,9 @@
     <Compile Include="..\Graffiti.Core\Collections\ArrayList.cs">
       <Link>Collections\ArrayList.cs</Link>
     </Compile>
+    <Compile Include="..\Graffiti.Core\Extensions\ContentExtensions.cs">
+      <Link>Extensions\ContentExtensions.cs</Link>
+    </Compile>
     <Compile Include="..\Graffiti.Core\Geometry\AnimatedIndexedMesh.cs">
       <Link>Geometry\AnimatedIndexedMesh.cs</Link>
     </Compile>

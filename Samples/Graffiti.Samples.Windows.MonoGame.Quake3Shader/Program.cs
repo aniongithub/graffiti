@@ -1,8 +1,5 @@
-﻿#region Using Statements
-using System;
-using System.Collections.Generic;
-using System.Linq;
-#endregion
+﻿using System;
+using Graffiti.Samples.Quake3Shader;
 
 namespace Graffiti.Samples.Windows.MonoGame.Quake3Shader
 {
