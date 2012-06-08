@@ -39,7 +39,7 @@ namespace Graffiti.Samples.Windows.XNA.BitmapFont
         protected override void LoadContent()
         {
             _segoeWP = Content.LoadBitmapFont("Content/Segoe_WP_Light_64x64.fnt");
-            _text = _segoeWP.Build<Vertex<Texcoords_SingleChannel>, Texcoords_SingleChannel>("The quick brown fox jumped over the lazy dog",
+            _text = _segoeWP.Build<Vertex<Texcoords_SingleChannel>, Texcoords_SingleChannel>("A quick brown fox jumped over the lazy dog",
                 new Brush
                     {
                         new Layer
@@ -49,7 +49,7 @@ namespace Graffiti.Samples.Windows.XNA.BitmapFont
                                 BlendState = BlendState.Additive
                             }
                     });
-            _text.Transform = /*Matrix.CreateScale(0.5f) * */ Matrix.CreateTranslation(-400, -240, 0f);
+            _text.Transform = Matrix.CreateScale(0.5f) * Matrix.CreateTranslation(-400, -240, 0f);
         }
 
         protected override void UnloadContent()

@@ -15,6 +15,7 @@
 // terms of the License.
 #endregion
 
+using System;
 using System.Runtime.InteropServices;
 using Microsoft.Xna.Framework;
 
@@ -29,6 +30,50 @@ namespace Graffiti.Core.Rendering
         {
             get { return _texcoords; }
             set { _texcoords = value; }
+        }
+
+        public int Length
+        {
+            get { return 1; }
+        }
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct Texcoords_DualChannel : ITexcoords
+    {
+        private Vector2 _texcoords0;
+        private Vector2 _texcoords1;
+
+        public Vector2 this[int index]
+        {
+            get 
+            {
+                switch (index)
+                {
+                    case 0:
+                        return _texcoords0;
+                    case 1:
+                        return _texcoords1;
+                    default:
+                        throw new IndexOutOfRangeException();
+                }
+            }
+            set 
+            {
+                switch (index)
+                {
+                    case 0:
+                        _texcoords0 = value;
+                        break;
+
+                    case 1:
+                        _texcoords1 = value;
+                        break;
+
+                    default:
+                        throw new IndexOutOfRangeException();
+                }
+            }
         }
 
         public int Length

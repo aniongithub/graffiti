@@ -77,8 +77,14 @@
     <Compile Include="..\Graffiti.Core\Brushes\Brush.cs">
       <Link>Brushes\Brush.cs</Link>
     </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\DualLayer.cs">
+      <Link>Brushes\DualLayer.cs</Link>
+    </Compile>
     <Compile Include="..\Graffiti.Core\Brushes\IBrush.cs">
       <Link>Brushes\IBrush.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\IDualLayer.cs">
+      <Link>Brushes\IDualLayer.cs</Link>
     </Compile>
     <Compile Include="..\Graffiti.Core\Brushes\ILayer.cs">
       <Link>Brushes\ILayer.cs</Link>
@@ -139,6 +145,9 @@
     </Compile>
     <Compile Include="..\Graffiti.Core\Rendering\PreTransformedRenderBucket.cs">
       <Link>Rendering\PreTransformedRenderBucket.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\Renderers\MultipassDualTextureEffectRenderer_DualChannel.cs">
+      <Link>Rendering\Renderers\MultipassDualTextureEffectRenderer_DualChannel.cs</Link>
     </Compile>
     <Compile Include="..\Graffiti.Core\Rendering\Renderers\MultipassSimpleEffectRenderer_SingleChannel.cs">
       <Link>Rendering\Renderers\MultipassSimpleEffectRenderer_SingleChannel.cs</Link>
