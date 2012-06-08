@@ -15,17 +15,22 @@
 // terms of the License.
 #endregion
 
-using System.IO;
-using Microsoft.Xna.Framework.Content;
-
-namespace Microsoft.Xna.Framework
+namespace Graffiti.Core.Text
 {
-    public static partial class ContentExtensions
+    internal interface ICharInfo
     {
-        internal static Stream OpenStream(this ContentManager content, string name)
-        {
-            // TODO: Normalize the filename - so the user doesn't have to pass in the extension?
-            return new FileStream(name, FileMode.Open);
-        }
+        int X { get; set; }
+        int Y { get; set; }
+        int Width { get; set; }
+        int Height { get; set; }
+        int XOffset { get; set; }
+        int YOffset { get; set; }
+        int XAdvance { get; set; }
+        int Page { get; set; }
+        int Channel { get; set; }
+    }
+
+    public interface IBitmapFont
+    {
     }
 }

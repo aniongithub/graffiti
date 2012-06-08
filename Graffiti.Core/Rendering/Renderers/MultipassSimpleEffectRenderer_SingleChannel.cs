@@ -18,6 +18,7 @@
 using System.Collections.Generic;
 using Graffiti.Core.Brushes;
 using Graffiti.Core.Collections;
+using Graffiti.Core.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -51,16 +52,17 @@ namespace Graffiti.Core.Rendering.Renderers
             foreach (var kvp in _renderBuckets)
             {
                 var bucket = kvp.Value;
+                var brush = kvp.Key;
 
-                foreach (var layer in kvp.Key)
+                foreach (var layer in brush)
                 {
                     _bucketVertices.Clear();
 
                     var transform = layer.CurrentLayerTransform;
 
                     _effect.Texture = layer.Texture;
-                    _effect.DiffuseColor = new Vector3(layer.Color.R/255f, layer.Color.G/255f, layer.Color.B/255f);
-                    _effect.Alpha = layer.Color.A/255f;
+                    _effect.DiffuseColor = new Vector3(layer.Color.R / 255f, layer.Color.G / 255f, layer.Color.B / 255f);
+                    _effect.Alpha = layer.Color.A / 255f;
 
                     _device.SamplerStates[0] = new SamplerState
                                                    {

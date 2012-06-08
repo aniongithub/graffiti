@@ -36,10 +36,7 @@ namespace Graffiti.Core
         where TVertex : struct, IVertex<TTexcoords>
     {
         void Render(IRenderer renderer, Matrix parentTransform);
-        IBrush Brush
-        {
-            get;
-        }
+        IBrush Brush { get; set; }
     }
 
     internal static class IRenderableExtensions

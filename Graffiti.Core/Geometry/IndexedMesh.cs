@@ -15,6 +15,7 @@
 // terms of the License.
 #endregion
 
+using System;
 using Graffiti.Core.Brushes;
 using Graffiti.Core.Rendering;
 using Microsoft.Xna.Framework;
@@ -25,11 +26,33 @@ namespace Graffiti.Core.Geometry
         where TVertex : struct, IVertex<TTexcoords>
         where TTexcoords : struct, ITexcoords
     {
+        internal IndexedMesh()
+        {
+            Transform = Matrix.Identity;
+        }
+
+        internal IndexedMesh(int vertexCount, int indexCount)
+            : this()
+        {
+            _vertices = new TVertex[vertexCount];
+            _indices = new short[indexCount];
+        }
+
         #region IIndexedMesh<TVertex,TTexcoords> Members
 
-        public short[] Indices { get; protected set; }
+        private short[] _indices;
+        public short[] Indices
+        {
+            get { return _indices; }
+            internal set { _indices = value; }
+        }
 
-        public TVertex[] Vertices { get; protected set; }
+        private TVertex[] _vertices;
+        public TVertex[] Vertices 
+        {
+            get { return _vertices; }
+            internal set { _vertices = value; }
+        }
 
         #endregion
 
@@ -50,5 +73,16 @@ namespace Graffiti.Core.Geometry
         public Matrix Transform { get; set; }
 
         #endregion
+
+        internal void ResizeVerticesAndIndices(int newVertexCount, int newIndexCount)
+        {
+            if (_vertices != null)
+                Array.Resize(ref _vertices, newVertexCount);
+            _vertices = new TVertex[newVertexCount];
+            
+            if (_indices != null)
+                Array.Resize(ref _vertices, newIndexCount);
+            _vertices = new TVertex[newIndexCount];
+        }
     }
 }

@@ -8,8 +8,8 @@
     <ProjectGuid>{F681FACB-BD4C-4B34-BE2D-E58A40564977}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Graffiti.Windows.OpenGL.Core</RootNamespace>
-    <AssemblyName>Graffiti.Windows.OpenGL.Core</AssemblyName>
+    <RootNamespace>Graffiti.Windows.MonoGame.Core</RootNamespace>
+    <AssemblyName>Graffiti.Windows.MonoGame.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

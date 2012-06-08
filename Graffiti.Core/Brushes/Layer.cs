@@ -23,19 +23,12 @@ namespace Graffiti.Core.Brushes
     public sealed class Layer: ILayer
     {
         public Texture2D Texture { get; set; }
-
         public int TexCoordChannel { get; set; }
-
         public Matrix Transform { get; set; }
-
         public Color Color { get; set; }
-
         public TextureAddressMode AddressU { get; set; }
-
         public TextureAddressMode AddressV { get; set; }
-
         public BlendState BlendState { get; set; }
-
         public ILayerTransforms LayerTransforms { get; set; }
 
         public Layer()
@@ -49,7 +42,6 @@ namespace Graffiti.Core.Brushes
         }
 
         private Matrix _currentTransform = Matrix.Identity;
-
         public Matrix CurrentLayerTransform { get { return _currentTransform; } }
 
         public void Update(float elapsedMilliseconds)

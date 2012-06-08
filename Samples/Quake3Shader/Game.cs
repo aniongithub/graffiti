@@ -40,7 +40,7 @@ namespace Graffiti.Samples.Quake3Shader
         protected override void Initialize()
         {
             GraphicsDevice.Viewport = new Viewport(0, 0, 800, 480);
-            
+
             base.Initialize();
 
             var halfWidth = GraphicsDevice.Viewport.Width / 2f;
@@ -70,16 +70,16 @@ namespace Graffiti.Samples.Quake3Shader
                                 t => Transforms.Translation<Axes.Y>(Functions.Linear(t, 0.001f))
                             }
                         },
-                    new Layer
-                        {
-                            BlendState = BlendState.Additive,
-                            Texture = Content.Load<Texture2D>("Content/envmap2"),
-                            LayerTransforms = new LayerTransforms
-                            {
-                                t => Transforms.ScaleAt<Axes.X>(0.5f, 0.5f, 0.5f),
-                                t => Transforms.ScaleAt<Axes.Y>(0.5f, 0.5f, 0.5f)
-                            }
-                        },
+                    //new Layer
+                    //    {
+                    //        BlendState = BlendState.Additive,
+                    //        Texture = Content.Load<Texture2D>("Content/envmap2"),
+                    //        LayerTransforms = new LayerTransforms
+                    //        {
+                    //            t => Transforms.ScaleAt<Axes.X>(0.5f, 0.5f, 0.5f),
+                    //            t => Transforms.ScaleAt<Axes.Y>(0.5f, 0.5f, 0.5f)
+                    //        }
+                    //    },
                     new Layer
                         {
                             BlendState = BlendState.NonPremultiplied,

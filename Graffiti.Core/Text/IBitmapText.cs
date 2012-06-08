@@ -15,17 +15,15 @@
 // terms of the License.
 #endregion
 
-using System.IO;
-using Microsoft.Xna.Framework.Content;
+using Graffiti.Core.Geometry;
+using Graffiti.Core.Rendering;
 
-namespace Microsoft.Xna.Framework
+namespace Graffiti.Core.Text
 {
-    public static partial class ContentExtensions
+    public interface IBitmapText<TVertex, TTexcoords> : IRenderable<TVertex, TTexcoords>
+        where TTexcoords : struct, ITexcoords
+        where TVertex : struct, IVertex<TTexcoords>
     {
-        internal static Stream OpenStream(this ContentManager content, string name)
-        {
-            // TODO: Normalize the filename - so the user doesn't have to pass in the extension?
-            return new FileStream(name, FileMode.Open);
-        }
+        string Text { get; }
     }
 }

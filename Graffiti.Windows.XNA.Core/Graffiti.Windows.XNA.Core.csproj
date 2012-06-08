@@ -52,6 +52,8 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\Graffiti.Core\Animation\Animatable.cs">
@@ -95,6 +97,9 @@
     </Compile>
     <Compile Include="..\Graffiti.Core\Extensions\ContentExtensions.cs">
       <Link>Extensions\ContentExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Extensions\ConversionExtensions.cs">
+      <Link>Extensions\ConversionExtensions.cs</Link>
     </Compile>
     <Compile Include="..\Graffiti.Core\Geometry\AnimatedIndexedMesh.cs">
       <Link>Geometry\AnimatedIndexedMesh.cs</Link>
@@ -140,6 +145,27 @@
     </Compile>
     <Compile Include="..\Graffiti.Core\Rendering\Vertex.cs">
       <Link>Rendering\Vertex.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\BitmapFont.cs">
+      <Link>Text\BitmapFont.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\BitmapText.cs">
+      <Link>Text\BitmapText.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\ContentExtensions.Text.cs">
+      <Link>Text\ContentExtensions.Text.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\IBitmapFont.cs">
+      <Link>Text\IBitmapFont.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\IBitmapText.cs">
+      <Link>Text\IBitmapText.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\ITextBrush.cs">
+      <Link>Text\ITextBrush.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\TextBrush.cs">
+      <Link>Text\TextBrush.cs</Link>
     </Compile>
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>

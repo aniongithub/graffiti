@@ -15,17 +15,21 @@
 // terms of the License.
 #endregion
 
-using System.IO;
-using Microsoft.Xna.Framework.Content;
+using System.Collections.Generic;
+using Graffiti.Core.Brushes;
 
-namespace Microsoft.Xna.Framework
+namespace Graffiti.Core.Text
 {
-    public static partial class ContentExtensions
+    internal sealed class TextBrush : Brush, ITextBrush
     {
-        internal static Stream OpenStream(this ContentManager content, string name)
+        protected override IEnumerable<ILayer> GetLayerEnumerable()
         {
-            // TODO: Normalize the filename - so the user doesn't have to pass in the extension?
-            return new FileStream(name, FileMode.Open);
+            foreach (var layer in _layers)
+                yield return layer;
+            foreach (var layer in SubBrush)
+                yield return layer;
         }
+        
+        public IBrush SubBrush { get; set; }
     }
 }

@@ -15,17 +15,12 @@
 // terms of the License.
 #endregion
 
-using System.IO;
-using Microsoft.Xna.Framework.Content;
+using Graffiti.Core.Brushes;
 
-namespace Microsoft.Xna.Framework
+namespace Graffiti.Core.Text
 {
-    public static partial class ContentExtensions
+    internal interface ITextBrush: IBrush
     {
-        internal static Stream OpenStream(this ContentManager content, string name)
-        {
-            // TODO: Normalize the filename - so the user doesn't have to pass in the extension?
-            return new FileStream(name, FileMode.Open);
-        }
+        IBrush SubBrush { get; set; }
     }
 }
