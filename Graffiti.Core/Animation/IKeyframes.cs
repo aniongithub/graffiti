@@ -33,20 +33,20 @@ namespace Graffiti.Core.Animation
 
     internal static class KeyframesExtensions
     {
-        private static float GetKeyframeTime<T>(IKeyframes<T> keyframes, float elapsedMilliseconds, Mode mode)
+        private static float GetKeyframeTime<T>(IKeyframes<T> keyframes, float timeInMilliSeconds, Mode mode)
             where T: IComparable<T>
         {
             switch (mode)
             {
                 case Mode.StopAtEnd:
-                    return elapsedMilliseconds;
+                    return timeInMilliSeconds;
 
                 case Mode.Loop:
-                    return elapsedMilliseconds % (keyframes.Max - keyframes.Min);
+                    return timeInMilliSeconds % (keyframes.Max - keyframes.Min);
 
                 case Mode.PingPong:
                     var interval = keyframes.Max - keyframes.Min;
-                    var loopTime = elapsedMilliseconds % interval;
+                    var loopTime = timeInMilliSeconds % interval;
                     return (((int) loopTime % 2) == 0) ? loopTime : interval - loopTime;
 
                 default:
@@ -94,7 +94,7 @@ namespace Graffiti.Core.Animation
             lowerBound = upperBound = last.Value;
         }
 
-        public static T GetValueAt<T, TInterpolator>(this IKeyframes<T> keyframes, TInterpolator interpolator, float elapsedMilliseconds, Mode mode)
+        public static T GetValueAt<T, TInterpolator>(this IKeyframes<T> keyframes, TInterpolator interpolator, float timeInMilliSeconds, Mode mode)
             where T: struct, IComparable<T>
             where TInterpolator: IInterpolator<T>, new()
         {
@@ -102,8 +102,8 @@ namespace Graffiti.Core.Animation
             float upperTime;
             T lowerBound;
             T upperBound;
-            var time = GetKeyframeTime(keyframes, elapsedMilliseconds, mode);
-            keyframes.GetKeyframesAt(elapsedMilliseconds, out lowerTime, out lowerBound, out upperTime, out upperBound);
+            var time = GetKeyframeTime(keyframes, timeInMilliSeconds, mode);
+            keyframes.GetKeyframesAt(timeInMilliSeconds, out lowerTime, out lowerBound, out upperTime, out upperBound);
 
             float lambda = 0.0f;
             {

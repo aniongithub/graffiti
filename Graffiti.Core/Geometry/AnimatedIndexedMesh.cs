@@ -26,16 +26,14 @@ using Microsoft.Xna.Framework;
 
 namespace Graffiti.Core.Geometry
 {
-    public class AnimatedIndexedMesh<TVertex, TTexcoords, TInterpolator> : IAnimatedIndexedMesh<TVertex, TTexcoords, TInterpolator>
-        where TVertex : struct, IVertex<TTexcoords>
-        where TTexcoords : struct, ITexcoords
-        where TInterpolator : IInterpolator<TVertex>, new()
+    public class AnimatedIndexedMesh<TInterpolator> : IAnimatedIndexedMesh<TInterpolator>
+        where TInterpolator : IInterpolator<IVertex>, new()
     {
-        private readonly List<IAnimatable<TVertex, TInterpolator>> _animatedVertices = new List<IAnimatable<TVertex, TInterpolator>>();
-        
-        #region IAnimatedIndexedMesh<TVertex,TTexcoords,TInterpolator> Members
+        private readonly List<IAnimatable<IVertex, TInterpolator>> _animatedVertices = new List<IAnimatable<IVertex, TInterpolator>>();
 
-        public IList<IAnimatable<TVertex, TInterpolator>> AnimatedVertices
+        #region IAnimatedIndexedMesh<TInterpolator> Members
+
+        public IList<IAnimatable<IVertex, TInterpolator>> AnimatedVertices
         {
             get
             {
@@ -45,12 +43,12 @@ namespace Graffiti.Core.Geometry
 
         #endregion
 
-        #region IIndexedMesh<TVertex,TTexcoords> Members
+        #region IIndexedMesh Members
 
         public short[] Indices { get; protected set; }
 
-        private TVertex[] _vertices;
-        public TVertex[] Vertices
+        private IVertex[] _vertices;
+        public IVertex[] Vertices
         {
             get 
             {
@@ -66,11 +64,11 @@ namespace Graffiti.Core.Geometry
 
         #endregion
 
-        #region IRenderable<TVertex,TTexcoords> Members
+        #region IRenderable Members
 
         public void Render(IRenderer renderer, Matrix parentTransform)
         {
-            var bucket = (renderer as IRenderer<TVertex, TTexcoords>)[Brush];
+            var bucket = renderer[Brush];
             bucket.Add(Transform * parentTransform, Vertices, Indices);
         }
 
@@ -86,10 +84,10 @@ namespace Graffiti.Core.Geometry
 
         #region IUpdateable Members
 
-        public void Update(float elapsedMilliseconds)
+        public void Update(float timeInMilliSeconds)
         {
             foreach (var animVertex in _animatedVertices)
-                animVertex.Update(elapsedMilliseconds);
+                animVertex.Update(timeInMilliSeconds);
         }
 
         #endregion

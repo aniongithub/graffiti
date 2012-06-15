@@ -44,10 +44,11 @@ namespace Graffiti.Core.Brushes
         private Matrix _currentTransform = Matrix.Identity;
         public Matrix CurrentLayerTransform { get { return _currentTransform; } }
 
-        public void Update(float elapsedMilliseconds)
+        public void Update(float timeInMilliSeconds)
         {
+            _currentTransform = Matrix.Identity;
             foreach (var transform in LayerTransforms)
-                _currentTransform *= transform(elapsedMilliseconds);
+                _currentTransform *= transform(timeInMilliSeconds);
         }
     }
 }

@@ -15,14 +15,9 @@
 // terms of the License.
 #endregion
 
-using Graffiti.Core.Geometry;
-using Graffiti.Core.Rendering;
-
 namespace Graffiti.Core.Text
 {
-    public interface IBitmapText<TVertex, TTexcoords> : IRenderable<TVertex, TTexcoords>
-        where TTexcoords : struct, ITexcoords
-        where TVertex : struct, IVertex<TTexcoords>
+    public interface IBitmapText : IRenderable
     {
         string Text { get; }
     }

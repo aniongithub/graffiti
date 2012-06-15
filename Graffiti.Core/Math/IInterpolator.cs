@@ -17,7 +17,7 @@
 
 namespace Graffiti.Math
 {
-    public interface IInterpolator<T> where T: struct
+    public interface IInterpolator<T>
     {
         T Lerp(T value1, T value2, float lambda);
     }

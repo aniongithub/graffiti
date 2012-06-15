@@ -35,7 +35,7 @@ namespace Graffiti.Samples.Quake3Shader
         }
 
         private IRenderer _renderer;
-        private Quad<Vertex<Texcoords_SingleChannel>, Texcoords_SingleChannel> _quad;
+        private Quad _quad;
 
         protected override void Initialize()
         {
@@ -50,7 +50,7 @@ namespace Graffiti.Samples.Quake3Shader
                 GraphicsDevice, Features.MultiPass | Features.PreTransformed | Features.SingleChannelTexCoords,
                 projection: Matrix.CreateOrthographicOffCenter(-halfWidth, halfWidth, halfHeight, -halfHeight, 0, 1));
 
-            _quad = new Quad<Vertex<Texcoords_SingleChannel>, Texcoords_SingleChannel>
+            _quad = new Quad
             {
                 Transform = Matrix.CreateScale(256f),
                 Brush = new Brush

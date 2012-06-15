@@ -41,12 +41,24 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Assets\BitmapFont\Spirals.jpg">
+      <Link>Spirals.jpg</Link>
+      <Name>Spirals</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <None Include="..\Assets\BitmapFont\Segoe_WP_64x64.fnt">
       <Link>Segoe_WP_64x64.fnt</Link>
       <Name>Segoe_WP_64x64</Name>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Compile Include="..\Assets\BitmapFont\Gradient.png">
+      <Link>Gradient.png</Link>
+      <Name>Gradient</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Content Include="..\Assets\BitmapFont\Segoe_WP_Light_64x64.fnt">
       <Link>Segoe_WP_Light_64x64.fnt</Link>
       <Name>Segoe_WP_Light_64x64</Name>

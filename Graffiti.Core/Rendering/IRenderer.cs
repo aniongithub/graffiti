@@ -26,6 +26,11 @@ namespace Graffiti.Core.Rendering
     public interface IRenderer: IEffectMatrices
     {
         void Flush();
+
+        IRenderBucket this[IBrush brush]
+        {
+            get;
+        }
     }
 
     [Flags]
@@ -50,11 +55,13 @@ namespace Graffiti.Core.Rendering
                 case Features.MultiPass | Features.PreTransformed | Features.SingleChannelTexCoords :
                     return new MultipassSimpleEffectRenderer_SingleChannel(device);
 
+                case Features.MultiPass | Features.PreTransformed | Features.DualChannelTexCoords:
+                    return new MultipassDualTextureEffectRenderer_DualChannel(device);
+
                 default:
                     throw new NotSupportedException();
             }
         }
-
         public static IRenderer Create(GraphicsDevice device, Features rendererFeatures, Matrix? projection = null, Matrix? world = null, Matrix? view = null)
         {
             var result = Create(device, rendererFeatures);
@@ -63,16 +70,6 @@ namespace Graffiti.Core.Rendering
             result.View = view ?? Matrix.Identity;
 
             return result;
-        }
-    }
-
-    internal interface IRenderer<TVertex, TTexcoords> : IRenderer
-        where TTexcoords: struct, ITexcoords
-        where TVertex: struct, IVertex<TTexcoords>
-    {
-        IRenderBucket<TVertex, TTexcoords> this[IBrush brush]
-        {
-            get;
         }
     }
 }

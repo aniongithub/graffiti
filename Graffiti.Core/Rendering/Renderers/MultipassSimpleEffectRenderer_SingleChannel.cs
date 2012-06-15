@@ -18,18 +18,17 @@
 using System.Collections.Generic;
 using Graffiti.Core.Brushes;
 using Graffiti.Core.Collections;
-using Graffiti.Core.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Graffiti.Core.Rendering.Renderers
 {
-    internal sealed class MultipassSimpleEffectRenderer_SingleChannel: IRenderer<Vertex<Texcoords_SingleChannel>, Texcoords_SingleChannel>
+    internal sealed class MultipassSimpleEffectRenderer_SingleChannel: IRenderer
     {
         private readonly GraphicsDevice _device;
         private readonly BasicEffect _effect;
-        private readonly Dictionary<IBrush, IRenderBucket<Vertex<Texcoords_SingleChannel>, Texcoords_SingleChannel>> _renderBuckets =
-            new Dictionary<IBrush, IRenderBucket<Vertex<Texcoords_SingleChannel>, Texcoords_SingleChannel>>();
+        private readonly Dictionary<IBrush, IRenderBucket> _renderBuckets =
+            new Dictionary<IBrush, IRenderBucket>();
         private readonly ArrayList<VertexPositionColorTexture> _bucketVertices = new ArrayList<VertexPositionColorTexture>();
 
         public MultipassSimpleEffectRenderer_SingleChannel(GraphicsDevice device)
@@ -61,8 +60,6 @@ namespace Graffiti.Core.Rendering.Renderers
                     var transform = layer.CurrentLayerTransform;
 
                     _effect.Texture = layer.Texture;
-                    _effect.DiffuseColor = new Vector3(layer.Color.R / 255f, layer.Color.G / 255f, layer.Color.B / 255f);
-                    _effect.Alpha = layer.Color.A / 255f;
 
                     _device.SamplerStates[0] = new SamplerState
                                                    {
@@ -100,15 +97,15 @@ namespace Graffiti.Core.Rendering.Renderers
             _renderBuckets.Clear();
         }
         
-        IRenderBucket<Vertex<Texcoords_SingleChannel>, Texcoords_SingleChannel> IRenderer<Vertex<Texcoords_SingleChannel>, Texcoords_SingleChannel>.this[IBrush brush]
+        IRenderBucket IRenderer.this[IBrush brush]
         {
             get
             {
-                IRenderBucket<Vertex<Texcoords_SingleChannel>, Texcoords_SingleChannel> bucket;
+                IRenderBucket bucket;
                 var exists = _renderBuckets.TryGetValue(brush, out bucket);
                 if (!exists)
                 {
-                    bucket = new PreTransformedRenderBucket<Vertex<Texcoords_SingleChannel>, Texcoords_SingleChannel>();
+                    bucket = new PreTransformedRenderBucket();
                     _renderBuckets.Add(brush, bucket);
                 }
 

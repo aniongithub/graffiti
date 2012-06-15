@@ -22,9 +22,7 @@ using Microsoft.Xna.Framework;
 
 namespace Graffiti.Core.Geometry
 {
-    public class IndexedMesh<TVertex, TTexcoords> : IIndexedMesh<TVertex, TTexcoords>
-        where TVertex : struct, IVertex<TTexcoords>
-        where TTexcoords : struct, ITexcoords
+    public class IndexedMesh : IIndexedMesh
     {
         internal IndexedMesh()
         {
@@ -34,11 +32,11 @@ namespace Graffiti.Core.Geometry
         internal IndexedMesh(int vertexCount, int indexCount)
             : this()
         {
-            _vertices = new TVertex[vertexCount];
+            _vertices = new IVertex[vertexCount];
             _indices = new short[indexCount];
         }
 
-        #region IIndexedMesh<TVertex,TTexcoords> Members
+        #region IIndexedMesh Members
 
         private short[] _indices;
         public short[] Indices
@@ -47,8 +45,8 @@ namespace Graffiti.Core.Geometry
             internal set { _indices = value; }
         }
 
-        private TVertex[] _vertices;
-        public TVertex[] Vertices 
+        private IVertex[] _vertices;
+        public IVertex[] Vertices 
         {
             get { return _vertices; }
             internal set { _vertices = value; }
@@ -60,7 +58,7 @@ namespace Graffiti.Core.Geometry
 
         public virtual void Render(IRenderer renderer, Matrix parentTransform)
         {
-            var bucket = (renderer as IRenderer<TVertex, TTexcoords>)[Brush];
+            var bucket = renderer[Brush];
             bucket.Add(Transform * parentTransform, Vertices, Indices);
         }
 
@@ -78,11 +76,11 @@ namespace Graffiti.Core.Geometry
         {
             if (_vertices != null)
                 Array.Resize(ref _vertices, newVertexCount);
-            _vertices = new TVertex[newVertexCount];
+            _vertices = new IVertex[newVertexCount];
             
             if (_indices != null)
                 Array.Resize(ref _vertices, newIndexCount);
-            _vertices = new TVertex[newIndexCount];
+            _vertices = new IVertex[newIndexCount];
         }
     }
 }

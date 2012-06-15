@@ -16,26 +16,23 @@
 #endregion
 
 using System.Collections.Generic;
-using System.Linq;
 using Graffiti.Core.Collections;
 using Microsoft.Xna.Framework;
 
 namespace Graffiti.Core.Rendering
 {
-    internal sealed class PreTransformedRenderBucket<TVertex, TTexcoords> : IRenderBucket<TVertex, TTexcoords>
-        where TTexcoords : struct, ITexcoords
-        where TVertex : struct, IVertex<TTexcoords>
+    internal sealed class PreTransformedRenderBucket : IRenderBucket
     {
-        private readonly IList<TVertex> _vertices = new List<TVertex>();
+        private readonly IList<IVertex> _vertices = new List<IVertex>();
         private readonly IList<short> _indices = new ArrayList<short>();
 
         #region IRenderBucket<TVertex, TTexcoords> Members
 
-        void IRenderBucket<TVertex, TTexcoords>.Add(Matrix transform, IEnumerable<TVertex> vertices, IEnumerable<short> indices)
+        void IRenderBucket.Add(Matrix transform, IEnumerable<IVertex> vertices, IEnumerable<short> indices)
         {
             var startVertex = _vertices.Count;
             foreach (var vertex in vertices)
-                _vertices.Add(transform == Matrix.Identity ? vertex : new TVertex
+                _vertices.Add(transform == Matrix.Identity ? vertex : new Vertex
                                                     {
                                                         Position = Vector3.Transform(vertex.Position, transform),
                                                         Color = vertex.Color,
@@ -44,13 +41,13 @@ namespace Graffiti.Core.Rendering
             foreach (var index in indices)
                 _indices.Add((short)(index + startVertex));
         }
-        void IRenderBucket<TVertex, TTexcoords>.Clear()
+        void IRenderBucket.Clear()
         {
             _vertices.Clear();
             _indices.Clear();
         }
 
-        public IList<TVertex> Vertices
+        public IList<IVertex> Vertices
         {
             get { return _vertices; }
         }

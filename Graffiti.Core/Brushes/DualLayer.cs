@@ -119,12 +119,12 @@ namespace Graffiti.Core.Brushes
 
         #region IUpdateable Members
 
-        public void Update(float elapsedMilliseconds)
+        public void Update(float timeInMilliSeconds)
         {
             if (Layer1 != null)
-                Layer1.Update(elapsedMilliseconds);
+                Layer1.Update(timeInMilliSeconds);
             if (Layer2 != null)
-                Layer2.Update(elapsedMilliseconds);
+                Layer2.Update(timeInMilliSeconds);
         }
 
         #endregion

@@ -21,37 +21,35 @@ using Microsoft.Xna.Framework;
 
 namespace Graffiti.Core.Primitives
 {
-    public sealed class Quad<TVertex, TTexcoords> : IndexedMesh<TVertex, TTexcoords>
-        where TVertex : struct, IVertex<TTexcoords>
-        where TTexcoords : struct, ITexcoords
+    public sealed class Quad : IndexedMesh
     {
         public Quad()
         {
-            Vertices = new[]
+            Vertices = new IVertex[]
             {
-                    new TVertex
+                    new Vertex
                         {
                             Position = new Vector3(-1f, -1f, 0f),
                             Color = Color.White,
-                            Texcoords = Texcoords.Create<TTexcoords>(new Vector2(0f, 0f))
+                            Texcoords = new Texcoords(new Vector2(0f, 0f))
                         },
-                    new TVertex
+                    new Vertex
                         {
                             Position = new Vector3(1f, -1f, 0f),
                             Color = Color.White,
-                            Texcoords = Texcoords.Create<TTexcoords>(new Vector2(1f, 0f))
+                            Texcoords = new Texcoords(new Vector2(1f, 0f))
                         },
-                    new TVertex
+                    new Vertex
                         {
                             Position = new Vector3(1f, 1f, 0f),
                             Color = Color.White,
-                            Texcoords = Texcoords.Create<TTexcoords>(new Vector2(1f, 1f))
+                            Texcoords = new Texcoords(new Vector2(1f, 1f))
                         },
-                    new TVertex
+                    new Vertex
                         {
                             Position = new Vector3(-1f, 1f, 0f),
                             Color = Color.White,
-                            Texcoords = Texcoords.Create<TTexcoords>(new Vector2(0f, 1f))
+                            Texcoords = new Texcoords(new Vector2(0f, 1f))
                         },
             };
             Indices = new short[] { 0, 1, 2, 0, 2, 3 };

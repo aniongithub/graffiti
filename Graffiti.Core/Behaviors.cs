@@ -31,9 +31,7 @@ namespace Graffiti.Core
         Matrix Transform { get; set; }
     }
 
-    public interface IRenderable<TVertex, TTexcoords> : IPoseable
-        where TTexcoords : struct, ITexcoords
-        where TVertex : struct, IVertex<TTexcoords>
+    public interface IRenderable : IPoseable
     {
         void Render(IRenderer renderer, Matrix parentTransform);
         IBrush Brush { get; set; }
@@ -41,9 +39,7 @@ namespace Graffiti.Core
 
     internal static class IRenderableExtensions
     {
-        public static void Render<TVertex, TTexcoords>(this IRenderable<TVertex, TTexcoords> renderable, IRenderer<TVertex, TTexcoords> renderer)
-            where TTexcoords : struct, ITexcoords
-            where TVertex : struct, IVertex<TTexcoords>
+        public static void Render(this IRenderable renderable, IRenderer renderer)
         {
             renderable.Render(renderer, Matrix.Identity);
         }
@@ -51,6 +47,6 @@ namespace Graffiti.Core
 
     public interface IUpdateable : IBehavior
     {
-        void Update(float elapsedMilliseconds);
+        void Update(float timeInMilliSeconds);
     }
 }

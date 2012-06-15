@@ -36,9 +36,9 @@ namespace Graffiti.Core.Animation
             }
         }
 
-        public void Update(float elapsedMilliseconds)
+        public void Update(float timeInMilliSeconds)
         {
-            _current = Keyframes.GetValueAt(_interpolator, elapsedMilliseconds, Mode);
+            _current = Keyframes.GetValueAt(_interpolator, timeInMilliSeconds, Mode);
         }
 
         public IKeyframes<T> Keyframes

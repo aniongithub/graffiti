@@ -58,17 +58,14 @@ namespace Microsoft.Xna.Framework
                                             page.Attribute("file").Value
                                             )).ToDictionary(),
 
-                               PageBrushes = (from page in pagesNode.Elements("page")
-                                               select new KeyValuePair<int, TextBrush>(
+                               PageLayers = (from page in pagesNode.Elements("page")
+                                               select new KeyValuePair<int, ILayer>(
                                                    int.Parse(page.Attribute("id").Value),
-                                                   new TextBrush
-                                                       {
-                                                           new Layer
-                                                               {
-                                                                   Texture = content.Load<Texture2D>(Path.Combine(currentContentPath, Path.GetFileNameWithoutExtension(page.Attribute("file").Value))),
-                                                                   BlendState = BlendState.AlphaBlend
-                                                               }
-                                                       }
+                                                        new Layer
+                                                            {
+                                                                Texture = content.Load<Texture2D>(Path.Combine(currentContentPath, Path.GetFileNameWithoutExtension(page.Attribute("file").Value))),
+                                                                BlendState = BlendState.AlphaBlend
+                                                            }
                                                    )).ToDictionary(),
 
                                Chars = (from ch in charsNode.Elements("char")

@@ -16,6 +16,7 @@
 #endregion
 
 using System.Collections.Generic;
+using Graffiti.Core.Brushes;
 
 namespace Graffiti.Core.Text
 {
@@ -31,7 +32,7 @@ namespace Graffiti.Core.Text
         public int ScaleH { get; set; }
         public IDictionary<int, string> Pages { get; set; }
         public IDictionary<int, ICharInfo> Chars { get; set; }
-        public IDictionary<int, TextBrush> PageBrushes { get; set; }
+        public IDictionary<int, ILayer> PageLayers { get; set; }
     }
 
     internal struct CharInfo : ICharInfo

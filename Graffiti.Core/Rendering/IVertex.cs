@@ -25,24 +25,10 @@ namespace Graffiti.Core.Rendering
         int Length { get; }
     }
 
-    public static class Texcoords
-    {
-        public static TTexcoords Create<TTexcoords>(Vector2 coords)
-            where TTexcoords : struct, ITexcoords
-        {
-            var result = new TTexcoords();
-            for (int i = 0; i < result.Length; i++)
-                result[i] = coords;
-
-            return result;
-        }
-    }
-    
-    public interface IVertex<TTexcoords>
-        where TTexcoords: struct, ITexcoords
+    public interface IVertex
     {
         Vector3 Position { get; set; }
         Color Color { get; set; }
-        TTexcoords Texcoords { get; set; }
+        ITexcoords Texcoords { get; set; }
     }
 }

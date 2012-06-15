@@ -22,11 +22,9 @@ using Graffiti.Math;
 
 namespace Graffiti.Core.Geometry
 {
-    public interface IAnimatedIndexedMesh<TVertex, TTexcoords, TInterpolator>: IIndexedMesh<TVertex, TTexcoords>, IUpdateable
-        where TVertex : struct, IVertex<TTexcoords>
-        where TTexcoords : struct, ITexcoords
-        where TInterpolator : IInterpolator<TVertex>, new()
+    public interface IAnimatedIndexedMesh<TInterpolator>: IIndexedMesh, IUpdateable
+        where TInterpolator : IInterpolator<IVertex>, new()
     {
-        IList<IAnimatable<TVertex, TInterpolator>> AnimatedVertices { get; }
+        IList<IAnimatable<IVertex, TInterpolator>> AnimatedVertices { get; }
     }
 }

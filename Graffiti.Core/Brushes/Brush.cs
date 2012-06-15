@@ -29,10 +29,10 @@ namespace Graffiti.Core.Brushes
             return _layers;
         }
 
-        public void Update(float elapsedMilliseconds)
+        public void Update(float timeInMilliSeconds)
         {
             foreach (var layer in this)
-                layer.Update(elapsedMilliseconds);
+                layer.Update(timeInMilliSeconds);
         }
 
         public int IndexOf(ILayer item)

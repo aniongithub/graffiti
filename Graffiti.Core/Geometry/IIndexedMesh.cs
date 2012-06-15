@@ -19,11 +19,9 @@ using Graffiti.Core.Rendering;
 
 namespace Graffiti.Core.Geometry
 {
-    public interface IIndexedMesh<TVertex, TTexcoords>: IRenderable<TVertex, TTexcoords>
-        where TVertex: struct, IVertex<TTexcoords>
-        where TTexcoords: struct, ITexcoords
+    public interface IIndexedMesh: IRenderable
     {
         short[] Indices { get; }
-        TVertex[] Vertices { get; }
+        IVertex[] Vertices { get; }
     }
 }

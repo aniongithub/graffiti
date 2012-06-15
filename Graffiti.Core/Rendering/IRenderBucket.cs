@@ -20,14 +20,12 @@ using Microsoft.Xna.Framework;
 
 namespace Graffiti.Core.Rendering
 {
-    internal interface IRenderBucket<TVertex, TTexcoords>
-        where TTexcoords: struct, ITexcoords
-        where TVertex : struct, IVertex<TTexcoords>
+    public interface IRenderBucket
     {
-        void Add(Matrix transform, IEnumerable<TVertex> vertices, IEnumerable<short> indices);
+        void Add(Matrix transform, IEnumerable<IVertex> vertices, IEnumerable<short> indices);
         void Clear();
 
-        IList<TVertex> Vertices { get; }
+        IList<IVertex> Vertices { get; }
         IList<short> Indices { get; }
     }
 }

@@ -15,76 +15,40 @@
 // terms of the License.
 #endregion
 
-using System;
 using System.Runtime.InteropServices;
 using Microsoft.Xna.Framework;
 
 namespace Graffiti.Core.Rendering
 {
     [StructLayout(LayoutKind.Sequential)]
-    public struct Texcoords_SingleChannel : ITexcoords
+    public struct Texcoords : ITexcoords
     {
-        private Vector2 _texcoords;
+        private readonly Vector2[] _texcoords;
+
+        public Texcoords(params Vector2[] texcoords)
+        {
+            _texcoords = texcoords;
+        }
+
+        public Texcoords(int numTexCoords = 1)
+        {
+            _texcoords = new Vector2[numTexCoords];
+        }
 
         public Vector2 this[int index]
         {
-            get { return _texcoords; }
-            set { _texcoords = value; }
+            get { return _texcoords[index]; }
+            set { _texcoords[index] = value; }
         }
 
         public int Length
         {
-            get { return 1; }
+            get { return _texcoords.Length; }
         }
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public struct Texcoords_DualChannel : ITexcoords
-    {
-        private Vector2 _texcoords0;
-        private Vector2 _texcoords1;
-
-        public Vector2 this[int index]
-        {
-            get 
-            {
-                switch (index)
-                {
-                    case 0:
-                        return _texcoords0;
-                    case 1:
-                        return _texcoords1;
-                    default:
-                        throw new IndexOutOfRangeException();
-                }
-            }
-            set 
-            {
-                switch (index)
-                {
-                    case 0:
-                        _texcoords0 = value;
-                        break;
-
-                    case 1:
-                        _texcoords1 = value;
-                        break;
-
-                    default:
-                        throw new IndexOutOfRangeException();
-                }
-            }
-        }
-
-        public int Length
-        {
-            get { return 1; }
-        }
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public struct Vertex<TTexcoords> : IVertex<TTexcoords>
-        where TTexcoords: struct, ITexcoords
+    public struct Vertex : IVertex
     {
         #region IVertex Members
 
@@ -92,7 +56,7 @@ namespace Graffiti.Core.Rendering
 
         public Color Color { get; set; }
 
-        public TTexcoords Texcoords { get; set; }
+        public ITexcoords Texcoords { get; set; }
 
         #endregion
     }

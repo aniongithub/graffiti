@@ -20,7 +20,6 @@ using Graffiti.Math;
 namespace Graffiti.Core.Animation
 {
     public interface IAnimatable<T, TInterpolator> : IUpdateable
-        where T: struct
         where TInterpolator: IInterpolator<T>, new()
     {
         T Current { get; }

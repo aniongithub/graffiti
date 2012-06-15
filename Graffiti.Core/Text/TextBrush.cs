@@ -22,14 +22,23 @@ namespace Graffiti.Core.Text
 {
     internal sealed class TextBrush : Brush, ITextBrush
     {
+        private readonly IDualLayer _dualLayer = new DualLayer();
         protected override IEnumerable<ILayer> GetLayerEnumerable()
         {
-            foreach (var layer in _layers)
-                yield return layer;
             foreach (var layer in SubBrush)
-                yield return layer;
+            {
+                layer.TexCoordChannel = 0;
+                TextLayer.TexCoordChannel = 1;
+
+                _dualLayer.Layer1 = layer;
+                _dualLayer.Layer2 = TextLayer;
+                
+                yield return _dualLayer;
+            }
         }
-        
+
+        internal ILayer TextLayer { get; set; }
+
         public IBrush SubBrush { get; set; }
     }
 }
