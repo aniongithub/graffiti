@@ -30,42 +30,14 @@
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Assets\BitmapFont\Segoe_WP_64x64_0.png">
-      <Link>Segoe_WP_64x64_0.png</Link>
-      <Name>Segoe_WP_64x64_0</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <ProcessorParameters_PremultiplyAlpha>False</ProcessorParameters_PremultiplyAlpha>
-      <ProcessorParameters_ColorKeyEnabled>False</ProcessorParameters_ColorKeyEnabled>
-      <ProcessorParameters_TextureFormat>NoChange</ProcessorParameters_TextureFormat>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\Assets\BitmapFont\Broadway_32x32.fnt">
-      <Link>Broadway_32x32.fnt</Link>
-      <Name>Broadway_32x32</Name>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Assets\BitmapFont\Broadway_64x64.fnt">
       <Link>Broadway_64x64.fnt</Link>
       <Name>Broadway_64x64</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="..\Assets\BitmapFont\Segoe_WP_64x64.fnt">
-      <Link>Segoe_WP_64x64.fnt</Link>
-      <Name>Segoe_WP_64x64</Name>
-      <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <Compile Include="..\Assets\BitmapFont\Gradient.png">
       <Link>Gradient.png</Link>
       <Name>Gradient</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="..\Assets\BitmapFont\Broadway_32x32_0.png">
-      <Link>Broadway_32x32_0.png</Link>
-      <Name>Broadway_32x32_0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -80,30 +52,6 @@
       <Name>Broadway_64x64_1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Content Include="..\Assets\BitmapFont\Segoe_WP_Light_64x64.fnt">
-      <Link>Segoe_WP_Light_64x64.fnt</Link>
-      <Name>Segoe_WP_Light_64x64</Name>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="..\Assets\BitmapFont\Solid.png">
-      <Link>Solid.png</Link>
-      <Name>Solid</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="..\Assets\BitmapFont\Segoe_WP_Light_64x64_0.png">
-      <Link>Segoe_WP_Light_64x64_0.png</Link>
-      <Name>Segoe_WP_Light_64x64_0</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <ProcessorParameters_ColorKeyEnabled>False</ProcessorParameters_ColorKeyEnabled>
-      <ProcessorParameters_PremultiplyAlpha>False</ProcessorParameters_PremultiplyAlpha>
-      <ProcessorParameters_TextureFormat>NoChange</ProcessorParameters_TextureFormat>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

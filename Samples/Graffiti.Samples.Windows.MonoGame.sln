@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Windows.MonoGame.C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Quake3Shader", "Quake3Shader", "{6AE33C6E-EEC0-4451-9E9C-1E1C3BA50F52}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BitmapFont", "BitmapFont", "{6983AD7E-50AC-497C-894B-48140038E912}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.MonoGame.Windows.BitmapFont", "Graffiti.Samples.MonoGame.Windows.BitmapFont\Graffiti.Samples.MonoGame.Windows.BitmapFont.csproj", "{F59C0B18-1861-40F6-9EC8-F3A3F65A3C36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +39,9 @@ Global
 		{F681FACB-BD4C-4B34-BE2D-E58A40564977}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F681FACB-BD4C-4B34-BE2D-E58A40564977}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F681FACB-BD4C-4B34-BE2D-E58A40564977}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F59C0B18-1861-40F6-9EC8-F3A3F65A3C36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F59C0B18-1861-40F6-9EC8-F3A3F65A3C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F59C0B18-1861-40F6-9EC8-F3A3F65A3C36}.Release|Any CPU.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +50,7 @@ Global
 		{7DE47032-A904-4C29-BD22-2D235E8D91BA} = {381D74F1-9E92-4DC0-AC2E-34B3872E34E8}
 		{AE483C29-042E-4226-BA52-D247CE7676DA} = {381D74F1-9E92-4DC0-AC2E-34B3872E34E8}
 		{307D6535-8D52-45DE-AB0B-8C5DC742C09C} = {6AE33C6E-EEC0-4451-9E9C-1E1C3BA50F52}
+		{F59C0B18-1861-40F6-9EC8-F3A3F65A3C36} = {6983AD7E-50AC-497C-894B-48140038E912}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = MonoGame.Framework\MonoGame.Framework.Windows.csproj

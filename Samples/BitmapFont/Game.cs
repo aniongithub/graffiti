@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace Graffiti.Samples.Windows.XNA.BitmapFont
+namespace Graffiti.Samples.BitmapFont
 {
     public class Game : Microsoft.Xna.Framework.Game
     {

@@ -34,6 +34,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\Graffiti.Core\Animation\Animatable.cs">
@@ -57,8 +59,14 @@
     <Compile Include="..\Graffiti.Core\Brushes\Brush.cs">
       <Link>Brushes\Brush.cs</Link>
     </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\DualLayer.cs">
+      <Link>Brushes\DualLayer.cs</Link>
+    </Compile>
     <Compile Include="..\Graffiti.Core\Brushes\IBrush.cs">
       <Link>Brushes\IBrush.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\IDualLayer.cs">
+      <Link>Brushes\IDualLayer.cs</Link>
     </Compile>
     <Compile Include="..\Graffiti.Core\Brushes\ILayer.cs">
       <Link>Brushes\ILayer.cs</Link>
@@ -74,6 +82,12 @@
     </Compile>
     <Compile Include="..\Graffiti.Core\Collections\ArrayList.cs">
       <Link>Collections\ArrayList.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Extensions\ContentExtensions.cs">
+      <Link>Extensions\ContentExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Extensions\ConversionExtensions.cs">
+      <Link>Extensions\ConversionExtensions.cs</Link>
     </Compile>
     <Compile Include="..\Graffiti.Core\Geometry\AnimatedIndexedMesh.cs">
       <Link>Geometry\AnimatedIndexedMesh.cs</Link>
@@ -114,11 +128,35 @@
     <Compile Include="..\Graffiti.Core\Rendering\PreTransformedRenderBucket.cs">
       <Link>Rendering\PreTransformedRenderBucket.cs</Link>
     </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\Renderers\MultipassDualTextureEffectRenderer_DualChannel.cs">
+      <Link>Rendering\Renderers\MultipassDualTextureEffectRenderer_DualChannel.cs</Link>
+    </Compile>
     <Compile Include="..\Graffiti.Core\Rendering\Renderers\MultipassSimpleEffectRenderer_SingleChannel.cs">
       <Link>Rendering\Renderers\MultipassSimpleEffectRenderer_SingleChannel.cs</Link>
     </Compile>
     <Compile Include="..\Graffiti.Core\Rendering\Vertex.cs">
       <Link>Rendering\Vertex.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\BitmapFont.cs">
+      <Link>Text\BitmapFont.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\BitmapText.cs">
+      <Link>Text\BitmapText.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\ContentExtensions.Text.cs">
+      <Link>Text\ContentExtensions.Text.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\IBitmapFont.cs">
+      <Link>Text\IBitmapFont.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\IBitmapText.cs">
+      <Link>Text\IBitmapText.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\ITextBrush.cs">
+      <Link>Text\ITextBrush.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\TextBrush.cs">
+      <Link>Text\TextBrush.cs</Link>
     </Compile>
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
