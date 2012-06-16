@@ -1,7 +1,3 @@
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Xml.Linq;
 using Graffiti.Core;
 using Graffiti.Core.Brushes;
 using Graffiti.Core.Rendering;
@@ -35,28 +31,27 @@ namespace Graffiti.Samples.Windows.XNA.BitmapFont
                 projection: Matrix.CreateOrthographicOffCenter(-halfWidth, halfWidth, halfHeight, -halfHeight, 0, 1));
         }
 
-        private IBitmapFont _segoeWP;
+        private IBitmapFont _font;
         private IRenderable _text; 
 
         protected override void LoadContent()
         {
-            _segoeWP = Content.LoadBitmapFont("Content/Segoe_WP_Light_64x64.fnt");
-            _text = _segoeWP.Build("Hello, Graffiti!",
+            _font = Content.LoadBitmapFont("Content/Broadway_64x64.fnt");
+            _text = _font.Build("Hello, Graffiti!",
                 new Brush
                     {
                         new Layer
                             {
-                                Texture = Content.Load<Texture2D>("Content/Spirals"),
+                                Texture = Content.Load<Texture2D>("Content/Gradient"),
                                 Color = Color.White,
                                 BlendState = BlendState.AlphaBlend,
                                 LayerTransforms = new LayerTransforms
                                 {
-                                    t => Transforms.RotationAround<Axes.Z>(Functions.Linear(t, 0.1f), 0.5f, 0.5f),
-                                    // t => Transforms.Translation<Axes.X>(Functions.Linear(t, 0.0001f))
+                                    t => Transforms.Translation<Axes.X>(Functions.Linear(t, 0.001f))
                                 }
                             }
                     });
-            _text.Transform = Matrix.CreateScale(2f) * Matrix.CreateTranslation(-400, -240, 0f);
+            _text.Transform = Matrix.CreateTranslation(-400, -240, 0f);
         }
 
         protected override void UnloadContent()
@@ -72,8 +67,6 @@ namespace Graffiti.Samples.Windows.XNA.BitmapFont
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
-            // Debug.WriteLine("timeInMilliSeconds: {0}", gameTime.TotalGameTime.Milliseconds);
             _time += gameTime.ElapsedGameTime.Milliseconds;
             _text.Brush.Update(_time);
 
@@ -82,7 +75,7 @@ namespace Graffiti.Samples.Windows.XNA.BitmapFont
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Blue);
+            GraphicsDevice.Clear(Color.Black);
 
             _text.Render(_renderer, Matrix.Identity);
             

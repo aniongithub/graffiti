@@ -53,9 +53,8 @@ namespace Graffiti.Core.Text
 
             _textQuads = new IIndexedMesh[pageCount];
 
-            var charactersByPage = (from page in Enumerable.Range(0, pageCount)
-                                   from ch in text
-                                   select new KeyValuePair<int, char>(page, ch)).ToMultiValueDictionary();
+            var charactersByPage = (from ch in text
+                                   select new KeyValuePair<int, char>(bitmapFont.Chars[ch].Page, ch)).ToMultiValueDictionary();
 
             var w = (float)bitmapFont.ScaleW;
             var h = (float)bitmapFont.ScaleH;
