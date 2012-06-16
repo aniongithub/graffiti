@@ -1,4 +1,4 @@
-using System;
+using Graffiti.Samples.BitmapFont;
 
 namespace Graffiti.Samples.Windows.XNA.BitmapFont
 {
