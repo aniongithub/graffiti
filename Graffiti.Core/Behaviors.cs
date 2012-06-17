@@ -15,7 +15,9 @@
 // terms of the License.
 #endregion
 
+using Graffiti.Core.Animation;
 using Graffiti.Core.Brushes;
+using Graffiti.Core.Math;
 using Graffiti.Core.Rendering;
 using Microsoft.Xna.Framework;
 
@@ -28,7 +30,7 @@ namespace Graffiti.Core
 
     public interface IPoseable : IBehavior
     {
-        Matrix Transform { get; set; }
+        IAnimatable<Matrix> Transform { get; set; }
     }
 
     public interface IRenderable : IPoseable

@@ -1,5 +1,7 @@
 using Graffiti.Core;
+using Graffiti.Core.Animation;
 using Graffiti.Core.Brushes;
+using Graffiti.Core.Math;
 using Graffiti.Core.Rendering;
 using Graffiti.Core.Text;
 using Graffiti.Math;
@@ -45,13 +47,42 @@ namespace Graffiti.Samples.BitmapFont
                                 Texture = Content.Load<Texture2D>("Content/Gradient"),
                                 Color = Color.White,
                                 BlendState = BlendState.AlphaBlend,
-                                LayerTransforms = new LayerTransforms
-                                {
-                                    t => Transforms.Translation<Axes.X>(Functions.Linear(t, 0.001f))
-                                }
+                                Transform = new TranslateTransform
+                                                {
+                                                    Mode = Mode.Loop,
+                                                    Keyframes = new Keyframes<Vector3>
+                                                                    {
+                                                                        { 0f, Vector3.Zero },
+                                                                        { 1000f, Vector3.One }
+                                                                    }
+                                                }
                             }
                     });
-            _text.Transform = Matrix.CreateTranslation(-400, -240, 0f);
+            _text.Transform = new TransformGroup
+                                  {
+                                      new RotateTransform
+                                          {
+                                              Keyframes = new Keyframes<Quaternion>
+                                                              {
+                                                                  { 0f, Quaternion.CreateFromYawPitchRoll(0, 0, 0) },
+                                                                  { 1000f, Quaternion.CreateFromYawPitchRoll(0, 0, 30) },
+                                                                  { 2000f, Quaternion.CreateFromYawPitchRoll(0, 0, 0) },
+                                                                  { 3000f, Quaternion.CreateFromYawPitchRoll(0, 0, -30) },
+                                                                  { 4000f, Quaternion.CreateFromYawPitchRoll(0, 0, 0) },
+                                                              },
+                                             Mode = Mode.Loop
+                                          },
+                                      
+                                      new TranslateTransform
+                                          {
+                                              Keyframes = new Keyframes<Vector3>
+                                                              {
+                                                                  { 0f, Vector3.Zero},
+                                                                  { 10000f, new Vector3(-400, -240, 0f) }
+                                                              },
+                                              Mode = Mode.Loop
+                                          }
+                                  };
         }
 
         protected override void UnloadContent()
@@ -69,6 +100,7 @@ namespace Graffiti.Samples.BitmapFont
 
             _time += gameTime.ElapsedGameTime.Milliseconds;
             _text.Brush.Update(_time);
+            _text.Transform.Update(_time);
 
             base.Update(gameTime);
         }

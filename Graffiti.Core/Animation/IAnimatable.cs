@@ -19,11 +19,15 @@ using Graffiti.Math;
 
 namespace Graffiti.Core.Animation
 {
-    public interface IAnimatable<T, TInterpolator> : IUpdateable
-        where TInterpolator: IInterpolator<T>, new()
+    public interface IAnimatable<T> : IUpdateable
     {
         T Current { get; }
         IKeyframes<T> Keyframes { get; set; }
         Mode Mode { get; set; }
+    }
+
+    public interface IAnimatable<T, TInterpolator> : IAnimatable<T>
+        where TInterpolator: IInterpolator<T>, new()
+    {
     }
 }

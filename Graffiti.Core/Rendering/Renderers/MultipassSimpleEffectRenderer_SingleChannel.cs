@@ -57,7 +57,7 @@ namespace Graffiti.Core.Rendering.Renderers
                 {
                     _bucketVertices.Clear();
 
-                    var transform = layer.CurrentLayerTransform;
+                    var transform = layer.Transform.Current;
 
                     _effect.Texture = layer.Texture;
 

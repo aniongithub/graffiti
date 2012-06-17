@@ -15,14 +15,13 @@
 // terms of the License.
 #endregion
 
-using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
-namespace Graffiti.Core.Brushes
+namespace Graffiti.Core.Math
 {
-    public interface ILayerTransforms: IEnumerable<Func<float, Matrix>>
+    public abstract class Transform
     {
-        ILayerTransforms Add(Func<float, Matrix> transform);
+        protected abstract Matrix GetMyValue();
+        protected internal abstract Matrix GetValue();
     }
 }

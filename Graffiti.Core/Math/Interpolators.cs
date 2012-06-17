@@ -16,30 +16,32 @@
 #endregion
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using Graffiti.Math;
 using Microsoft.Xna.Framework;
 
-namespace Graffiti.Core.Brushes
+namespace Graffiti.Core.Math
 {
-    public sealed class LayerTransforms : ILayerTransforms
+    public sealed class Vector3Interpolator : IInterpolator<Vector3>
     {
-        private readonly List<Func<float, Matrix>> _transforms = new List<Func<float, Matrix>>();
-
-        public ILayerTransforms Add(Func<float, Matrix> transform)
+        public Vector3 Lerp(Vector3 value1, Vector3 value2, float lambda)
         {
-            _transforms.Add(transform);
-            return this;
+            return (1 - lambda) * value1 + lambda * value2;
         }
+    }
 
-        public IEnumerator<Func<float, Matrix>> GetEnumerator()
+    public sealed class QuaternionInterpolator: IInterpolator<Quaternion>
+    {
+        public Quaternion Lerp(Quaternion value1, Quaternion value2, float lambda)
         {
-            return _transforms.GetEnumerator();
+            return Quaternion.Lerp(value1, value2, lambda);
         }
+    }
 
-        IEnumerator IEnumerable.GetEnumerator()
+    public sealed class MatrixInterpolator : IInterpolator<Matrix>
+    {
+        public Matrix Lerp(Matrix value1, Matrix value2, float lambda)
         {
-            return GetEnumerator();
+            throw new NotSupportedException();
         }
     }
 }

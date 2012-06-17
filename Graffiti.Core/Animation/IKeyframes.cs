@@ -34,7 +34,6 @@ namespace Graffiti.Core.Animation
     internal static class KeyframesExtensions
     {
         private static float GetKeyframeTime<T>(IKeyframes<T> keyframes, float timeInMilliSeconds, Mode mode)
-            where T: IComparable<T>
         {
             switch (mode)
             {
@@ -55,7 +54,6 @@ namespace Graffiti.Core.Animation
         }
 
         private static void GetKeyframesAt<T>(this IKeyframes<T> keyframes, float keyframeTime, out float lowerTime, out T lowerBound, out float upperTime, out T upperBound)
-            where T: IComparable<T>
         {
             int keyframeCount = keyframes.Count;
 
@@ -95,7 +93,7 @@ namespace Graffiti.Core.Animation
         }
 
         public static T GetValueAt<T, TInterpolator>(this IKeyframes<T> keyframes, TInterpolator interpolator, float timeInMilliSeconds, Mode mode)
-            where T: struct, IComparable<T>
+            where T: struct
             where TInterpolator: IInterpolator<T>, new()
         {
             float lowerTime;
@@ -103,7 +101,7 @@ namespace Graffiti.Core.Animation
             T lowerBound;
             T upperBound;
             var time = GetKeyframeTime(keyframes, timeInMilliSeconds, mode);
-            keyframes.GetKeyframesAt(timeInMilliSeconds, out lowerTime, out lowerBound, out upperTime, out upperBound);
+            keyframes.GetKeyframesAt(time, out lowerTime, out lowerBound, out upperTime, out upperBound);
 
             float lambda = 0.0f;
             {

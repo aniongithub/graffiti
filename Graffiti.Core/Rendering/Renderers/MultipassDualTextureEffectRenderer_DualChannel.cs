@@ -138,8 +138,8 @@ namespace Graffiti.Core.Rendering.Renderers
                             AddressV = layer2.AddressV
                         };
 
-                        var transform1 = dualLayer.Layer1.CurrentLayerTransform;
-                        var transform2 = dualLayer.Layer2.CurrentLayerTransform;
+                        var transform1 = dualLayer.Layer1.Transform.Current;
+                        var transform2 = dualLayer.Layer2.Transform.Current;
                         for (int i = 0; i < kvp.Value.Vertices.Count; i++)
                         {
                             var incomingVertex = bucket.Vertices[i];
@@ -171,7 +171,7 @@ namespace Graffiti.Core.Rendering.Renderers
                     {
                         _bucketVertices_single.Clear();
 
-                        var transform = layer.CurrentLayerTransform;
+                        var transform = layer.Transform.Current;
 
                         _basicEffect.Texture = layer.Texture;
 

@@ -15,7 +15,9 @@
 // terms of the License.
 #endregion
 
+using Graffiti.Core.Animation;
 using Graffiti.Core.Brushes;
+using Graffiti.Core.Math;
 using Graffiti.Core.Primitives;
 using Graffiti.Core.Rendering;
 using Graffiti.Math;
@@ -52,7 +54,7 @@ namespace Graffiti.Samples.Quake3Shader
 
             _quad = new Quad
             {
-                Transform = Matrix.CreateScale(256f),
+                Transform = (ConstantMatrix)Matrix.CreateScale(256f),
                 Brush = new Brush
                 {
                     new Layer
@@ -64,22 +66,19 @@ namespace Graffiti.Samples.Quake3Shader
                         {
                             BlendState = BlendState.Additive,
                             Texture = Content.Load<Texture2D>("Content/basewall01bitfx"),
-                            LayerTransforms = new LayerTransforms
-                            {
-                                t => Transforms.Translation<Axes.X>(Functions.Linear(t, 0.005f)),
-                                t => Transforms.Translation<Axes.Y>(Functions.Linear(t, 0.001f))
-                            }
+                            Transform = new TransformGroup
+                                            {
+                                                new TranslateTransform
+                                                    {
+                                                        Keyframes = new Keyframes<Vector3>
+                                                                        {
+                                                                            { 0f, Vector3.Zero },
+                                                                            { 1000f, new Vector3(6f, 1f, 0f) }
+                                                                        },
+                                                        Mode = Mode.Loop
+                                                    }
+                                            }
                         },
-                    //new Layer
-                    //    {
-                    //        BlendState = BlendState.Additive,
-                    //        Texture = Content.Load<Texture2D>("Content/envmap2"),
-                    //        LayerTransforms = new LayerTransforms
-                    //        {
-                    //            t => Transforms.ScaleAt<Axes.X>(0.5f, 0.5f, 0.5f),
-                    //            t => Transforms.ScaleAt<Axes.Y>(0.5f, 0.5f, 0.5f)
-                    //        }
-                    //    },
                     new Layer
                         {
                             BlendState = BlendState.NonPremultiplied,
@@ -98,12 +97,15 @@ namespace Graffiti.Samples.Quake3Shader
             Content.Unload();
         }
 
+        private float _time;
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 Exit();
 
-            _quad.Brush.Update((float)gameTime.ElapsedGameTime.TotalMilliseconds);
+            _time += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+
+            _quad.Brush.Update(_time);
 
             base.Update(gameTime);
         }

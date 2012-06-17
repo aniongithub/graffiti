@@ -18,9 +18,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Graffiti.Core.Animation;
 using Graffiti.Core.Brushes;
 using Graffiti.Core.Extensions;
 using Graffiti.Core.Geometry;
+using Graffiti.Core.Math;
 using Graffiti.Core.Rendering;
 using Microsoft.Xna.Framework;
 
@@ -40,6 +42,7 @@ namespace Graffiti.Core.Text
 
         public BitmapText(BitmapFont bitmapFont, IBrush brush, string text, TextureMappingMode textureMappingMode)
         {
+            Transform = (ConstantMatrix) Matrix.Identity;
             Rectangle fullRect = Rectangle.Empty;
 
             if (textureMappingMode == TextureMappingMode.FullRectangle)
@@ -149,11 +152,11 @@ namespace Graffiti.Core.Text
         public void Render(IRenderer renderer, Matrix parentTransform)
         {
             for (int i = 0; i < _textQuads.Length; i++)
-                _textQuads[i].Render(renderer, parentTransform * Transform);
+                _textQuads[i].Render(renderer, parentTransform * Transform.Current);
         }
 
         public IBrush Brush { get; set; }
-        public Matrix Transform { get; set; }
+        public IAnimatable<Matrix> Transform { get; set; }
 
         public string Text
         {

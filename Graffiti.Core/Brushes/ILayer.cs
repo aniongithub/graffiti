@@ -20,7 +20,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Graffiti.Core.Brushes
 {
-    public interface ILayer: IUpdateable
+    public interface ILayer: IUpdateable, IPoseable
     {
         Texture2D Texture { get; set; }
         int TexCoordChannel { get; set; }
@@ -30,9 +30,5 @@ namespace Graffiti.Core.Brushes
         TextureAddressMode AddressV { get; set; }
 
         BlendState BlendState { get; set; }
-
-        ILayerTransforms LayerTransforms { get; }
-
-        Matrix CurrentLayerTransform { get; }
     }
 }

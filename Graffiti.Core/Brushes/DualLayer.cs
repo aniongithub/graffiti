@@ -16,6 +16,7 @@
 #endregion
 
 using System;
+using Graffiti.Core.Animation;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -23,6 +24,11 @@ namespace Graffiti.Core.Brushes
 {
     internal sealed class DualLayer : IDualLayer
     {
+        internal DualLayer()
+        {
+            Transform = (ConstantMatrix) Matrix.Identity;
+        }
+
         #region IDualLayer Members
 
         public ILayer Layer1 { get; set; }
@@ -105,16 +111,6 @@ namespace Graffiti.Core.Brushes
             }
         }
 
-        public ILayerTransforms LayerTransforms
-        {
-            get { throw new NotSupportedException(); }
-        }
-
-        public Matrix CurrentLayerTransform
-        {
-            get { throw new NotSupportedException(); }
-        }
-
         #endregion
 
         #region IUpdateable Members
@@ -128,5 +124,7 @@ namespace Graffiti.Core.Brushes
         }
 
         #endregion
+
+        public IAnimatable<Matrix> Transform { get; set; }
     }
 }

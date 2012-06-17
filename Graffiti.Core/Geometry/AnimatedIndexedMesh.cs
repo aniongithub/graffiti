@@ -17,6 +17,7 @@
 
 using System;
 using Graffiti.Core.Brushes;
+using Graffiti.Core.Math;
 using Graffiti.Core.Rendering;
 using Graffiti.Math;
 using Graffiti.Core.Animation;
@@ -69,7 +70,7 @@ namespace Graffiti.Core.Geometry
         public void Render(IRenderer renderer, Matrix parentTransform)
         {
             var bucket = renderer[Brush];
-            bucket.Add(Transform * parentTransform, Vertices, Indices);
+            bucket.Add(Transform.Current * parentTransform, Vertices, Indices);
         }
 
         public IBrush Brush { get; set; }
@@ -78,7 +79,7 @@ namespace Graffiti.Core.Geometry
 
         #region IPoseable Members
 
-        public Matrix Transform { get; set; }
+        public IAnimatable<Matrix> Transform { get; set; }
 
         #endregion
 

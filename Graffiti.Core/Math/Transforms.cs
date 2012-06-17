@@ -64,7 +64,6 @@ namespace Graffiti.Math
                     throw new ArgumentException(string.Format("Unknown axis {0}", typeof(T).Name));
             }
         }
-
         public static Matrix Rotation<T>(float degrees) where T : Axes, new()
         {
             switch (new T().Axis)
@@ -101,7 +100,6 @@ namespace Graffiti.Math
 
             return Matrix.CreateScale(scale);
         }
-
         public static Matrix ScaleAt<T>(float amount, float x, float y) where T : Axes, new()
         {
             var scale = Vector3.One;

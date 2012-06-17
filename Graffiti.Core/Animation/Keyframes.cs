@@ -22,7 +22,6 @@ using System.Collections.Generic;
 namespace Graffiti.Core.Animation
 {
     public sealed class Keyframes<T> : IKeyframes<T>
-        where T : IComparable<T>
     {
         private float _min;
         private float _max;

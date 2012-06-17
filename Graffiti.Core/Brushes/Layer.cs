@@ -15,6 +15,7 @@
 // terms of the License.
 #endregion
 
+using Graffiti.Core.Animation;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -24,31 +25,24 @@ namespace Graffiti.Core.Brushes
     {
         public Texture2D Texture { get; set; }
         public int TexCoordChannel { get; set; }
-        public Matrix Transform { get; set; }
+        public IAnimatable<Matrix> Transform { get; set; }
         public Color Color { get; set; }
         public TextureAddressMode AddressU { get; set; }
         public TextureAddressMode AddressV { get; set; }
         public BlendState BlendState { get; set; }
-        public ILayerTransforms LayerTransforms { get; set; }
 
         public Layer()
         {
             Color = Color.White;
-            Transform = Matrix.Identity;
+            Transform = (ConstantMatrix)Matrix.Identity;
             AddressU = TextureAddressMode.Wrap;
             AddressV = TextureAddressMode.Wrap;
             BlendState = new BlendState();
-            LayerTransforms = new LayerTransforms();
         }
-
-        private Matrix _currentTransform = Matrix.Identity;
-        public Matrix CurrentLayerTransform { get { return _currentTransform; } }
 
         public void Update(float timeInMilliSeconds)
         {
-            _currentTransform = Matrix.Identity;
-            foreach (var transform in LayerTransforms)
-                _currentTransform *= transform(timeInMilliSeconds);
+            Transform.Update(timeInMilliSeconds);
         }
     }
 }
