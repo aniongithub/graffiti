@@ -34,19 +34,62 @@ namespace Graffiti.Core.Text
         FullRectangle
     }
 
+    public enum HAlignment
+    {
+        Left,
+        Middle,
+        Right
+    }
+
+    public enum VAlignment
+    {
+        Top,
+        Middle,
+        Bottom
+    }
+
     internal sealed class BitmapText: IBitmapText
     {
         private readonly BitmapFont _bitmapFont;
         private readonly IIndexedMesh[] _textQuads;
         private readonly string _text;
 
-        public BitmapText(BitmapFont bitmapFont, IBrush brush, string text, TextureMappingMode textureMappingMode)
+        public BitmapText(BitmapFont bitmapFont, IBrush brush, string text, TextureMappingMode textureMappingMode, HAlignment hAlignment = HAlignment.Middle, VAlignment vAlignment = VAlignment.Middle)
         {
             Transform = (ConstantMatrix) Matrix.Identity;
-            Rectangle fullRect = Rectangle.Empty;
+            Rectangle fullRect = bitmapFont.Measure(text);
 
-            if (textureMappingMode == TextureMappingMode.FullRectangle)
-                fullRect = bitmapFont.Measure(text);
+            Vector3 centerOffset = Vector3.Zero;
+            switch (hAlignment)
+            {
+                case HAlignment.Left:
+                    centerOffset.X = 0;
+                    break;
+
+                case HAlignment.Middle:
+                    centerOffset.X = fullRect.Width / 2f;
+                    break;
+
+                case HAlignment.Right:
+                    centerOffset.X = fullRect.Width;
+                    break;
+            }
+
+            switch (vAlignment)
+            {
+                case VAlignment.Top:
+                    centerOffset.Y = 0;
+                    break;
+
+                case VAlignment.Middle:
+                    centerOffset.Y = fullRect.Height / 2f;
+                    break;
+
+                case VAlignment.Bottom:
+                    centerOffset.Y = fullRect.Height;
+
+                    break;
+            }
 
             var pageCount = bitmapFont.PageLayers.Count;
 
@@ -110,28 +153,28 @@ namespace Graffiti.Core.Text
 
                 vertices[vertexCount++] = new Vertex
                 {
-                    Position = new Vector3(left, top, 0f),
+                    Position = new Vector3(left - centerOffset.X, top - centerOffset.Y, 0f),
                     Texcoords = topLeft,
                     Color = Color.White
                 };
 
                 vertices[vertexCount++] = new Vertex
                 {
-                    Position = new Vector3(left + ci.Width, top, 0f),
+                    Position = new Vector3(left + ci.Width - centerOffset.X, top - centerOffset.Y, 0f),
                     Texcoords = topRight,
                     Color = Color.White
                 };
 
                 vertices[vertexCount++] = new Vertex
                 {
-                    Position = new Vector3(left + ci.Width, top + ci.Height, 0f),
+                    Position = new Vector3(left + ci.Width - centerOffset.X, top + ci.Height - centerOffset.Y, 0f),
                     Texcoords = bottomRight,
                     Color = Color.White
                 };
 
                 vertices[vertexCount++] = new Vertex
                 {
-                    Position = new Vector3(left, top + ci.Height, 0f),
+                    Position = new Vector3(left - centerOffset.X, top + ci.Height - centerOffset.Y, 0f),
                     Texcoords = bottomLeft,
                     Color = Color.White
                 };
@@ -166,9 +209,9 @@ namespace Graffiti.Core.Text
 
     public static class BitmapTextExtensions
     {
-        public static IBitmapText Build(this IBitmapFont font, string text, IBrush brush, TextureMappingMode textureMappingMode = TextureMappingMode.FullRectangle)
+        public static IBitmapText Build(this IBitmapFont font, string text, IBrush brush, TextureMappingMode textureMappingMode = TextureMappingMode.FullRectangle, HAlignment hAlignment = HAlignment.Middle, VAlignment vAlignment = VAlignment.Middle)
         {
-            return new BitmapText(font as BitmapFont, brush, text, textureMappingMode);
+            return new BitmapText(font as BitmapFont, brush, text, textureMappingMode, hAlignment, vAlignment);
         }
         public static Rectangle Measure(this IBitmapFont font, string text)
         {

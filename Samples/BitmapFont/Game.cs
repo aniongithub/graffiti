@@ -65,20 +65,21 @@ namespace Graffiti.Samples.BitmapFont
                                               Keyframes = new Keyframes<Quaternion>
                                                               {
                                                                   { 0f, Quaternion.CreateFromYawPitchRoll(0, 0, 0) },
-                                                                  { 1000f, Quaternion.CreateFromYawPitchRoll(0, 0, 30) },
-                                                                  { 2000f, Quaternion.CreateFromYawPitchRoll(0, 0, 0) },
-                                                                  { 3000f, Quaternion.CreateFromYawPitchRoll(0, 0, -30) },
-                                                                  { 4000f, Quaternion.CreateFromYawPitchRoll(0, 0, 0) },
+                                                                  { 100f, Quaternion.CreateFromYawPitchRoll(0, 0, 0.1f) },
+                                                                  { 200f, Quaternion.CreateFromYawPitchRoll(0, 0, 0) },
+                                                                  { 300f, Quaternion.CreateFromYawPitchRoll(0, 0, -0.1f) },
+                                                                  { 400f, Quaternion.CreateFromYawPitchRoll(0, 0, 0) },
                                                               },
                                              Mode = Mode.Loop
                                           },
                                       
-                                      new TranslateTransform
+                                      new ScaleTransform
                                           {
                                               Keyframes = new Keyframes<Vector3>
                                                               {
-                                                                  { 0f, Vector3.Zero},
-                                                                  { 10000f, new Vector3(-400, -240, 0f) }
+                                                                  { 0f, Vector3.One },
+                                                                  { 250f, new Vector3(1.2f, 1.2f, 1f) },
+                                                                  { 500f, Vector3.One },
                                                               },
                                               Mode = Mode.Loop
                                           }
