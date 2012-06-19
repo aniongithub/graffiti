@@ -23,25 +23,53 @@ namespace Graffiti.Core.Math
 {
     public sealed class Vector3Interpolator : IInterpolator<Vector3>
     {
+        #region IInterpolator<Vector3> Members
+
         public Vector3 Lerp(Vector3 value1, Vector3 value2, float lambda)
         {
             return (1 - lambda) * value1 + lambda * value2;
         }
+
+        public Vector3 CubicBezier(Vector3 a, Vector3 b, Vector3 c, Vector3 d, float lambda)
+        {
+            // TODO: Continue here
+            throw new NotImplementedException();
+        }
+
+        #endregion
     }
 
     public sealed class QuaternionInterpolator: IInterpolator<Quaternion>
     {
+        #region IInterpolator<Quaternion> Members        
+
         public Quaternion Lerp(Quaternion value1, Quaternion value2, float lambda)
         {
             return Quaternion.Lerp(value1, value2, lambda);
         }
+
+        public Quaternion CubicBezier(Quaternion a, Quaternion b, Quaternion c, Quaternion d, float lambda)
+        {
+            throw new NotSupportedException();
+        }
+
+        #endregion
     }
 
     public sealed class MatrixInterpolator : IInterpolator<Matrix>
     {
+        #region IInterpolator<Matrix> Members
+
         public Matrix Lerp(Matrix value1, Matrix value2, float lambda)
         {
             throw new NotSupportedException();
         }
+
+        public Matrix CubicBezier(Matrix a, Matrix b, Matrix c, Matrix d, float lambda)
+        {
+            throw new NotSupportedException();
+        }
+
+        #endregion
     }
 }

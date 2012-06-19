@@ -107,14 +107,26 @@
     <Compile Include="..\Graffiti.Core\Geometry\AnimatedIndexedMesh.cs">
       <Link>Geometry\AnimatedIndexedMesh.cs</Link>
     </Compile>
+    <Compile Include="..\Graffiti.Core\Geometry\ContentExtensions.Curves.cs">
+      <Link>Geometry\ContentExtensions.Curves.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Geometry\Curve.cs">
+      <Link>Geometry\Curve.cs</Link>
+    </Compile>
     <Compile Include="..\Graffiti.Core\Geometry\IAnimatedIndexedMesh.cs">
       <Link>Geometry\IAnimatedIndexedMesh.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Geometry\ICurve.cs">
+      <Link>Geometry\ICurve.cs</Link>
     </Compile>
     <Compile Include="..\Graffiti.Core\Geometry\IIndexedMesh.cs">
       <Link>Geometry\IIndexedMesh.cs</Link>
     </Compile>
     <Compile Include="..\Graffiti.Core\Geometry\IndexedMesh.cs">
       <Link>Geometry\IndexedMesh.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Geometry\TexcoordGenerationMode.cs">
+      <Link>Geometry\TexcoordGenerationMode.cs</Link>
     </Compile>
     <Compile Include="..\Graffiti.Core\Math\Axes.cs">
       <Link>Math\Axes.cs</Link>

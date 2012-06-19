@@ -4,7 +4,6 @@ using Graffiti.Core.Brushes;
 using Graffiti.Core.Math;
 using Graffiti.Core.Rendering;
 using Graffiti.Core.Text;
-using Graffiti.Math;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;

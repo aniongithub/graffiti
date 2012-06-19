@@ -22,18 +22,11 @@ using Graffiti.Core.Animation;
 using Graffiti.Core.Brushes;
 using Graffiti.Core.Extensions;
 using Graffiti.Core.Geometry;
-using Graffiti.Core.Math;
 using Graffiti.Core.Rendering;
 using Microsoft.Xna.Framework;
 
 namespace Graffiti.Core.Text
 {
-    public enum TextureMappingMode
-    { 
-        PerCharacter,
-        FullRectangle
-    }
-
     public enum HAlignment
     {
         Left,
@@ -54,7 +47,7 @@ namespace Graffiti.Core.Text
         private readonly IIndexedMesh[] _textQuads;
         private readonly string _text;
 
-        public BitmapText(BitmapFont bitmapFont, IBrush brush, string text, TextureMappingMode textureMappingMode, HAlignment hAlignment = HAlignment.Middle, VAlignment vAlignment = VAlignment.Middle)
+        public BitmapText(BitmapFont bitmapFont, IBrush brush, string text, TexcoordGenerationMode uMappingMode, TexcoordGenerationMode vMappingMode, HAlignment hAlignment = HAlignment.Middle, VAlignment vAlignment = VAlignment.Middle)
         {
             Transform = (ConstantMatrix) Matrix.Identity;
             Rectangle fullRect = bitmapFont.Measure(text);
@@ -130,26 +123,66 @@ namespace Graffiti.Core.Text
 
                 var saveVertexCount = vertexCount;
 
-                var brushTopLeft = new Vector2(0f, 0f);
-                var brushTopRight = new Vector2(1f, 0f);
-                var brushBottomRight = new Vector2(1f, 1f);
-                var brushBottomLeft = new Vector2(0f, 1f);
+                Vector2 quadTopLeft;
+                Vector2 quadTopRight;
+                Vector2 quadBottomRight;
+                Vector2 quadBottomLeft;
 
                 var left = xPos + ci.XOffset;
                 var top = 0f + ci.YOffset;
 
-                if (textureMappingMode == TextureMappingMode.FullRectangle)
+                switch (uMappingMode)
                 {
-                    brushTopLeft = new Vector2(left / fullRect.Width, top / fullRect.Height);
-                    brushTopRight = new Vector2((left + ci.Width) / fullRect.Width, top / fullRect.Height);
-                    brushBottomRight = new Vector2((left + ci.Width) / fullRect.Width, (top + ci.Height) / fullRect.Height);
-                    brushBottomLeft = new Vector2(left / fullRect.Width, (top + ci.Height) / fullRect.Height);
+                    case TexcoordGenerationMode.PerQuad:
+                        quadTopLeft.X = 0f;
+                        quadTopRight.X = 1f;
+                        quadBottomRight.X = 1f;
+                        quadBottomLeft.X = 0f;
+
+                        break;
+
+                    // These two modes are the same in this case
+                    case TexcoordGenerationMode.FullBoundingBox:
+                    case TexcoordGenerationMode.Unwrapped_Linear:
+                        quadTopLeft.X = left / fullRect.Width;
+                        quadTopRight.X = (left + ci.Width) / fullRect.Width;
+                        quadBottomRight.X = (left + ci.Width) / fullRect.Width;
+                        quadBottomLeft.X = left / fullRect.Width;
+
+                        break;
+
+                    default:
+                        throw new NotSupportedException(string.Format("Unsupported texture mapping mode along X-Axis: {0}", uMappingMode));
                 }
 
-                var topLeft = new Texcoords(brushTopLeft, new Vector2(ci.X / w, ci.Y / h));
-                var topRight = new Texcoords(brushTopRight, new Vector2(((ci.X + ci.Width) / w), ci.Y / h));
-                var bottomRight = new Texcoords(brushBottomRight, new Vector2(((ci.X + ci.Width) / w), ((ci.Y + ci.Height) / h)));
-                var bottomLeft = new Texcoords(brushBottomLeft, new Vector2(ci.X / w, ((ci.Y + ci.Height) / h)));
+                switch (vMappingMode)
+                {
+                    case TexcoordGenerationMode.PerQuad:
+                        quadTopLeft.Y = 0f;
+                        quadTopRight.Y = 0f;
+                        quadBottomRight.Y = 1f;
+                        quadBottomLeft.Y = 1f;
+
+                        break;
+
+                    // These two modes are the same in this case
+                    case TexcoordGenerationMode.FullBoundingBox:
+                    case TexcoordGenerationMode.Unwrapped_Linear:
+                        quadTopLeft.Y = top / fullRect.Height;
+                        quadTopRight.Y = top / fullRect.Height;
+                        quadBottomRight.Y = (top + ci.Height) / fullRect.Height;
+                        quadBottomLeft.Y = (top + ci.Height) / fullRect.Height;
+
+                        break;
+
+                    default:
+                        throw new NotSupportedException(string.Format("Unsupported texture mapping mode along Y-Axis: {0}", vMappingMode));
+                }
+
+                var topLeft = new Texcoords(quadTopLeft, new Vector2(ci.X / w, ci.Y / h));
+                var topRight = new Texcoords(quadTopRight, new Vector2(((ci.X + ci.Width) / w), ci.Y / h));
+                var bottomRight = new Texcoords(quadBottomRight, new Vector2(((ci.X + ci.Width) / w), ((ci.Y + ci.Height) / h)));
+                var bottomLeft = new Texcoords(quadBottomLeft, new Vector2(ci.X / w, ((ci.Y + ci.Height) / h)));
 
                 vertices[vertexCount++] = new Vertex
                 {
@@ -209,33 +242,25 @@ namespace Graffiti.Core.Text
 
     public static class BitmapTextExtensions
     {
-        public static IBitmapText Build(this IBitmapFont font, string text, IBrush brush, TextureMappingMode textureMappingMode = TextureMappingMode.FullRectangle, HAlignment hAlignment = HAlignment.Middle, VAlignment vAlignment = VAlignment.Middle)
+        public static IBitmapText Build(this IBitmapFont font, string text, IBrush brush, TexcoordGenerationMode uMappingMode = TexcoordGenerationMode.FullBoundingBox, TexcoordGenerationMode vMappingMode = TexcoordGenerationMode.FullBoundingBox, HAlignment hAlignment = HAlignment.Middle, VAlignment vAlignment = VAlignment.Middle)
         {
-            return new BitmapText(font as BitmapFont, brush, text, textureMappingMode, hAlignment, vAlignment);
+            return new BitmapText(font as BitmapFont, brush, text, uMappingMode, vMappingMode, hAlignment, vAlignment);
         }
         public static Rectangle Measure(this IBitmapFont font, string text)
         {
             var bitmapFont = font as BitmapFont;
             
-            // var ci = bitmapFont.Chars[text.First()];
-
-            int left = 0;// ci.XOffset;
-            int top = 0;//ci.YOffset;
             int width = 0;
             int height = 0;
-
-            var xPos = 0;
 
             foreach (var ch in text)
             {
                 var ci = bitmapFont.Chars[ch];
                 width += ci.XAdvance;
                 height = System.Math.Max(height, ci.Height);
-
-                // width += ci.XAdvance;
             }
 
-            return new Rectangle(left, top, width, height);
+            return new Rectangle(0, 0, width, height);
         }
     }
 }

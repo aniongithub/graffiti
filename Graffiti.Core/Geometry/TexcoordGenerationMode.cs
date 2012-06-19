@@ -1,4 +1,4 @@
-﻿#region License and Copyright Notice
+#region License and Copyright Notice
 // Copyright (c) 2010 Ananth Balasubramaniam
 // All rights reserved.
 // 
@@ -15,11 +15,12 @@
 // terms of the License.
 #endregion
 
-namespace Graffiti.Math
+namespace Graffiti.Core.Geometry
 {
-    public interface IInterpolator<T>
+    public enum TexcoordGenerationMode
     {
-        T Lerp(T value1, T value2, float lambda);
-        T CubicBezier(T a, T b, T c, T d, float lambda);
+        PerQuad,
+        FullBoundingBox,
+        Unwrapped_Linear
     }
 }
