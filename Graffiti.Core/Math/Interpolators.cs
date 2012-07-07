@@ -30,12 +30,6 @@ namespace Graffiti.Core.Math
             return (1 - lambda) * value1 + lambda * value2;
         }
 
-        public Vector3 CubicBezier(Vector3 a, Vector3 b, Vector3 c, Vector3 d, float lambda)
-        {
-            // TODO: Continue here
-            throw new NotImplementedException();
-        }
-
         #endregion
     }
 
@@ -48,11 +42,6 @@ namespace Graffiti.Core.Math
             return Quaternion.Lerp(value1, value2, lambda);
         }
 
-        public Quaternion CubicBezier(Quaternion a, Quaternion b, Quaternion c, Quaternion d, float lambda)
-        {
-            throw new NotSupportedException();
-        }
-
         #endregion
     }
 
@@ -61,11 +50,6 @@ namespace Graffiti.Core.Math
         #region IInterpolator<Matrix> Members
 
         public Matrix Lerp(Matrix value1, Matrix value2, float lambda)
-        {
-            throw new NotSupportedException();
-        }
-
-        public Matrix CubicBezier(Matrix a, Matrix b, Matrix c, Matrix d, float lambda)
         {
             throw new NotSupportedException();
         }

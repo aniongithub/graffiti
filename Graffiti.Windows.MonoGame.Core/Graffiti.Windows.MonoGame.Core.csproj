@@ -98,14 +98,17 @@
     <Compile Include="..\Graffiti.Core\Geometry\IndexedMesh.cs">
       <Link>Geometry\IndexedMesh.cs</Link>
     </Compile>
+    <Compile Include="..\Graffiti.Core\Geometry\TexcoordGenerationMode.cs">
+      <Link>Geometry\TexcoordGenerationMode.cs</Link>
+    </Compile>
     <Compile Include="..\Graffiti.Core\Math\Axes.cs">
       <Link>Math\Axes.cs</Link>
     </Compile>
     <Compile Include="..\Graffiti.Core\Math\Functions.cs">
       <Link>Math\Functions.cs</Link>
     </Compile>
-    <Compile Include="..\Graffiti.Core\Math\IInterpolator.cs">
-      <Link>Math\IInterpolator.cs</Link>
+    <Compile Include="..\Graffiti.Core\Math\ILinearInterpolator.cs">
+      <Link>Math\ILinearInterpolator.cs</Link>
     </Compile>
     <Compile Include="..\Graffiti.Core\Math\Interpolators.cs">
       <Link>Math\Interpolators.cs</Link>

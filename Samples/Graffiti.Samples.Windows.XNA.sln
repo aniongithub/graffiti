@@ -15,12 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.Windows.XN
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.Windows.XNA.BitmapFont.Content", "Graffiti.Samples.Windows.XNA.BitmapFont.Content\Graffiti.Samples.Windows.XNA.BitmapFont.Content.contentproj", "{47D1AA76-0F6D-459B-A486-CA744FFD75B1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BezierCurves", "BezierCurves", "{42A2977E-9E6B-44DC-A433-1C91301F0769}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.Windows.XNA.BezierCurves", "Graffiti.Samples.Windows.XNA.BezierCurves\Graffiti.Samples.Windows.XNA.BezierCurves.csproj", "{B6D9CF33-D906-48BB-9D5C-8B51ED5D4CEE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.Windows.XNA.BezierCurves.Content", "Graffiti.Samples.Windows.XNA.BezierCurves.Content\Graffiti.Samples.Windows.XNA.BezierCurves.Content.contentproj", "{47109BB5-7E65-45B4-AB50-AA8B6729E73C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,16 +55,6 @@ Global
 		{47D1AA76-0F6D-459B-A486-CA744FFD75B1}.Debug|x86.ActiveCfg = Debug|x86
 		{47D1AA76-0F6D-459B-A486-CA744FFD75B1}.Release|Any CPU.ActiveCfg = Release|x86
 		{47D1AA76-0F6D-459B-A486-CA744FFD75B1}.Release|x86.ActiveCfg = Release|x86
-		{B6D9CF33-D906-48BB-9D5C-8B51ED5D4CEE}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{B6D9CF33-D906-48BB-9D5C-8B51ED5D4CEE}.Debug|x86.ActiveCfg = Debug|x86
-		{B6D9CF33-D906-48BB-9D5C-8B51ED5D4CEE}.Debug|x86.Build.0 = Debug|x86
-		{B6D9CF33-D906-48BB-9D5C-8B51ED5D4CEE}.Release|Any CPU.ActiveCfg = Release|x86
-		{B6D9CF33-D906-48BB-9D5C-8B51ED5D4CEE}.Release|x86.ActiveCfg = Release|x86
-		{B6D9CF33-D906-48BB-9D5C-8B51ED5D4CEE}.Release|x86.Build.0 = Release|x86
-		{47109BB5-7E65-45B4-AB50-AA8B6729E73C}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{47109BB5-7E65-45B4-AB50-AA8B6729E73C}.Debug|x86.ActiveCfg = Debug|x86
-		{47109BB5-7E65-45B4-AB50-AA8B6729E73C}.Release|Any CPU.ActiveCfg = Release|x86
-		{47109BB5-7E65-45B4-AB50-AA8B6729E73C}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,7 +64,5 @@ Global
 		{1971A444-AE01-4CBF-9FE3-C4A3F6CCBD3F} = {43A528D7-BE5B-4559-96D8-F581ECC51C57}
 		{BE943FDB-46CB-4DDF-A70D-9847BA2FE5ED} = {72095260-2F73-4C19-B40E-DB3F21EB3C7E}
 		{47D1AA76-0F6D-459B-A486-CA744FFD75B1} = {72095260-2F73-4C19-B40E-DB3F21EB3C7E}
-		{B6D9CF33-D906-48BB-9D5C-8B51ED5D4CEE} = {42A2977E-9E6B-44DC-A433-1C91301F0769}
-		{47109BB5-7E65-45B4-AB50-AA8B6729E73C} = {42A2977E-9E6B-44DC-A433-1C91301F0769}
 	EndGlobalSection
 EndGlobal

@@ -20,6 +20,5 @@ namespace Graffiti.Math
     public interface IInterpolator<T>
     {
         T Lerp(T value1, T value2, float lambda);
-        T CubicBezier(T a, T b, T c, T d, float lambda);
     }
 }

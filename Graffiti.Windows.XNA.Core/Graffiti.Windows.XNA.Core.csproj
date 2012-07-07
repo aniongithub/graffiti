@@ -107,17 +107,8 @@
     <Compile Include="..\Graffiti.Core\Geometry\AnimatedIndexedMesh.cs">
       <Link>Geometry\AnimatedIndexedMesh.cs</Link>
     </Compile>
-    <Compile Include="..\Graffiti.Core\Geometry\ContentExtensions.Curves.cs">
-      <Link>Geometry\ContentExtensions.Curves.cs</Link>
-    </Compile>
-    <Compile Include="..\Graffiti.Core\Geometry\Curve.cs">
-      <Link>Geometry\Curve.cs</Link>
-    </Compile>
     <Compile Include="..\Graffiti.Core\Geometry\IAnimatedIndexedMesh.cs">
       <Link>Geometry\IAnimatedIndexedMesh.cs</Link>
-    </Compile>
-    <Compile Include="..\Graffiti.Core\Geometry\ICurve.cs">
-      <Link>Geometry\ICurve.cs</Link>
     </Compile>
     <Compile Include="..\Graffiti.Core\Geometry\IIndexedMesh.cs">
       <Link>Geometry\IIndexedMesh.cs</Link>
@@ -134,8 +125,8 @@
     <Compile Include="..\Graffiti.Core\Math\Functions.cs">
       <Link>Math\Functions.cs</Link>
     </Compile>
-    <Compile Include="..\Graffiti.Core\Math\IInterpolator.cs">
-      <Link>Math\IInterpolator.cs</Link>
+    <Compile Include="..\Graffiti.Core\Math\ILinearInterpolator.cs">
+      <Link>Math\ILinearInterpolator.cs</Link>
     </Compile>
     <Compile Include="..\Graffiti.Core\Math\Interpolators.cs">
       <Link>Math\Interpolators.cs</Link>
