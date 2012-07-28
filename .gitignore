@@ -6,3 +6,4 @@ obj
 TestResults
 /Samples/Graffiti.Samples.Windows.XNA.Quake3Shader/.gitignore
 *.suo
+*.userprefs
