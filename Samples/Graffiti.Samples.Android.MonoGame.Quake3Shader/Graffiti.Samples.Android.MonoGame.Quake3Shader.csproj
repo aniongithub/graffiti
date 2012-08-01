@@ -52,15 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
-    <None Include="..\Assets\Quake3Shader\basewall01bit.xnb">
-      <Link>Content\basewall01bit.xnb</Link>
-    </None>
-    <None Include="..\Assets\Quake3Shader\basewall01bitfx.jpg">
-      <Link>Content\basewall01bitfx.jpg</Link>
-    </None>
-    <None Include="..\Assets\Quake3Shader\envmap2.jpg">
-      <Link>Content\envmap2.jpg</Link>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Icon.png" />
@@ -84,5 +75,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\Assets\Quake3Shader\basewall01bit.xnb">
+      <Link>Content\basewall01bit.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Quake3Shader\basewall01bitfx.jpg">
+      <Link>Content\basewall01bitfx.jpg</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Quake3Shader\envmap2.jpg">
+      <Link>Content\envmap2.jpg</Link>
+    </AndroidAsset>
   </ItemGroup>
 </Project>

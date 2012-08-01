@@ -29,7 +29,7 @@ namespace Graffiti.Samples.Android.MonoGame.Quake3Shader
 
 			// Create our OpenGL view, and display it
 			Game.Activity = this;
-			var g = new Game ();
+			var g = new Graffiti.Samples.Quake3Shader.Game();
 			SetContentView (g.Window);
 			g.Run ();
 		}
