@@ -39,7 +39,7 @@ namespace Graffiti.Core.Brushes
 
         #region ILayer Members
 
-        public Texture2D Texture
+        Texture2D ILayer.Texture
         {
             get
             {
@@ -51,7 +51,7 @@ namespace Graffiti.Core.Brushes
             }
         }
 
-        public int TexCoordChannel
+        int ILayer.TexCoordChannel
         {
             get
             {
@@ -63,7 +63,7 @@ namespace Graffiti.Core.Brushes
             }
         }
 
-        public Color Color
+        Color ILayer.Color
         {
             get
             {
@@ -75,7 +75,7 @@ namespace Graffiti.Core.Brushes
             }
         }
 
-        public TextureAddressMode AddressU
+        TextureAddressMode ILayer.AddressU
         {
             get
             {
@@ -87,7 +87,7 @@ namespace Graffiti.Core.Brushes
             }
         }
 
-        public TextureAddressMode AddressV
+        TextureAddressMode ILayer.AddressV
         {
             get
             {
@@ -99,7 +99,7 @@ namespace Graffiti.Core.Brushes
             }
         }
 
-        public BlendState BlendState
+        BlendState ILayer.BlendState
         {
             get
             {

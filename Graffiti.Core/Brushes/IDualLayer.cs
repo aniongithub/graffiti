@@ -17,7 +17,7 @@
 
 namespace Graffiti.Core.Brushes
 {
-    internal interface IDualLayer : ILayer
+    public interface IDualLayer : ILayer
     {
         ILayer Layer1 { get; set; }
         ILayer Layer2 { get; set; }
