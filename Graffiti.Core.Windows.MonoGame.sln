@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGame.Framework.Windows"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lidgren.Network.Windows", "MonoGame\ThirdParty\Lidgren.Network\Lidgren.Network.Windows.csproj", "{AE483C29-042E-4226-BA52-D247CE7676DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Windows.MonoGame.Core", "Graffiti.Windows.MonoGame.Core\Graffiti.Windows.MonoGame.Core.csproj", "{F681FACB-BD4C-4B34-BE2D-E58A40564977}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Core.Windows.MonoGame", "Graffiti.Core.Windows.MonoGame\Graffiti.Core.Windows.MonoGame.csproj", "{F681FACB-BD4C-4B34-BE2D-E58A40564977}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

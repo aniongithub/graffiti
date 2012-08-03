@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGame.Framework.Android"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lidgren.Network.Android", "MonoGame\ThirdParty\Lidgren.Network\Lidgren.Network.Android.csproj", "{565129E0-4EE5-4F6F-B403-C3484C9740BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Android.MonoGame.Core", "Graffiti.Android.MonoGame.Core\Graffiti.Android.MonoGame.Core.csproj", "{5B5A921D-E451-4AAC-8297-32286E8885B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Core.Android.MonoGame", "Graffiti.Core.Android.MonoGame\Graffiti.Core.Android.MonoGame.csproj", "{5B5A921D-E451-4AAC-8297-32286E8885B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

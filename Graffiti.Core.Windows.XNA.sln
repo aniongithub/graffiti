@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Windows.XNA.Core", "Graffiti.Windows.XNA.Core\Graffiti.Windows.XNA.Core.csproj", "{1C173E59-7EBE-401B-88B0-53B01FF828E5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Core.Windows.XNA", "Graffiti.Core.Windows.XNA\Graffiti.Core.Windows.XNA.csproj", "{1C173E59-7EBE-401B-88B0-53B01FF828E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -112,9 +112,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Graffiti.Windows.XNA.Core\Graffiti.Windows.XNA.Core.csproj">
+    <ProjectReference Include="..\..\Graffiti.Core.Windows.XNA\Graffiti.Core.Windows.XNA.csproj">
       <Project>{1C173E59-7EBE-401B-88B0-53B01FF828E5}</Project>
-      <Name>Graffiti.Windows.XNA.Core</Name>
+      <Name>Graffiti.Core.Windows.XNA</Name>
     </ProjectReference>
     <ProjectReference Include="..\Graffiti.Samples.Windows.XNA.Quake3Shader.Content\Graffiti.Samples.Windows.XNA.Quake3Shader.Content.contentproj">
       <Project>{CC717EBA-7B94-4165-8A10-7B3CCD82D6D8}</Project>

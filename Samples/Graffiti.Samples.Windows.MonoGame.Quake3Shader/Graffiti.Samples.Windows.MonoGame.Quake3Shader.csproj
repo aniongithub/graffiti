@@ -70,9 +70,9 @@
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Graffiti.Windows.MonoGame.Core\Graffiti.Windows.MonoGame.Core.csproj">
+    <ProjectReference Include="..\..\Graffiti.Core.Windows.MonoGame\Graffiti.Core.Windows.MonoGame.csproj">
       <Project>{F681FACB-BD4C-4B34-BE2D-E58A40564977}</Project>
-      <Name>Graffiti.Windows.MonoGame.Core</Name>
+      <Name>Graffiti.Core.Windows.MonoGame</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\MonoGame\MonoGame.Framework\MonoGame.Framework.Windows.csproj">
       <Project>{7DE47032-A904-4C29-BD22-2D235E8D91BA}</Project>
