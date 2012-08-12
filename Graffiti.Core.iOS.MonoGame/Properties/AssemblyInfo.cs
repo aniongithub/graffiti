@@ -18,7 +18,7 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Graffiti.Core.Android.MonoGame")]
+[assembly: AssemblyTitle("Graffiti.Core.iOS.MonoGame")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 
