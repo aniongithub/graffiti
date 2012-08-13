@@ -1,7 +1,7 @@
 graffiti
 ========
 
-Graffiti is a high-performance rendering engine built specifically for the Reach profile on top of XNA/Monogame with a very specific feature set
+Graffiti is a cross-platform high-performance rendering engine built specifically for the Reach profile on top of XNA/Monogame with a very specific feature set
 
 * Support for the Reach profile
 * CPU/GPU vertex transformation (using SkinnedEffect)
@@ -14,3 +14,10 @@ Graffiti is a high-performance rendering engine built specifically for the Reach
 * Designed to support third-party physics engines
 
 Graffiti will only ever include rendering tasks and is not meant to be a catch-all game engine. For example: A 2D skeletal animation framework (to be released soon) will sit on top of Graffiti, not be a part of it. Most features you can think of have been thoughtfully omitted because they don't fit into the narrow range of functionality that Graffiti is meant to support. It is entirely possible that I missed something - so if you can think of any omissions do let me know.
+
+At this time, Graffiti runs on the following platforms
+
+* Windows
+* Windows Phone 7.5
+* Android (via MonoDroid)
+* iOs (via MonoTouch)
