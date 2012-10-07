@@ -92,7 +92,7 @@ namespace Graffiti.Core.Text
 
             _textQuads = new IIndexedMesh[pageCount];
 
-            var charactersByPage = (from ch in text
+            var charactersByPage = (from char ch in text
                                    select new KeyValuePair<int, char>(bitmapFont.Chars[ch].Page, ch)).ToMultiValueDictionary();
 
             var w = (float)bitmapFont.ScaleW;

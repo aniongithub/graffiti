@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BD8393AB-B34D-412D-ACDE-68AA74B086B8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Graffiti.Core.WindowsStore.MonoGame</RootNamespace>
+    <AssemblyName>Graffiti.Core.WindowsStore.MonoGame</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NETFX_CORE;WINRT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <ProjectReference Include="..\MonoGame\MonoGame.Framework\MonoGame.Framework.Windows8.csproj">
+      <Project>{0518563c-acca-4a14-8c5d-ddbe93e2605f}</Project>
+      <Name>MonoGame.Framework.Windows8</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Graffiti.Core\Animation\Animatable.cs">
+      <Link>Animation\Animatable.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Animation\AnimatableConstants.cs">
+      <Link>Animation\AnimatableConstants.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Animation\IAnimatable.cs">
+      <Link>Animation\IAnimatable.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Animation\IKeyframes.cs">
+      <Link>Animation\IKeyframes.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Animation\Keyframes.cs">
+      <Link>Animation\Keyframes.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Animation\Mode.cs">
+      <Link>Animation\Mode.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Behaviors.cs">
+      <Link>Behaviors.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\Brush.cs">
+      <Link>Brushes\Brush.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\DualLayer.cs">
+      <Link>Brushes\DualLayer.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\IBrush.cs">
+      <Link>Brushes\IBrush.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\IDualLayer.cs">
+      <Link>Brushes\IDualLayer.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\ILayer.cs">
+      <Link>Brushes\ILayer.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Brushes\Layer.cs">
+      <Link>Brushes\Layer.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Collections\ArrayList.cs">
+      <Link>Collections\ArrayList.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Extensions\ContentExtensions.cs">
+      <Link>Extensions\ContentExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Extensions\ConversionExtensions.cs">
+      <Link>Extensions\ConversionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Geometry\AnimatedIndexedMesh.cs">
+      <Link>Geometry\AnimatedIndexedMesh.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Geometry\IAnimatedIndexedMesh.cs">
+      <Link>Geometry\IAnimatedIndexedMesh.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Geometry\IIndexedMesh.cs">
+      <Link>Geometry\IIndexedMesh.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Geometry\IndexedMesh.cs">
+      <Link>Geometry\IndexedMesh.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Geometry\TexcoordGenerationMode.cs">
+      <Link>Geometry\TexcoordGenerationMode.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Math\Axes.cs">
+      <Link>Math\Axes.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Math\Functions.cs">
+      <Link>Math\Functions.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Math\ILinearInterpolator.cs">
+      <Link>Math\ILinearInterpolator.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Math\Interpolators.cs">
+      <Link>Math\Interpolators.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Math\RotateTransform.cs">
+      <Link>Math\RotateTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Math\ScaleTransform.cs">
+      <Link>Math\ScaleTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Math\Transform.cs">
+      <Link>Math\Transform.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Math\TransformGroup.cs">
+      <Link>Math\TransformGroup.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Math\Transforms.cs">
+      <Link>Math\Transforms.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Math\TranslateTransform.cs">
+      <Link>Math\TranslateTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Primitives\Quad.cs">
+      <Link>Primitives\Quad.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\IRenderBucket.cs">
+      <Link>Rendering\IRenderBucket.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\IRenderer.cs">
+      <Link>Rendering\IRenderer.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\IVertex.cs">
+      <Link>Rendering\IVertex.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\PreTransformedRenderBucket.cs">
+      <Link>Rendering\PreTransformedRenderBucket.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\Renderers\MultipassDualTextureEffectRenderer_DualChannel.cs">
+      <Link>Rendering\Renderers\MultipassDualTextureEffectRenderer_DualChannel.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\Renderers\MultipassSimpleEffectRenderer_SingleChannel.cs">
+      <Link>Rendering\Renderers\MultipassSimpleEffectRenderer_SingleChannel.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Rendering\Vertex.cs">
+      <Link>Rendering\Vertex.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\BitmapFont.cs">
+      <Link>Text\BitmapFont.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\BitmapText.cs">
+      <Link>Text\BitmapText.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\ContentExtensions.Text.cs">
+      <Link>Text\ContentExtensions.Text.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\IBitmapFont.cs">
+      <Link>Text\IBitmapFont.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\IBitmapText.cs">
+      <Link>Text\IBitmapText.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\ITextBrush.cs">
+      <Link>Text\ITextBrush.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Text\TextBrush.cs">
+      <Link>Text\TextBrush.cs</Link>
+    </Compile>
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
