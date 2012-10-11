@@ -55,23 +55,6 @@ namespace Graffiti.Samples.Halloween
                         }
                     };
 
-                var swayTransform = new TransformGroup
-                    {
-                        (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
-                        new RotateTransform
-                        {
-                            Keyframes = new Keyframes<Quaternion>
-                            {
-                                { 0f,    Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 0) },
-                                { 1000f, Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 0.1f) },
-                                { 2000, Quaternion.CreateFromAxisAngle(Vector3.UnitZ, -0.1f) },
-                                { 2500, Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 0) },
-                            },
-                            Mode = Mode.Loop
-                        },
-                        (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
-                    };
-
                 _scene = new Group
                 {
                     new Quad(172, 38, 666, 666, -1)
@@ -124,7 +107,12 @@ namespace Graffiti.Samples.Halloween
                                 Texture = content.Load<Texture2D>("Content/Jack O'Lantern 1 glow mask"),
                                 Color = new Animatable<Color>(t => Color.Lerp(Color.Black, Color.OrangeRed, 
                                     Functions.Noise(t, 0f, 1f, 0f, 2f))),
-                                Transform = swayTransform
+                                Transform = new TransformGroup
+                                            {
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
+                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.05f, 0.1f, 1000f, 2.5f))),
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
+                                            }
                             },
                             new Layer
                             {
@@ -135,7 +123,12 @@ namespace Graffiti.Samples.Halloween
                                 AlphaTestEnable = true,
                                 ReferenceAlpha = 128,
                                 AlphaFunction = CompareFunction.Greater,
-                                Transform = swayTransform
+                                Transform = new TransformGroup
+                                            {
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
+                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.05f, 0.1f, 1000f, 2.5f))),
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
+                                            }
                             }
                         }
                     },
@@ -190,7 +183,12 @@ namespace Graffiti.Samples.Halloween
                                 Texture = content.Load<Texture2D>("Content/Jack O'Lantern 2 glow mask"),
                                 Color = new Animatable<Color>(t => Color.Lerp(Color.Black, Color.OrangeRed, 
                                     Functions.Noise(t, 0f, 1f, 0f, 2f))),
-                                Transform = swayTransform
+                                Transform = new TransformGroup
+                                            {
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
+                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.025f, 0.05f, 650f, 2.5f))),
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
+                                            }
                             },
                             new Layer
                             {
@@ -201,7 +199,12 @@ namespace Graffiti.Samples.Halloween
                                 AlphaTestEnable = true,
                                 ReferenceAlpha = 128,
                                 AlphaFunction = CompareFunction.Greater,
-                                Transform = swayTransform
+                                Transform = new TransformGroup
+                                            {
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
+                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.025f, 0.05f, 650f, 2.5f))),
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
+                                            }
                             }
                         }
                     },
@@ -215,7 +218,12 @@ namespace Graffiti.Samples.Halloween
                                 Texture = content.Load<Texture2D>("Content/Jack O'Lantern 3 glow mask"),
                                 Color = new Animatable<Color>(t => Color.Lerp(Color.Black, Color.OrangeRed, 
                                     Functions.Noise(t, 0f, 1f, 0f, 2f))),
-                                Transform = swayTransform
+                                Transform = new TransformGroup
+                                            {
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
+                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.03f, 0.06f, 1235f, 2.5f))),
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
+                                            }
                             },
                             new Layer
                             {
@@ -226,7 +234,12 @@ namespace Graffiti.Samples.Halloween
                                 AlphaTestEnable = true,
                                 ReferenceAlpha = 128,
                                 AlphaFunction = CompareFunction.Greater,
-                                Transform = swayTransform
+                                Transform = new TransformGroup
+                                            {
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
+                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.03f, 0.06f, 1235f, 2.5f))),
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
+                                            }
                             }
                         }
                     },
@@ -240,7 +253,12 @@ namespace Graffiti.Samples.Halloween
                                 Texture = content.Load<Texture2D>("Content/Jack O'Lantern 4 glow mask"),
                                 Color = new Animatable<Color>(t => Color.Lerp(Color.Black, Color.OrangeRed, 
                                     Functions.Noise(t, 0f, 1f, 0f, 2f))),
-                                Transform = swayTransform
+                                Transform = new TransformGroup
+                                            {
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
+                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.05f, 0.1f, 2387f, 2.5f))),
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
+                                            }
                             },
                             new Layer
                             {
@@ -251,36 +269,478 @@ namespace Graffiti.Samples.Halloween
                                 AlphaTestEnable = true,
                                 ReferenceAlpha = 128,
                                 AlphaFunction = CompareFunction.Greater,
-                                Transform = swayTransform
+                                Transform = new TransformGroup
+                                            {
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
+                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.05f, 0.1f, 2387f, 2.5f))),
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
+                                            }
                             }
                         }
                     },
 
                     #region Stars
 
-                    new Quad(1007, 175, 128, 128, -3) { Brush = starBrush },
-                    new Quad(812, 38, 77, 77, -3) { Brush = starBrush },
-                    new Quad(1049, 437, 37, 37, -3) { Brush = starBrush },
-                    new Quad(1075, 111, 37, 37, -3) { Brush = starBrush },
-                    new Quad(62, 513, 37, 37, -3) { Brush = starBrush },
-                    new Quad(27, 608, 37, 37, -3) { Brush = starBrush },
-                    new Quad(208, 535, 37, 37, -3) { Brush = starBrush },
-                    new Quad(942, 473, 77, 77, -3) { Brush = starBrush },
-                    new Quad(782, 288, 77, 77, -3) { Brush = starBrush },
-                    new Quad(1140, 648, 77, 77, -3) { Brush = starBrush },
-                    new Quad(-43, 378, 128, 128, -3) { Brush = starBrush },
-                    new Quad(844, 621, 128, 128, -3) { Brush = starBrush },
-                    new Quad(912, 235, 37, 37, -3) { Brush = starBrush },
-                    new Quad(997, 342, 37, 37, -3) { Brush = starBrush },
-                    new Quad(880, 407, 37, 37, -3) { Brush = starBrush },
-                    new Quad(1137, 8, 37, 37, -3) { Brush = starBrush },
-                    new Quad(957, 78, 37, 37, -3) { Brush = starBrush },
-                    new Quad(1189, 473, 37, 37, -3) { Brush = starBrush },
-                    new Quad(1165, 320, 37, 37, -3) { Brush = starBrush },
-                    new Quad(1059, 621, 37, 37, -3) { Brush = starBrush },
-                    new Quad(797, 500, 37, 37, -3) { Brush = starBrush },
-                    new Quad(706, 608, 37, 37, -3) { Brush = starBrush },
-                    new Quad(782, 638, 37, 37, -3) { Brush = starBrush },
+                    new Quad(1007, 175, 128, 128, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 11 + Functions.Linear(t, 0.0001f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 8f, 20f), Functions.Sine(t, 1f, 0.2f, 8f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(812, 38, 77, 77, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 203 + Functions.Linear(t, 0.0001f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 16f, 20f), Functions.Sine(t, 1f, 0.2f, 16f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(1049, 437, 37, 37, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 288 + Functions.Linear(t, 0.0001f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 3f, 20f), Functions.Sine(t, 1f, 0.2f, 3f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(1075, 111, 37, 37, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 234 + Functions.Linear(t, 0.0001f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 9f, 20f), Functions.Sine(t, 1f, 0.2f, 9f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(62, 513, 37, 37, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 55 + Functions.Linear(t, 0.0001f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 16f, 20f), Functions.Sine(t, 1f, 0.2f, 16f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(27, 608, 37, 37, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 151 + Functions.Linear(t, 0.0001f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 3f, 20f), Functions.Sine(t, 1f, 0.2f, 3f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(208, 535, 37, 37, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 160 + Functions.Linear(t, 0.0001f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 20f, 20f), Functions.Sine(t, 1f, 0.2f, 20f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(942, 473, 77, 77, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 233 + Functions.Linear(t, 0.0001f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 4f, 20f), Functions.Sine(t, 1f, 0.2f, 4f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(782, 288, 77, 77, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 102 + Functions.Linear(t, 0.0001f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 4f, 20f), Functions.Sine(t, 1f, 0.2f, 4f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(1140, 648, 77, 77, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 62 + Functions.Linear(t, 0.0001f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 5f, 20f), Functions.Sine(t, 1f, 0.2f, 5f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(-43, 378, 128, 128, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 291 + Functions.Linear(t, 0.0001f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 11f, 20f), Functions.Sine(t, 1f, 0.2f, 11f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(844, 621, 128, 128, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 185 + Functions.Linear(t, 0.0003f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 18f, 20f), Functions.Sine(t, 1f, 0.2f, 18f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(912, 235, 37, 37, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 118 + Functions.Linear(t, 0.00005f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 8f, 20f), Functions.Sine(t, 1f, 0.2f, 8f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(997, 342, 37, 37, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 221 + Functions.Linear(t, 0.0004f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 6f, 20f), Functions.Sine(t, 1f, 0.2f, 6f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(880, 407, 37, 37, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 65 + Functions.Linear(t, 0.0002f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 13f, 20f), Functions.Sine(t, 1f, 0.2f, 13f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(1137, 8, 37, 37, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 261 + Functions.Linear(t, 0.00005f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 4f, 20f), Functions.Sine(t, 1f, 0.2f, 4f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(957, 78, 37, 37, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 187 + Functions.Linear(t, 0.0002f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 9f, 20f), Functions.Sine(t, 1f, 0.2f, 9f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(1189, 473, 37, 37, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 195 + Functions.Linear(t, 0.0007f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 10f, 20f), Functions.Sine(t, 1f, 0.2f, 10f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(1165, 320, 37, 37, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 222 + Functions.Linear(t, 0.0006f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f,13f, 20f), Functions.Sine(t, 1f, 0.2f, 13f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(1059, 621, 37, 37, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 64 + Functions.Linear(t, 0.000035f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 1f, 20f), Functions.Sine(t, 1f, 0.2f, 1f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(797, 500, 37, 37, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 248 + Functions.Linear(t, 0.00078f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 25f, 20f), Functions.Sine(t, 1f, 0.2f, 25f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(706, 608, 37, 37, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 262 + Functions.Linear(t, 0.0002f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 19f, 20f), Functions.Sine(t, 1f, 0.2f, 19f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
+                    new Quad(782, 638, 37, 37, -3) { Brush = new Brush
+                    {
+                        new Layer
+                        {
+                            Texture = content.Load<Texture2D>("Content/Star"),
+                            BlendState = BlendState.AlphaBlend,
+                            AddressU = TextureAddressMode.Clamp,
+                            AddressV = TextureAddressMode.Clamp,
+                            AlphaTestEnable = true,
+                            AlphaFunction = CompareFunction.Greater,
+                            ReferenceAlpha = 128,
+                            Transform = new TransformGroup
+                            {
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
+                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, 243 + Functions.Linear(t, 0.00056f))),
+                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 6f, 20f), Functions.Sine(t, 1f, 0.2f, 6f, 20f), 1f)),
+                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
+                            }
+                        }
+                    } },
                     
                     #endregion
 
@@ -297,7 +757,7 @@ namespace Graffiti.Samples.Halloween
                                 Transform = new TransformGroup
                                 {
                                     (ConstantMatrix)Matrix.CreateTranslation(0f, -1f, 0f),
-                                    ShearTransform.Procedural(t => new Vector2(0f, Functions.Sine(t, 0f, 0.1f, 0f, 5f))),
+                                    ShearTransform.Procedural(t => new Vector2(0f, Functions.Sine(t, 0f, 0.025f, 0f, 5f))),
                                     (ConstantMatrix)Matrix.CreateTranslation(0f, 1f, 0f)
                                 }
                             }
@@ -316,7 +776,7 @@ namespace Graffiti.Samples.Halloween
                                 BlendState = BlendState.Additive,
                                 AddressU = TextureAddressMode.Wrap,
                                 AddressV = TextureAddressMode.Clamp,
-                                Transform = TranslateTransform.Procedural(t => new Vector3(Functions.Linear(t, 0.00001f), 0f, 0f))
+                                Transform = TranslateTransform.Procedural(t => new Vector3(Functions.Linear(t, 0.00002f), 0f, 0f))
                             },
                             new Layer
                             {
@@ -325,7 +785,7 @@ namespace Graffiti.Samples.Halloween
                                 BlendState = BlendState.Additive,
                                 AddressU = TextureAddressMode.Wrap,
                                 AddressV = TextureAddressMode.Clamp,
-                                Transform = TranslateTransform.Procedural(t => new Vector3(Functions.Linear(t, 0.000001f), 0f, 0f))
+                                Transform = TranslateTransform.Procedural(t => new Vector3(Functions.Linear(t, 0.00001f), 0f, 0f))
                             }
                         }
                     },
