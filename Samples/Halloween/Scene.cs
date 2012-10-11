@@ -85,7 +85,7 @@ namespace Graffiti.Samples.Halloween
                                 BlendState = BlendState.AlphaBlend,
                                 Texture = content.Load<Texture2D>("Content/Jack O'Lantern 1 glow mask"),
                                 Color = new Animatable<Color>(t => Color.Lerp(Color.Black, Color.OrangeRed, 
-                                    Functions.Noise(t, 0f, 1f, 0f, 2f))),
+                                    Functions.Noise(t, 0f, 1f, 1356f, 2.5f))),
                                 Transform = new TransformGroup
                                             {
                                                 (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
@@ -161,7 +161,7 @@ namespace Graffiti.Samples.Halloween
                                 BlendState = BlendState.AlphaBlend,
                                 Texture = content.Load<Texture2D>("Content/Jack O'Lantern 2 glow mask"),
                                 Color = new Animatable<Color>(t => Color.Lerp(Color.Black, Color.OrangeRed, 
-                                    Functions.Noise(t, 0f, 1f, 0f, 2f))),
+                                    Functions.Noise(t, 0f, 1f, 821f, 1.5f))),
                                 Transform = new TransformGroup
                                             {
                                                 (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
@@ -196,7 +196,7 @@ namespace Graffiti.Samples.Halloween
                                 BlendState = BlendState.AlphaBlend,
                                 Texture = content.Load<Texture2D>("Content/Jack O'Lantern 3 glow mask"),
                                 Color = new Animatable<Color>(t => Color.Lerp(Color.Black, Color.OrangeRed, 
-                                    Functions.Noise(t, 0f, 1f, 0f, 2f))),
+                                    Functions.Noise(t, 0f, 1f, 10f, 2f))),
                                 Transform = new TransformGroup
                                             {
                                                 (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
@@ -231,7 +231,7 @@ namespace Graffiti.Samples.Halloween
                                 BlendState = BlendState.AlphaBlend,
                                 Texture = content.Load<Texture2D>("Content/Jack O'Lantern 4 glow mask"),
                                 Color = new Animatable<Color>(t => Color.Lerp(Color.Black, Color.OrangeRed, 
-                                    Functions.Noise(t, 0f, 1f, 0f, 2f))),
+                                    Functions.Noise(t, 0f, 1f, 555f, 1.8f))),
                                 Transform = new TransformGroup
                                             {
                                                 (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
