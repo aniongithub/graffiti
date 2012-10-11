@@ -15,6 +15,7 @@
 // terms of the License.
 #endregion
 
+using Graffiti.Core.Animation;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -24,11 +25,15 @@ namespace Graffiti.Core.Brushes
     {
         Texture2D Texture { get; set; }
         int TexCoordChannel { get; set; }
-        Color Color { get; set; }
+        IAnimatable<Color> Color { get; set; }
         
         TextureAddressMode AddressU { get; set; }
         TextureAddressMode AddressV { get; set; }
 
         BlendState BlendState { get; set; }
+        
+        bool AlphaTestEnable { get; set; }
+        int ReferenceAlpha { get; set; }
+        CompareFunction AlphaFunction { get; set; }
     }
 }

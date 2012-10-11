@@ -21,50 +21,33 @@ using Microsoft.Xna.Framework;
 
 namespace Graffiti.Core.Math
 {
-    public sealed class ScaleTransform : Transform, IAnimatable<Vector3, Vector3Interpolator>, IAnimatable<Matrix>
+    public sealed class ScaleTransform : Transform
     {
         private static readonly Vector3Interpolator _interpolator = new Vector3Interpolator();
 
-        protected override Matrix GetMyValue()
-        {
-            return Matrix.CreateTranslation(_current);
-        }
-
-        protected internal override Matrix GetValue()
-        {
-            return Matrix.CreateScale(_current);
-        }
-
-        private Vector3 _current;
-        public Vector3 Current
+        private Matrix _current;
+        public override Matrix Current
         {
             get { return _current; }
         }
 
-        public IKeyframes<Vector3> Keyframes { get; set; }
+        new public IKeyframes<Vector3> Keyframes { get; set; }
 
-        public Mode Mode { get; set; }
+        public override Mode Mode { get; set; }
 
-        public void Update(float timeInMilliSeconds)
+        public override void Update(float timeInMilliSeconds)
         {
-            _current = Keyframes.GetValueAt(_interpolator, timeInMilliSeconds, Mode);
+            _current = Matrix.CreateScale(Keyframes.GetValueAt(_interpolator, timeInMilliSeconds, Mode));
         }
 
-        Matrix IAnimatable<Matrix>.Current
+        public static IAnimatable<Matrix> Procedural(Func<float, Vector3> function)
         {
-            get { return Matrix.CreateScale(_current); }
-        }
-
-        IKeyframes<Matrix> IAnimatable<Matrix>.Keyframes
-        {
-            get
+            return new Animatable<Matrix>(t => 
             {
-                throw new NotSupportedException();
-            }
-            set
-            {
-                throw new NotSupportedException();
-            }
+                var value = function(t);
+                value = new Vector3(1 / value.X, 1 / value.Y, 1 / value.Z);
+                return Matrix.CreateScale(value);
+            });
         }
     }
 }

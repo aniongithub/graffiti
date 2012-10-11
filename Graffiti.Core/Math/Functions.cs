@@ -15,7 +15,9 @@
 // terms of the License.
 #endregion
 
+using Graffiti.Core.Animation;
 using System;
+using System.Collections.Generic;
 
 namespace Graffiti.Math
 {
@@ -26,7 +28,7 @@ namespace Graffiti.Math
 
         static Functions()
         {
-            var random = new Random(2012);
+            var random = new Random();
 
             NoiseProfile = new float[NoiseTableSize];
             for (int i = 0; i < NoiseTableSize; i += 32)
@@ -47,7 +49,7 @@ namespace Graffiti.Math
 
         private static float Value(float timeMilliSeconds, float phase, float frequency)
         {
-            float val = ((phase + timeMilliSeconds) / frequency);
+            float val = ((phase + timeMilliSeconds) / (frequency * 1000f));
             return val - ((int)val);
         }
 

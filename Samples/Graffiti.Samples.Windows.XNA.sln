@@ -5,64 +5,60 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Core.Windows.XNA",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.Windows.XNA.Quake3Shader", "Graffiti.Samples.Windows.XNA.Quake3Shader\Graffiti.Samples.Windows.XNA.Quake3Shader.csproj", "{1971A444-AE01-4CBF-9FE3-C4A3F6CCBD3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.Windows.XNA.Quake3Shader.Content", "Graffiti.Samples.Windows.XNA.Quake3Shader.Content\Graffiti.Samples.Windows.XNA.Quake3Shader.Content.contentproj", "{CC717EBA-7B94-4165-8A10-7B3CCD82D6D8}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Quake3Shader", "Quake3Shader", "{43A528D7-BE5B-4559-96D8-F581ECC51C57}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BitmapFont", "BitmapFont", "{72095260-2F73-4C19-B40E-DB3F21EB3C7E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.Windows.XNA.BitmapFont", "Graffiti.Samples.Windows.XNA.BitmapFont\Graffiti.Samples.Windows.XNA.BitmapFont.csproj", "{BE943FDB-46CB-4DDF-A70D-9847BA2FE5ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.Windows.XNA.BitmapFont.Content", "Graffiti.Samples.Windows.XNA.BitmapFont.Content\Graffiti.Samples.Windows.XNA.BitmapFont.Content.contentproj", "{47D1AA76-0F6D-459B-A486-CA744FFD75B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.Windows.XNA.Quake3Shader.Content", "Graffiti.Samples.Windows.XNA.Quake3Shader\Graffiti.Samples.Windows.XNA.Quake3Shader.Content.contentproj", "{CC717EBA-7B94-4165-8A10-7B3CCD82D6D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.Windows.XNA.BitmapFont.Content", "Graffiti.Samples.Windows.XNA.BitmapFont\Graffiti.Samples.Windows.XNA.BitmapFont.Content.contentproj", "{47D1AA76-0F6D-459B-A486-CA744FFD75B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Halloween", "Halloween", "{4734EA0E-64ED-4613-9296-DF55D8A6D42D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.Windows.XNA.Halloween", "Graffiti.Samples.Windows.XNA.Halloween\Graffiti.Samples.Windows.XNA.Halloween.csproj", "{5F2279E8-35C2-44CA-968E-54BD220D2074}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.Windows.XNA.Halloween.Content", "Graffiti.Samples.Windows.XNA.Halloween\Graffiti.Samples.Windows.XNA.Halloween.Content.contentproj", "{287A3C69-EF9A-4E8A-8B49-60A0FC93A138}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
-		Release|Any CPU = Release|Any CPU
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1C173E59-7EBE-401B-88B0-53B01FF828E5}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{1C173E59-7EBE-401B-88B0-53B01FF828E5}.Debug|Any CPU.Build.0 = Debug|x86
 		{1C173E59-7EBE-401B-88B0-53B01FF828E5}.Debug|x86.ActiveCfg = Debug|x86
 		{1C173E59-7EBE-401B-88B0-53B01FF828E5}.Debug|x86.Build.0 = Debug|x86
-		{1C173E59-7EBE-401B-88B0-53B01FF828E5}.Release|Any CPU.ActiveCfg = Release|x86
-		{1C173E59-7EBE-401B-88B0-53B01FF828E5}.Release|Any CPU.Build.0 = Release|x86
 		{1C173E59-7EBE-401B-88B0-53B01FF828E5}.Release|x86.ActiveCfg = Release|x86
 		{1C173E59-7EBE-401B-88B0-53B01FF828E5}.Release|x86.Build.0 = Release|x86
-		{1971A444-AE01-4CBF-9FE3-C4A3F6CCBD3F}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{1971A444-AE01-4CBF-9FE3-C4A3F6CCBD3F}.Debug|Any CPU.Build.0 = Debug|x86
 		{1971A444-AE01-4CBF-9FE3-C4A3F6CCBD3F}.Debug|x86.ActiveCfg = Debug|x86
 		{1971A444-AE01-4CBF-9FE3-C4A3F6CCBD3F}.Debug|x86.Build.0 = Debug|x86
-		{1971A444-AE01-4CBF-9FE3-C4A3F6CCBD3F}.Release|Any CPU.ActiveCfg = Release|x86
-		{1971A444-AE01-4CBF-9FE3-C4A3F6CCBD3F}.Release|Any CPU.Build.0 = Release|x86
 		{1971A444-AE01-4CBF-9FE3-C4A3F6CCBD3F}.Release|x86.ActiveCfg = Release|x86
 		{1971A444-AE01-4CBF-9FE3-C4A3F6CCBD3F}.Release|x86.Build.0 = Release|x86
-		{CC717EBA-7B94-4165-8A10-7B3CCD82D6D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC717EBA-7B94-4165-8A10-7B3CCD82D6D8}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{CC717EBA-7B94-4165-8A10-7B3CCD82D6D8}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC717EBA-7B94-4165-8A10-7B3CCD82D6D8}.Release|x86.ActiveCfg = Debug|Any CPU
-		{BE943FDB-46CB-4DDF-A70D-9847BA2FE5ED}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{BE943FDB-46CB-4DDF-A70D-9847BA2FE5ED}.Debug|Any CPU.Build.0 = Debug|x86
 		{BE943FDB-46CB-4DDF-A70D-9847BA2FE5ED}.Debug|x86.ActiveCfg = Debug|x86
 		{BE943FDB-46CB-4DDF-A70D-9847BA2FE5ED}.Debug|x86.Build.0 = Debug|x86
-		{BE943FDB-46CB-4DDF-A70D-9847BA2FE5ED}.Release|Any CPU.ActiveCfg = Release|x86
-		{BE943FDB-46CB-4DDF-A70D-9847BA2FE5ED}.Release|Any CPU.Build.0 = Release|x86
 		{BE943FDB-46CB-4DDF-A70D-9847BA2FE5ED}.Release|x86.ActiveCfg = Release|x86
 		{BE943FDB-46CB-4DDF-A70D-9847BA2FE5ED}.Release|x86.Build.0 = Release|x86
-		{47D1AA76-0F6D-459B-A486-CA744FFD75B1}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{CC717EBA-7B94-4165-8A10-7B3CCD82D6D8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CC717EBA-7B94-4165-8A10-7B3CCD82D6D8}.Release|x86.ActiveCfg = Debug|Any CPU
 		{47D1AA76-0F6D-459B-A486-CA744FFD75B1}.Debug|x86.ActiveCfg = Debug|x86
-		{47D1AA76-0F6D-459B-A486-CA744FFD75B1}.Release|Any CPU.ActiveCfg = Release|x86
 		{47D1AA76-0F6D-459B-A486-CA744FFD75B1}.Release|x86.ActiveCfg = Release|x86
+		{5F2279E8-35C2-44CA-968E-54BD220D2074}.Debug|x86.ActiveCfg = Debug|x86
+		{5F2279E8-35C2-44CA-968E-54BD220D2074}.Debug|x86.Build.0 = Debug|x86
+		{5F2279E8-35C2-44CA-968E-54BD220D2074}.Release|x86.ActiveCfg = Release|x86
+		{5F2279E8-35C2-44CA-968E-54BD220D2074}.Release|x86.Build.0 = Release|x86
+		{287A3C69-EF9A-4E8A-8B49-60A0FC93A138}.Debug|x86.ActiveCfg = Debug|x86
+		{287A3C69-EF9A-4E8A-8B49-60A0FC93A138}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{CC717EBA-7B94-4165-8A10-7B3CCD82D6D8} = {43A528D7-BE5B-4559-96D8-F581ECC51C57}
 		{1971A444-AE01-4CBF-9FE3-C4A3F6CCBD3F} = {43A528D7-BE5B-4559-96D8-F581ECC51C57}
+		{CC717EBA-7B94-4165-8A10-7B3CCD82D6D8} = {43A528D7-BE5B-4559-96D8-F581ECC51C57}
 		{BE943FDB-46CB-4DDF-A70D-9847BA2FE5ED} = {72095260-2F73-4C19-B40E-DB3F21EB3C7E}
 		{47D1AA76-0F6D-459B-A486-CA744FFD75B1} = {72095260-2F73-4C19-B40E-DB3F21EB3C7E}
+		{5F2279E8-35C2-44CA-968E-54BD220D2074} = {4734EA0E-64ED-4613-9296-DF55D8A6D42D}
+		{287A3C69-EF9A-4E8A-8B49-60A0FC93A138} = {4734EA0E-64ED-4613-9296-DF55D8A6D42D}
 	EndGlobalSection
 EndGlobal

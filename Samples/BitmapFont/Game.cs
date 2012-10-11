@@ -7,6 +7,7 @@ using Graffiti.Core.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Graffiti.Core.Animation.Constants;
 
 namespace Graffiti.Samples.BitmapFont
 {
@@ -44,7 +45,7 @@ namespace Graffiti.Samples.BitmapFont
                         new Layer
                             {
                                 Texture = Content.Load<Texture2D>("Content/Gradient"),
-                                Color = Color.White,
+                                Color = (ConstantColor)Color.White,
                                 BlendState = BlendState.AlphaBlend,
                                 Transform = new TranslateTransform
                                                 {

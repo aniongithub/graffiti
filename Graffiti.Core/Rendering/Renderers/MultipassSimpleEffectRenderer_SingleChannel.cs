@@ -26,7 +26,8 @@ namespace Graffiti.Core.Rendering.Renderers
     internal sealed class MultipassSimpleEffectRenderer_SingleChannel: IRenderer
     {
         private readonly GraphicsDevice _device;
-        private readonly BasicEffect _effect;
+        private readonly BasicEffect _basicEffect;
+        private readonly AlphaTestEffect _alphaTestEffect;
         private readonly Dictionary<IBrush, IRenderBucket> _renderBuckets =
             new Dictionary<IBrush, IRenderBucket>();
         private readonly ArrayList<VertexPositionColorTexture> _bucketVertices = new ArrayList<VertexPositionColorTexture>();
@@ -34,20 +35,20 @@ namespace Graffiti.Core.Rendering.Renderers
         public MultipassSimpleEffectRenderer_SingleChannel(GraphicsDevice device)
         {
             _device = device;
-            _effect = new BasicEffect(_device)
+            _basicEffect = new BasicEffect(_device)
             {
                 LightingEnabled = false,
                 VertexColorEnabled = true,
                 TextureEnabled = true
             };
+            _alphaTestEffect = new AlphaTestEffect(_device)
+            {
+                VertexColorEnabled = true
+            };
         }
 
         public void Flush()
         {
-            _effect.Projection = Projection;
-            _effect.World = World;
-            _effect.View = View;
-
             foreach (var kvp in _renderBuckets)
             {
                 var bucket = kvp.Value;
@@ -55,42 +56,93 @@ namespace Graffiti.Core.Rendering.Renderers
 
                 foreach (var layer in brush)
                 {
-                    _bucketVertices.Clear();
-
-                    var transform = layer.Transform.Current;
-
-                    _effect.Texture = layer.Texture;
-
-                    _device.SamplerStates[0] = new SamplerState
-                                                   {
-                                                       AddressU = layer.AddressU,
-                                                       AddressV = layer.AddressV
-                                                   };
-                    for (int i = 0; i < kvp.Value.Vertices.Count; i++)
+                    #region AlphaTest renderer
+                    if (layer.AlphaTestEnable == true)
                     {
-                        var incomingVertex = bucket.Vertices[i];
-                        var vertex = new VertexPositionColorTexture(incomingVertex.Position,
-                            new Color(layer.Color.R * incomingVertex.Color.R,
-                                layer.Color.G * incomingVertex.Color.G,
-                                layer.Color.B * incomingVertex.Color.B,
-                                layer.Color.A * incomingVertex.Color.A),
+                        _bucketVertices.Clear();
+
+                        var transform = layer.Transform.Current;
+
+                        _alphaTestEffect.Texture = layer.Texture;
+                        _alphaTestEffect.ReferenceAlpha = layer.ReferenceAlpha;
+                        _alphaTestEffect.AlphaFunction = layer.AlphaFunction;
+
+                        _alphaTestEffect.Projection = Projection;
+                        _alphaTestEffect.World = World;
+                        _alphaTestEffect.View = View;
+
+                        _device.SamplerStates[0] = new SamplerState
+                        {
+                            AddressU = layer.AddressU,
+                            AddressV = layer.AddressV
+                        };
+                        for (int i = 0; i < kvp.Value.Vertices.Count; i++)
+                        {
+                            var incomingVertex = bucket.Vertices[i];
+                            var color = layer.Color.Current;
+                            var vertex = new VertexPositionColorTexture(incomingVertex.Position,
+                                new Color(color.R, color.G, color.B, color.A),
                                 Vector2.Transform(incomingVertex.Texcoords[layer.TexCoordChannel], transform));
-                        _bucketVertices.Add(vertex);
-                    }
+                            _bucketVertices.Add(vertex);
+                        }
 
-                    foreach (var pass in _effect.CurrentTechnique.Passes)
+                        foreach (var pass in _alphaTestEffect.CurrentTechnique.Passes)
+                        {
+                            pass.Apply();
+                            _device.BlendState = layer.BlendState;
+
+                            _device.DrawUserIndexedPrimitives(PrimitiveType.TriangleList,
+                                                              _bucketVertices.GetArray(), 0,
+                                                              kvp.Value.Vertices.Count,
+                                                              (kvp.Value.Indices as ArrayList<short>).GetArray(), 0,
+                                                              kvp.Value.Indices.Count / 3);
+                        }
+
+                        continue;
+                    }
+                    #endregion
+
+                    #region Basic effect
                     {
-                        pass.Apply();
-                        _device.BlendState = layer.BlendState;
+                        _bucketVertices.Clear();
 
-                        _device.DrawUserIndexedPrimitives(PrimitiveType.TriangleList,
-                                                          _bucketVertices.GetArray(), 0,
-                                                          kvp.Value.Vertices.Count,
-                                                          (kvp.Value.Indices as ArrayList<short>).GetArray(), 0,
-                                                          kvp.Value.Indices.Count / 3);
+                        var transform = layer.Transform.Current;
+
+                        _basicEffect.Texture = layer.Texture;
+                        _basicEffect.Projection = Projection;
+                        _basicEffect.World = World;
+                        _basicEffect.View = View;
+
+                        _device.SamplerStates[0] = new SamplerState
+                        {
+                            AddressU = layer.AddressU,
+                            AddressV = layer.AddressV
+                        };
+                        for (int i = 0; i < kvp.Value.Vertices.Count; i++)
+                        {
+                            var incomingVertex = bucket.Vertices[i];
+                            var color = layer.Color.Current;
+                            var vertex = new VertexPositionColorTexture(incomingVertex.Position,
+                                new Color(color.R, color.G, color.B, color.A),
+                                Vector2.Transform(incomingVertex.Texcoords[layer.TexCoordChannel], transform));
+                            _bucketVertices.Add(vertex);
+                        }
+
+                        foreach (var pass in _basicEffect.CurrentTechnique.Passes)
+                        {
+                            pass.Apply();
+                            _device.BlendState = layer.BlendState;
+
+                            _device.DrawUserIndexedPrimitives(PrimitiveType.TriangleList,
+                                                              _bucketVertices.GetArray(), 0,
+                                                              kvp.Value.Vertices.Count,
+                                                              (kvp.Value.Indices as ArrayList<short>).GetArray(), 0,
+                                                              kvp.Value.Indices.Count / 3);
+                        }
                     }
+                    #endregion
                 }
-                
+
                 bucket.Clear();
             }
 
@@ -113,20 +165,8 @@ namespace Graffiti.Core.Rendering.Renderers
             }
         }
 
-        public Matrix Projection
-        {
-            get { return _effect.Projection; }
-            set { _effect.Projection = value; }
-        }
-        public Matrix View
-        {
-            get { return _effect.View; }
-            set { _effect.View = value; }
-        }
-        public Matrix World
-        {
-            get { return _effect.World; }
-            set { _effect.World = value; }
-        }
+        public Matrix Projection { get; set; }
+        public Matrix View { get; set; }
+        public Matrix World { get; set; }
     }
 }

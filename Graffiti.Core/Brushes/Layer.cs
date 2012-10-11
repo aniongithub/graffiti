@@ -16,6 +16,7 @@
 #endregion
 
 using Graffiti.Core.Animation;
+using Graffiti.Core.Animation.Constants;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -26,14 +27,18 @@ namespace Graffiti.Core.Brushes
         public Texture2D Texture { get; set; }
         public int TexCoordChannel { get; set; }
         public IAnimatable<Matrix> Transform { get; set; }
-        public Color Color { get; set; }
+        public IAnimatable<Color> Color { get; set; }
         public TextureAddressMode AddressU { get; set; }
         public TextureAddressMode AddressV { get; set; }
         public BlendState BlendState { get; set; }
 
+        public bool AlphaTestEnable { get; set; }
+        public int ReferenceAlpha { get; set; }
+        public CompareFunction AlphaFunction { get; set; }
+
         public Layer()
         {
-            Color = Color.White;
+            Color = (ConstantColor)Microsoft.Xna.Framework.Color.White;
             Transform = (ConstantMatrix)Matrix.Identity;
             AddressU = TextureAddressMode.Wrap;
             AddressV = TextureAddressMode.Wrap;
@@ -43,6 +48,7 @@ namespace Graffiti.Core.Brushes
         public void Update(float timeInMilliSeconds)
         {
             Transform.Update(timeInMilliSeconds);
+            Color.Update(timeInMilliSeconds);
         }
     }
 }

@@ -116,7 +116,7 @@
       <Project>{1C173E59-7EBE-401B-88B0-53B01FF828E5}</Project>
       <Name>Graffiti.Core.Windows.XNA</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Graffiti.Samples.Windows.XNA.Quake3Shader.Content\Graffiti.Samples.Windows.XNA.Quake3Shader.Content.contentproj">
+    <ProjectReference Include="Graffiti.Samples.Windows.XNA.Quake3Shader.Content.contentproj">
       <Project>{CC717EBA-7B94-4165-8A10-7B3CCD82D6D8}</Project>
       <Name>Graffiti.Samples.Windows.XNA.Quake3Shader.Content %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>

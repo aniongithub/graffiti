@@ -22,49 +22,46 @@ using Graffiti.Core.Animation;
 
 namespace Graffiti.Core.Math
 {
-    public sealed class TransformGroup: Transform, IAnimatable<Matrix, MatrixInterpolator>, IEnumerable<Transform>
+    public sealed class TransformGroup: Transform, IEnumerable<IAnimatable<Matrix>>
     {
-        private readonly List<Transform> _children = new List<Transform>(); 
+        private readonly List<IAnimatable<Matrix>> _children = new List<IAnimatable<Matrix>>(); 
         
-        protected override Matrix GetMyValue()
-        {
-            return Matrix.Identity;
+        public TransformGroup()
+        { 
         }
 
-        protected internal override Matrix GetValue()
+        public TransformGroup(Mode mode)
         {
-            var current = GetMyValue();
-            foreach (var child in _children)
-                current *= child.GetValue();
-
-            return current;
+            Mode = mode;
         }
 
-        public void Add(Transform child)
+        public void Add(IAnimatable<Matrix> child)
         {
             _children.Add(child);
         }
 
-        public Matrix Current
+        private Matrix _current = Matrix.Identity;
+        public override Matrix Current
         {
-            get { return GetValue(); }
+            get { return _current; }
         }
 
-        public IKeyframes<Matrix> Keyframes { get; set; }
+        public override Mode Mode { get; set; }
 
-        public Mode Mode { get; set; }
-
-        public void Update(float timeInMilliSeconds)
+        public override void Update(float timeInMilliSeconds)
         {
+            _current = Matrix.Identity;
             foreach (var child in _children)
             {
                 var updateable = child as IUpdateable;
                 if (updateable != null)
                     updateable.Update(timeInMilliSeconds);
+                
+                _current *= child.Current;
             }
         }
 
-        public IEnumerator<Transform> GetEnumerator()
+        public IEnumerator<IAnimatable<Matrix>> GetEnumerator()
         {
             return _children.GetEnumerator();
         }

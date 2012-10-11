@@ -66,6 +66,7 @@ namespace Graffiti.Core.Rendering.Renderers
         
         private readonly GraphicsDevice _device;
         private readonly BasicEffect _basicEffect;
+        private readonly AlphaTestEffect _alphaTestEffect;
         private readonly DualTextureEffect _dualTextureEffect;
         private readonly Dictionary<IBrush, IRenderBucket> _renderBuckets =
             new Dictionary<IBrush, IRenderBucket>();
@@ -80,6 +81,10 @@ namespace Graffiti.Core.Rendering.Renderers
                 LightingEnabled = false,
                 VertexColorEnabled = true,
                 TextureEnabled = true
+            };
+            _alphaTestEffect = new AlphaTestEffect(_device)
+            {
+                VertexColorEnabled = true
             };
             _dualTextureEffect = new DualTextureEffect(_device)
             {
@@ -112,6 +117,7 @@ namespace Graffiti.Core.Rendering.Renderers
 
                 foreach (var layer in brush)
                 {
+                    #region DualLayer renderer
                     var dualLayer = layer as IDualLayer;
                     if (dualLayer != null)
                     {
@@ -143,13 +149,14 @@ namespace Graffiti.Core.Rendering.Renderers
                         for (int i = 0; i < kvp.Value.Vertices.Count; i++)
                         {
                             var incomingVertex = bucket.Vertices[i];
+                            var layer1Color = layer1.Color.Current;
                             var vertex = new VertexPositionColorTexture1Texture2(
                                 incomingVertex.Position,
                                 new Color(
-                                    layer1.Color.R * incomingVertex.Color.R,
-                                    layer1.Color.G * incomingVertex.Color.G,
-                                    layer1.Color.B * incomingVertex.Color.B,
-                                    layer1.Color.A * incomingVertex.Color.A),
+                                    layer1Color.R * incomingVertex.Color.R,
+                                    layer1Color.G * incomingVertex.Color.G,
+                                    layer1Color.B * incomingVertex.Color.B,
+                                    layer1Color.A * incomingVertex.Color.A),
                                     Vector2.Transform(incomingVertex.Texcoords[layer1.TexCoordChannel], transform1),
                                     Vector2.Transform(incomingVertex.Texcoords[layer2.TexCoordChannel], transform2));
                             _bucketVertices_dual.Add(vertex);
@@ -166,8 +173,57 @@ namespace Graffiti.Core.Rendering.Renderers
                                                               (kvp.Value.Indices as ArrayList<short>).GetArray(), 0,
                                                               kvp.Value.Indices.Count / 3);
                         }
+
+                        continue;
                     }
-                    else
+                    #endregion
+
+                    #region AlphaTest renderer
+                    if (layer.AlphaTestEnable == true)
+                    {
+                        _bucketVertices_single.Clear();
+
+                        var transform = layer.Transform.Current;
+
+                        _alphaTestEffect.Texture = layer.Texture;
+                        _alphaTestEffect.Alpha = layer.ReferenceAlpha;
+                        _alphaTestEffect.AlphaFunction = layer.AlphaFunction;
+
+                        _device.SamplerStates[0] = new SamplerState
+                        {
+                            AddressU = layer.AddressU,
+                            AddressV = layer.AddressV
+                        };
+                        for (int i = 0; i < kvp.Value.Vertices.Count; i++)
+                        {
+                            var incomingVertex = bucket.Vertices[i];
+                            var color = layer.Color.Current;
+                            var vertex = new VertexPositionColorTexture(incomingVertex.Position,
+                                new Color(color.R * incomingVertex.Color.R,
+                                    color.G * incomingVertex.Color.G,
+                                    color.B * incomingVertex.Color.B,
+                                    color.A * incomingVertex.Color.A),
+                                    Vector2.Transform(incomingVertex.Texcoords[layer.TexCoordChannel], transform));
+                            _bucketVertices_single.Add(vertex);
+                        }
+
+                        foreach (var pass in _alphaTestEffect.CurrentTechnique.Passes)
+                        {
+                            pass.Apply();
+                            _device.BlendState = layer.BlendState;
+
+                            _device.DrawUserIndexedPrimitives(PrimitiveType.TriangleList,
+                                                              _bucketVertices_single.GetArray(), 0,
+                                                              kvp.Value.Vertices.Count,
+                                                              (kvp.Value.Indices as ArrayList<short>).GetArray(), 0,
+                                                              kvp.Value.Indices.Count / 3);
+                        }
+
+                        continue;
+                    }
+                    #endregion
+
+                    #region Basic effect
                     {
                         _bucketVertices_single.Clear();
 
@@ -183,11 +239,12 @@ namespace Graffiti.Core.Rendering.Renderers
                         for (int i = 0; i < kvp.Value.Vertices.Count; i++)
                         {
                             var incomingVertex = bucket.Vertices[i];
+                            var color = layer.Color.Current;
                             var vertex = new VertexPositionColorTexture(incomingVertex.Position,
-                                new Color(layer.Color.R * incomingVertex.Color.R,
-                                    layer.Color.G * incomingVertex.Color.G,
-                                    layer.Color.B * incomingVertex.Color.B,
-                                    layer.Color.A * incomingVertex.Color.A),
+                                new Color(color.R * incomingVertex.Color.R,
+                                    color.G * incomingVertex.Color.G,
+                                    color.B * incomingVertex.Color.B,
+                                    color.A * incomingVertex.Color.A),
                                     Vector2.Transform(incomingVertex.Texcoords[layer.TexCoordChannel], transform));
                             _bucketVertices_single.Add(vertex);
                         }
@@ -204,6 +261,7 @@ namespace Graffiti.Core.Rendering.Renderers
                                                               kvp.Value.Indices.Count / 3);
                         }
                     }
+                    #endregion
                 }
                 
                 bucket.Clear();

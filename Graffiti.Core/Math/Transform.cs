@@ -15,13 +15,23 @@
 // terms of the License.
 #endregion
 
+using Graffiti.Core.Animation;
 using Microsoft.Xna.Framework;
+using System;
 
 namespace Graffiti.Core.Math
 {
-    public abstract class Transform
+    public abstract class Transform: IAnimatable<Matrix, MatrixInterpolator>
     {
-        protected abstract Matrix GetMyValue();
-        protected internal abstract Matrix GetValue();
+        public abstract Matrix Current
+        {
+            get;
+        }
+
+        public abstract void Update(float timeInMilliSeconds);
+
+        public abstract Mode Mode { get; set; }
+
+        public IKeyframes<Matrix> Keyframes { get; set; }
     }
 }

@@ -88,13 +88,13 @@ namespace Graffiti.Math
             switch (new T().Axis)
             {
                 case 0:
-                    scale.X = amount;
+                    scale.X = 1 / amount;
                     break;
                 case 1:
-                    scale.Y = amount;
+                    scale.Y = 1 / amount;
                     break;
                 case 2:
-                    scale.Z = amount;
+                    scale.Z = 1 / amount;
                     break;
             }
 

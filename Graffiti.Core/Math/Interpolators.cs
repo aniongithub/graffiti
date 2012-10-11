@@ -33,7 +33,19 @@ namespace Graffiti.Core.Math
         #endregion
     }
 
-    public sealed class QuaternionInterpolator: IInterpolator<Quaternion>
+    public sealed class Vector2Interpolator : IInterpolator<Vector2>
+    {
+        #region IInterpolator<Vector2> Members
+
+        public Vector2 Lerp(Vector2 value1, Vector2 value2, float lambda)
+        {
+            return (1 - lambda) * value1 + lambda * value2;
+        }
+
+        #endregion
+    }
+
+    public sealed class QuaternionInterpolator : IInterpolator<Quaternion>
     {
         #region IInterpolator<Quaternion> Members        
 
@@ -45,15 +57,23 @@ namespace Graffiti.Core.Math
         #endregion
     }
 
-    public sealed class MatrixInterpolator : IInterpolator<Matrix>
+    public sealed class MatrixInterpolator : DummyInterpolator<Matrix>
     {
-        #region IInterpolator<Matrix> Members
+    }
 
-        public Matrix Lerp(Matrix value1, Matrix value2, float lambda)
+    public sealed class ColorInterpolator : IInterpolator<Color>
+    {
+        public Color Lerp(Color value1, Color value2, float lambda)
+        {
+            return Color.Lerp(value1, value2, lambda);
+        }
+    }
+
+    public class DummyInterpolator<T> : IInterpolator<T>
+    {
+        public T Lerp(T value1, T value2, float lambda)
         {
             throw new NotSupportedException();
         }
-
-        #endregion
     }
 }

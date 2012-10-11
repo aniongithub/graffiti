@@ -21,62 +21,28 @@ using Microsoft.Xna.Framework;
 
 namespace Graffiti.Core.Math
 {
-    public sealed class RotateTransform : Transform, IAnimatable<Quaternion, QuaternionInterpolator>, IAnimatable<Matrix>
+    public sealed class RotateTransform : Transform
     {
         private static readonly QuaternionInterpolator _interpolator = new QuaternionInterpolator();
         
-        protected override Matrix GetMyValue()
-        {
-            return Matrix.CreateFromQuaternion(_current);
-        }
-
-        protected internal override Matrix GetValue()
-        {
-            return Matrix.CreateFromQuaternion(_current);
-        }
-
-        private Quaternion _current;
-        public Quaternion Current
+        private Matrix _current;
+        public override Matrix Current
         {
             get { return _current; }
         }
 
-        public IKeyframes<Quaternion> Keyframes { get; set; }
-
-        public Mode Mode { get; set; }
-
-        public void Update(float timeInMilliSeconds)
+        public override void Update(float timeInMilliSeconds)
         {
-            _current = Keyframes.GetValueAt(_interpolator, timeInMilliSeconds, Mode);
+            _current = Matrix.CreateFromQuaternion(Keyframes.GetValueAt(_interpolator, timeInMilliSeconds, Mode));
         }
 
-        Matrix IAnimatable<Matrix>.Current
-        {
-            get { return Matrix.CreateFromQuaternion(_current); }
-        }
+        new public IKeyframes<Quaternion> Keyframes { get; set; }
 
-        IKeyframes<Matrix> IAnimatable<Matrix>.Keyframes
-        {
-            get
-            {
-                throw new NotSupportedException();
-            }
-            set
-            {
-                throw new NotSupportedException();
-            }
-        }
+        public override Mode Mode { get; set; }
 
-        Mode IAnimatable<Matrix>.Mode
+        public static IAnimatable<Matrix> Procedural(Func<float, Quaternion> function)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-                throw new System.NotImplementedException();
-            }
+            return new Animatable<Matrix>(t => Matrix.CreateFromQuaternion(function(t)));
         }
     }
 }

@@ -17,11 +17,58 @@
 
 using System;
 using Graffiti.Math;
+using Graffiti.Core.Math;
 
 namespace Graffiti.Core.Animation
 {
+    public sealed class Animatable<T> : IAnimatable<T, DummyInterpolator<T>>
+    {
+        private readonly Func<float, T> _getValue;
+        
+        public Animatable(Func<float, T> getValue)
+        {
+            _getValue = getValue;
+        }
+
+        private T _current;
+
+        T IAnimatable<T>.Current
+        {
+            get { return _current; }
+        }
+
+        IKeyframes<T> IAnimatable<T>.Keyframes
+        {
+            get
+            {
+                throw new NotSupportedException();
+            }
+            set
+            {
+                throw new NotSupportedException();
+            }
+        }
+
+        Mode IAnimatable<T>.Mode
+        {
+            get
+            {
+                throw new NotSupportedException();
+            }
+            set
+            {
+                throw new NotSupportedException();
+            }
+        }
+
+        void IUpdateable.Update(float timeInMilliSeconds)
+        {
+            _current = _getValue(timeInMilliSeconds);
+        }
+    }
+    
     public sealed class Animatable<T, TInterpolator> : IAnimatable<T, TInterpolator>
-        where T : struct, IComparable<T>
+        where T : struct
         where TInterpolator : IInterpolator<T>, new()
     {
         private static readonly TInterpolator _interpolator = new TInterpolator();

@@ -54,5 +54,40 @@ namespace Graffiti.Core.Primitives
             };
             Indices = new short[] { 0, 1, 2, 0, 2, 3 };
         }
+
+        public Quad(float left, float top, float width, float height, float depth = 0f)
+        {
+            var centerX = left + (width / 2);
+            var centerY = top + (height / 2);
+
+            Vertices = new IVertex[]
+            {
+                    new Vertex
+                        {
+                            Position = new Vector3(left, top, depth),
+                            Color = Color.White,
+                            Texcoords = new Texcoords(new Vector2(0f, 0f))
+                        },
+                    new Vertex
+                        {
+                            Position = new Vector3(left + width, top, depth),
+                            Color = Color.White,
+                            Texcoords = new Texcoords(new Vector2(1f, 0f))
+                        },
+                    new Vertex
+                        {
+                            Position = new Vector3(left + width, top + height, depth),
+                            Color = Color.White,
+                            Texcoords = new Texcoords(new Vector2(1f, 1f))
+                        },
+                    new Vertex
+                        {
+                            Position = new Vector3(left, top + height, depth),
+                            Color = Color.White,
+                            Texcoords = new Texcoords(new Vector2(0f, 1f))
+                        },
+            };
+            Indices = new short[] { 0, 1, 2, 0, 2, 3 };
+        }
     }
 }

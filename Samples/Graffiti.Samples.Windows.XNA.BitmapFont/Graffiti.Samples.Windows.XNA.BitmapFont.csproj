@@ -116,7 +116,7 @@
       <Project>{1C173E59-7EBE-401B-88B0-53B01FF828E5}</Project>
       <Name>Graffiti.Core.Windows.XNA</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Graffiti.Samples.Windows.XNA.BitmapFont.Content\Graffiti.Samples.Windows.XNA.BitmapFont.Content.contentproj">
+    <ProjectReference Include="Graffiti.Samples.Windows.XNA.BitmapFont.Content.contentproj">
       <Project>{47D1AA76-0F6D-459B-A486-CA744FFD75B1}</Project>
       <Name>Graffiti.Samples.Windows.XNA.BitmapFont.Content %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>

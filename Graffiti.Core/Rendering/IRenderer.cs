@@ -36,14 +36,16 @@ namespace Graffiti.Core.Rendering
     [Flags]
     public enum Features
     {
-        MultiPass,
-        MultiTexturing,
+        MultiPass = 1,
+        MultiTexturing = 2,
 
-        PreTransformed,
-        GpuTransformed,
+        PreTransformed = 4,
+        GpuTransformed = 8,
 
-        SingleChannelTexCoords,
-        DualChannelTexCoords
+        SingleChannelTexCoords = 16,
+        DualChannelTexCoords = 32,
+
+        AlphaTest = 64
     }
 
     public static class Renderer
@@ -53,6 +55,9 @@ namespace Graffiti.Core.Rendering
             switch (rendererFeatures)
             {
                 case Features.MultiPass | Features.PreTransformed | Features.SingleChannelTexCoords :
+                    return new MultipassSimpleEffectRenderer_SingleChannel(device);
+                
+                case Features.MultiPass | Features.PreTransformed | Features.SingleChannelTexCoords | Features.AlphaTest:
                     return new MultipassSimpleEffectRenderer_SingleChannel(device);
 
                 case Features.MultiPass | Features.PreTransformed | Features.DualChannelTexCoords:

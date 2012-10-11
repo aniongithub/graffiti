@@ -63,7 +63,7 @@ namespace Graffiti.Core.Brushes
             }
         }
 
-        Color ILayer.Color
+        IAnimatable<Color> ILayer.Color
         {
             get
             {
@@ -100,6 +100,40 @@ namespace Graffiti.Core.Brushes
         }
 
         BlendState ILayer.BlendState
+        {
+            get
+            {
+                throw new NotSupportedException();
+            }
+            set
+            {
+                throw new NotSupportedException();
+            }
+        }
+
+        bool ILayer.AlphaTestEnable 
+        {
+            get
+            {
+                return false;
+            }
+            set
+            {
+                // Nothing, we don't support it
+            }
+        }
+        int ILayer.ReferenceAlpha 
+        {
+            get
+            {
+                throw new NotSupportedException();
+            }
+            set
+            {
+                throw new NotSupportedException();
+            }
+        }
+        CompareFunction ILayer.AlphaFunction 
         {
             get
             {
