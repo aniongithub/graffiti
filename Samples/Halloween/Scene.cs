@@ -34,27 +34,6 @@ namespace Graffiti.Samples.Halloween
         {
             if (_scene == null)
             {
-                var starBrush = new Brush
-                    {
-                        new Layer
-                        {
-                            Texture = content.Load<Texture2D>("Content/Star"),
-                            BlendState = BlendState.AlphaBlend,
-                            AddressU = TextureAddressMode.Clamp,
-                            AddressV = TextureAddressMode.Clamp,
-                            AlphaTestEnable = true,
-                            AlphaFunction = CompareFunction.Greater,
-                            ReferenceAlpha = 128,
-                            Transform = new TransformGroup
-                            {
-                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, -0.5f, 0f)),
-                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Linear(t, 0.0001f))),
-                                ScaleTransform.Procedural(t => new Vector3(Functions.Sine(t, 1f, 0.2f, 0f, 20f), Functions.Sine(t, 1f, 0.2f, 0f, 20f), 1f)),
-                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0.5f, 0f)),
-                            }
-                        }
-                    };
-
                 _scene = new Group
                 {
                     new Quad(172, 38, 666, 666, -1)
