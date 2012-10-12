@@ -41,13 +41,13 @@ namespace Graffiti.Core.Text
         Bottom
     }
 
-    internal sealed class BitmapText: IBitmapText
+    public sealed class BitmapText: IBitmapText
     {
         private readonly BitmapFont _bitmapFont;
         private readonly IIndexedMesh[] _textQuads;
         private readonly string _text;
 
-        public BitmapText(BitmapFont bitmapFont, IBrush brush, string text, TexcoordGenerationMode uMappingMode, TexcoordGenerationMode vMappingMode, HAlignment hAlignment = HAlignment.Middle, VAlignment vAlignment = VAlignment.Middle)
+        public BitmapText(IBitmapFont bitmapFont, IBrush brush, string text, TexcoordGenerationMode uMappingMode = TexcoordGenerationMode.FullBoundingBox, TexcoordGenerationMode vMappingMode = TexcoordGenerationMode.FullBoundingBox, HAlignment hAlignment = HAlignment.Middle, VAlignment vAlignment = VAlignment.Middle)
         {
             Transform = (ConstantMatrix) Matrix.Identity;
             Rectangle fullRect = bitmapFont.Measure(text);
@@ -84,19 +84,18 @@ namespace Graffiti.Core.Text
                     break;
             }
 
-            var pageCount = bitmapFont.PageLayers.Count;
-
-            _bitmapFont = bitmapFont;
+            _bitmapFont = bitmapFont as BitmapFont;
+            var pageCount = _bitmapFont.PageLayers.Count;
             _text = text;
             Brush = brush;
 
             _textQuads = new IIndexedMesh[pageCount];
 
             var charactersByPage = (from char ch in text
-                                   select new KeyValuePair<int, char>(bitmapFont.Chars[ch].Page, ch)).ToMultiValueDictionary();
+                                   select new KeyValuePair<int, char>(_bitmapFont.Chars[ch].Page, ch)).ToMultiValueDictionary();
 
-            var w = (float)bitmapFont.ScaleW;
-            var h = (float)bitmapFont.ScaleH;
+            var w = (float)_bitmapFont.ScaleW;
+            var h = (float)_bitmapFont.ScaleH;
             var xPos = 0f;
 
             foreach (var kvp in charactersByPage)
@@ -104,16 +103,16 @@ namespace Graffiti.Core.Text
                 var charCount = kvp.Value.Count;
                 _textQuads[kvp.Key] = new IndexedMesh(charCount * 4, charCount * 6)
                                           {
-                                              Brush = new TextBrush { TextLayer = bitmapFont.PageLayers[kvp.Key], SubBrush = Brush }
+                                              Brush = new TextBrush { TextLayer = _bitmapFont.PageLayers[kvp.Key], SubBrush = Brush }
                                           };
             }
 
-            var vertexIndexCounts = (from i in Enumerable.Range(0, bitmapFont.Pages.Count)
+            var vertexIndexCounts = (from i in Enumerable.Range(0, _bitmapFont.Pages.Count)
                                     select Tuple.Create(0, 0)).ToArray();
 
             foreach (var ch in text)
             {
-                var ci = bitmapFont.Chars[ch];
+                var ci = _bitmapFont.Chars[ch];
 
                 var vertices = _textQuads[ci.Page].Vertices;
                 var indices = _textQuads[ci.Page].Indices;
@@ -227,8 +226,9 @@ namespace Graffiti.Core.Text
 
         public void Render(IRenderer renderer, Matrix parentTransform)
         {
+            var current = Transform.Current;
             for (int i = 0; i < _textQuads.Length; i++)
-                _textQuads[i].Render(renderer, parentTransform * Transform.Current);
+                _textQuads[i].Render(renderer, current);
         }
 
         public IBrush Brush { get; set; }
@@ -237,6 +237,14 @@ namespace Graffiti.Core.Text
         public string Text
         {
             get { return _text; }
+        }
+
+        public void Update(float timeInMilliSeconds)
+        {
+            if (Transform != null)
+                Transform.Update(timeInMilliSeconds);
+            if (Brush != null)
+                Brush.Update(timeInMilliSeconds);
         }
     }
 

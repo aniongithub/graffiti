@@ -33,7 +33,7 @@ namespace Graffiti.Core
         IAnimatable<Matrix> Transform { get; set; }
     }
 
-    public interface IRenderable : IPoseable
+    public interface IRenderable : IPoseable, IUpdateable
     {
         void Render(IRenderer renderer, Matrix parentTransform);
         IBrush Brush { get; set; }

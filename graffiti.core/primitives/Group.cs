@@ -77,10 +77,12 @@ namespace Graffiti.Core.Primitives
             for (int i = 0; i < _children.Count; i++)
             {
                 var child = _children[i];
-                var brush = child.Brush;
-                if (brush != null)
-                    brush.Update(timeInMilliSeconds);
+                var updateable = child as IUpdateable;
+                if (updateable != null)
+                    updateable.Update(timeInMilliSeconds);
             }
+            
+            Transform.Update(timeInMilliSeconds);
         }
     }
 }

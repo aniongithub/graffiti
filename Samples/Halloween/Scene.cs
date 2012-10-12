@@ -36,33 +36,6 @@ namespace Graffiti.Samples.Halloween
             {
                 _scene = new Group
                 {
-                    new Quad(172, 38, 666, 666, -1)
-                    {
-                        Brush = new Brush
-                        {
-                            new Layer
-                            {
-                                Texture = content.Load<Texture2D>("Content/Tree"),
-                                AlphaTestEnable = true,
-                                AlphaFunction = CompareFunction.Greater,
-                                ReferenceAlpha = 128
-                            }
-                        }
-                    },
-
-                    new Quad(0, 451, 844, 310, 0)
-                    {
-                        Brush = new Brush
-                        {
-                            new Layer
-                            {
-                                Texture = content.Load<Texture2D>("Content/Base"),
-                                AlphaTestEnable = true,
-                                AlphaFunction = CompareFunction.Greater,
-                                ReferenceAlpha = 128
-                            }
-                        }
-                    },
                     new Quad(0, 0, 756, 761, -2)
                     {
                         Brush = new Brush
@@ -76,42 +49,47 @@ namespace Graffiti.Samples.Halloween
                             }
                         }
                     },
-                    new Quad(123, 128, 260, 260, 0)
+                    new Quad(172, 77, 666, 666, -1)
                     {
                         Brush = new Brush
                         {
                             new Layer
                             {
-                                BlendState = BlendState.AlphaBlend,
-                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 1 glow mask"),
-                                Color = new Animatable<Color>(t => Color.Lerp(Color.Black, Color.OrangeRed, 
-                                    Functions.Noise(t, 0f, 1f, 1356f, 2.5f))),
-                                Transform = new TransformGroup
-                                            {
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
-                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.05f, 0.1f, 1000f, 2.5f))),
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
-                                            }
-                            },
-                            new Layer
-                            {
-                                BlendState = BlendState.AlphaBlend,
-                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 1"),
-                                AddressU = TextureAddressMode.Clamp,
-                                AddressV = TextureAddressMode.Clamp,
+                                Texture = content.Load<Texture2D>("Content/Tree"),
                                 AlphaTestEnable = true,
-                                ReferenceAlpha = 128,
                                 AlphaFunction = CompareFunction.Greater,
-                                Transform = new TransformGroup
-                                            {
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
-                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.05f, 0.1f, 1000f, 2.5f))),
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
-                                            }
+                                ReferenceAlpha = 128
                             }
                         }
                     },
-                    new Quad(588, 8, 128, 128, 0)
+                    new Quad(0, 490, 844, 310, 0)
+                    {
+                        Brush = new Brush
+                        {
+                            new Layer
+                            {
+                                Texture = content.Load<Texture2D>("Content/Base"),
+                                AlphaTestEnable = true,
+                                AlphaFunction = CompareFunction.Greater,
+                                ReferenceAlpha = 128
+                            }
+                        }
+                    },
+                    new Quad(0, 0, 128, 128, 0f) // Bat
+                    {
+                        Brush = new Brush
+                        {
+                            new Layer
+                            {
+                                Texture = content.Load<Texture2D>("Content/Star"),
+                                Color = (ConstantColor)Color.Black,
+                                BlendState = BlendState.AlphaBlend
+                            }
+                        },
+
+                        Transform = TranslateTransform.Procedural(t => new Vector3(Functions.Noise(t, 0f, 1280, 0f, 10f), Functions.Noise(t, 0f, 800, 435f, 10f), 0f))
+                    },
+                    new Quad(588, 47, 128, 128, 0)
                     {
                         Brush = new Brush
                         {
@@ -152,7 +130,42 @@ namespace Graffiti.Samples.Halloween
                             }
                         }
                     },
-                    new Quad(363, 315, 154, 154, 0)
+                    new Quad(123, 167, 260, 260, 0)
+                    {
+                        Brush = new Brush
+                        {
+                            new Layer
+                            {
+                                BlendState = BlendState.AlphaBlend,
+                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 1 glow mask"),
+                                Color = new Animatable<Color>(t => Color.Lerp(Color.Black, Color.OrangeRed, 
+                                    Functions.Noise(t, 0f, 1f, 1356f, 2.5f))),
+                                Transform = new TransformGroup
+                                            {
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
+                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.05f, 0.1f, 1000f, 2.5f))),
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
+                                            }
+                            },
+                            new Layer
+                            {
+                                BlendState = BlendState.AlphaBlend,
+                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 1"),
+                                AddressU = TextureAddressMode.Clamp,
+                                AddressV = TextureAddressMode.Clamp,
+                                AlphaTestEnable = true,
+                                ReferenceAlpha = 128,
+                                AlphaFunction = CompareFunction.Greater,
+                                Transform = new TransformGroup
+                                            {
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
+                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.05f, 0.1f, 1000f, 2.5f))),
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
+                                            }
+                            }
+                        }
+                    },
+                    new Quad(363, 354, 154, 154, 0)
                     {
                         Brush = new Brush
                         {
@@ -187,7 +200,7 @@ namespace Graffiti.Samples.Halloween
                             }
                         }
                     },
-                    new Quad(243, 80, 164, 164, 0)
+                    new Quad(243, 119, 164, 164, 0)
                     {
                         Brush = new Brush
                         {
@@ -222,7 +235,7 @@ namespace Graffiti.Samples.Halloween
                             }
                         }
                     },
-                    new Quad(667, 418, 170, 170)
+                    new Quad(667, 457, 170, 170)
                     {
                         Brush = new Brush
                         {
@@ -723,7 +736,7 @@ namespace Graffiti.Samples.Halloween
                     
                     #endregion
 
-                    new Quad(706, 624, 600, 137, 0)
+                    new Quad(706, 663, 600, 137, 0)
                     {
                         Brush = new Brush
                         {
@@ -744,7 +757,7 @@ namespace Graffiti.Samples.Halloween
                     },
 
                     // TODO: Replace the linear with noise, perhaps?
-                    new Quad(0, 557, 1280, 137, 0)
+                    new Quad(0, 596, 1280, 137, 0)
                     {
                         Brush = new Brush
                         {
@@ -769,7 +782,7 @@ namespace Graffiti.Samples.Halloween
                         }
                     },
 
-                    new Quad(0, 557, 1280, 205, 0)
+                    new Quad(0, 596, 1280, 205, 0)
                     {
                         Brush = new Brush
                         {
@@ -792,7 +805,7 @@ namespace Graffiti.Samples.Halloween
                                 Transform = TranslateTransform.Procedural(t => new Vector3(Functions.Linear(t, 0.000006f), 0f, 0f))
                             }
                         }
-                    }
+                    },
                 };
             }
 

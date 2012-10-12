@@ -84,5 +84,17 @@ namespace Graffiti.Core.Geometry
                 Array.Resize(ref _vertices, newIndexCount);
             _vertices = new IVertex[newIndexCount];
         }
+
+        #region IUpdateable Members
+
+        public virtual void Update(float timeInMilliSeconds)
+        {
+            if (Transform != null)
+                Transform.Update(timeInMilliSeconds);
+            if (Brush != null)
+                Brush.Update(timeInMilliSeconds);
+        }
+
+        #endregion
     }
 }
