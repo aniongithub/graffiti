@@ -112,6 +112,12 @@
     <Compile Include="..\Graffiti.Core\Animation\AnimatableConstants.cs">
       <Link>Animation\AnimatableConstants.cs</Link>
     </Compile>
+    <Compile Include="..\Graffiti.Core\Animation\Constants\ConstantColor.cs">
+      <Link>Animation\Constants\ConstantColor.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Animation\Constants\ConstantTransform.cs">
+      <Link>Animation\Constants\ConstantTransform.cs</Link>
+    </Compile>
     <Compile Include="..\Graffiti.Core\Animation\IAnimatable.cs">
       <Link>Animation\IAnimatable.cs</Link>
     </Compile>
@@ -154,6 +160,9 @@
     <Compile Include="..\Graffiti.Core\Extensions\ConversionExtensions.cs">
       <Link>Extensions\ConversionExtensions.cs</Link>
     </Compile>
+    <Compile Include="..\Graffiti.Core\Extensions\GraphicsDeviceManagerExtensions.cs">
+      <Link>Extensions\GraphicsDeviceManagerExtensions.cs</Link>
+    </Compile>
     <Compile Include="..\Graffiti.Core\Geometry\AnimatedIndexedMesh.cs">
       <Link>Geometry\AnimatedIndexedMesh.cs</Link>
     </Compile>
@@ -187,6 +196,9 @@
     <Compile Include="..\Graffiti.Core\Math\ScaleTransform.cs">
       <Link>Math\ScaleTransform.cs</Link>
     </Compile>
+    <Compile Include="..\Graffiti.Core\Math\ShearTransform.cs">
+      <Link>Math\ShearTransform.cs</Link>
+    </Compile>
     <Compile Include="..\Graffiti.Core\Math\Transform.cs">
       <Link>Math\Transform.cs</Link>
     </Compile>
@@ -198,6 +210,9 @@
     </Compile>
     <Compile Include="..\Graffiti.Core\Math\TranslateTransform.cs">
       <Link>Math\TranslateTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Primitives\Group.cs">
+      <Link>Primitives\Group.cs</Link>
     </Compile>
     <Compile Include="..\Graffiti.Core\Primitives\Quad.cs">
       <Link>Primitives\Quad.cs</Link>

@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Core.WindowsStore.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.WindowsStore.MonoGame.Quake3Shader", "Graffiti.Samples.WindowsStore.MonoGame.Quake3Shader\Graffiti.Samples.WindowsStore.MonoGame.Quake3Shader.csproj", "{EE075F2F-F45F-44A7-885E-A34774D2F720}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Quake3Shader", "Quake3Shader", "{F39D04D5-0E06-4B55-8B62-80A6DBE9B11F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Halloween", "Halloween", "{E0A7B3E8-B6EB-47AF-ADE2-003D0D631439}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.WindowsStore.MonoGame.Halloween", "Graffiti.Samples.WindowsStore.MonoGame.Halloween\Graffiti.Samples.WindowsStore.MonoGame.Halloween.csproj", "{EF7DB4D8-179E-411D-A523-15DB0CADD47C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,11 +83,37 @@ Global
 		{EE075F2F-F45F-44A7-885E-A34774D2F720}.Release|x86.ActiveCfg = Release|x86
 		{EE075F2F-F45F-44A7-885E-A34774D2F720}.Release|x86.Build.0 = Release|x86
 		{EE075F2F-F45F-44A7-885E-A34774D2F720}.Release|x86.Deploy.0 = Release|x86
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Debug|ARM.ActiveCfg = Debug|ARM
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Debug|ARM.Build.0 = Debug|ARM
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Debug|ARM.Deploy.0 = Debug|ARM
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Debug|x64.ActiveCfg = Debug|x64
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Debug|x64.Build.0 = Debug|x64
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Debug|x64.Deploy.0 = Debug|x64
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Debug|x86.ActiveCfg = Debug|x86
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Debug|x86.Build.0 = Debug|x86
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Debug|x86.Deploy.0 = Debug|x86
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Release|ARM.ActiveCfg = Release|ARM
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Release|ARM.Build.0 = Release|ARM
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Release|ARM.Deploy.0 = Release|ARM
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Release|x64.ActiveCfg = Release|x64
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Release|x64.Build.0 = Release|x64
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Release|x64.Deploy.0 = Release|x64
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Release|x86.ActiveCfg = Release|x86
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Release|x86.Build.0 = Release|x86
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0518563C-ACCA-4A14-8C5D-DDBE93E2605F} = {8661DCE0-833E-4E3F-AAE3-6EFDE37F22E4}
+		{EE075F2F-F45F-44A7-885E-A34774D2F720} = {F39D04D5-0E06-4B55-8B62-80A6DBE9B11F}
+		{EF7DB4D8-179E-411D-A523-15DB0CADD47C} = {E0A7B3E8-B6EB-47AF-ADE2-003D0D631439}
 	EndGlobalSection
 EndGlobal

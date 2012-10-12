@@ -41,11 +41,6 @@ namespace Graffiti.Samples.Halloween
         public Game()
         {
             graphics = new GraphicsDeviceManager(this);
-            
-            //TODO: Test code - remove!
-            graphics.PreferredBackBufferWidth = 1280;
-            graphics.PreferredBackBufferHeight = 800;
-            graphics.ApplyChanges();
         }
 
         protected override void Initialize()
