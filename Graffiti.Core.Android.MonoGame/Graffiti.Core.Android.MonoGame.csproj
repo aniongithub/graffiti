@@ -14,24 +14,24 @@
     <AssemblyName>Graffiti.Core.Android.MonoGame</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
+    <DebugSymbols>True</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>False</Optimize>
     <OutputPath>bin\Debug</OutputPath>
     <DefineConstants>DEBUG;ANDROID</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
+    <ConsolePause>False</ConsolePause>
     <AndroidLinkMode>None</AndroidLinkMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>True</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
-    <ConsolePause>false</ConsolePause>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <ConsolePause>False</ConsolePause>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
@@ -48,6 +48,12 @@
     </Compile>
     <Compile Include="..\Graffiti.Core\Animation\AnimatableConstants.cs">
       <Link>Animation\AnimatableConstants.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Animation\Constants\ConstantColor.cs">
+      <Link>Animation\Constants\ConstantColor.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Animation\Constants\ConstantTransform.cs">
+      <Link>Animation\Constants\ConstantTransform.cs</Link>
     </Compile>
     <Compile Include="..\Graffiti.Core\Animation\IAnimatable.cs">
       <Link>Animation\IAnimatable.cs</Link>
@@ -85,8 +91,14 @@
     <Compile Include="..\Graffiti.Core\Collections\ArrayList.cs">
       <Link>Collections\ArrayList.cs</Link>
     </Compile>
+    <Compile Include="..\Graffiti.Core\Extensions\ContentExtensions.cs">
+      <Link>Extensions\ContentExtensions.cs</Link>
+    </Compile>
     <Compile Include="..\Graffiti.Core\Extensions\ConversionExtensions.cs">
       <Link>Extensions\ConversionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Extensions\GraphicsDeviceManagerExtensions.cs">
+      <Link>Extensions\GraphicsDeviceManagerExtensions.cs</Link>
     </Compile>
     <Compile Include="..\Graffiti.Core\Geometry\AnimatedIndexedMesh.cs">
       <Link>Geometry\AnimatedIndexedMesh.cs</Link>
@@ -121,6 +133,9 @@
     <Compile Include="..\Graffiti.Core\Math\ScaleTransform.cs">
       <Link>Math\ScaleTransform.cs</Link>
     </Compile>
+    <Compile Include="..\Graffiti.Core\Math\ShearTransform.cs">
+      <Link>Math\ShearTransform.cs</Link>
+    </Compile>
     <Compile Include="..\Graffiti.Core\Math\Transform.cs">
       <Link>Math\Transform.cs</Link>
     </Compile>
@@ -132,6 +147,9 @@
     </Compile>
     <Compile Include="..\Graffiti.Core\Math\TranslateTransform.cs">
       <Link>Math\TranslateTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.Core\Primitives\Group.cs">
+      <Link>Primitives\Group.cs</Link>
     </Compile>
     <Compile Include="..\Graffiti.Core\Primitives\Quad.cs">
       <Link>Primitives\Quad.cs</Link>
@@ -182,9 +200,6 @@
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="..\Graffiti.Core\Extensions\ContentExtensions.cs">
-      <Link>Extensions\ContentExtensions.cs</Link>
-    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

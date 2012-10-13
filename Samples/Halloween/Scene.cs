@@ -75,20 +75,20 @@ namespace Graffiti.Samples.Halloween
                             }
                         }
                     },
-                    new Quad(0, 0, 128, 128, 0f) // Bat
-                    {
-                        Brush = new Brush
-                        {
-                            new Layer
-                            {
-                                Texture = content.Load<Texture2D>("Content/Star"),
-                                Color = (ConstantColor)Color.Black,
-                                BlendState = BlendState.AlphaBlend
-                            }
-                        },
-
-                        Transform = TranslateTransform.Procedural(t => new Vector3(Functions.Noise(t, 0f, 1280, 0f, 10f), Functions.Noise(t, 0f, 800, 435f, 10f), 0f))
-                    },
+//                    new Quad(0, 0, 128, 128, 0f) // Bat
+//                    {
+//                        Brush = new Brush
+//                        {
+//                            new Layer
+//                            {
+//                                Texture = content.Load<Texture2D>("Content/Star"),
+//                                Color = (ConstantColor)Color.Black,
+//                                BlendState = BlendState.AlphaBlend
+//                            }
+//                        },
+//
+//                        Transform = TranslateTransform.Procedural(t => new Vector3(Functions.Noise(t, 0f, 1280, 0f, 10f), Functions.Noise(t, 0f, 800, 435f, 10f), 0f))
+//                    },
                     new Quad(588, 47, 128, 128, 0)
                     {
                         Brush = new Brush

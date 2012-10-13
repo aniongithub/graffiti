@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D601022C-B6B3-4FE2-B78D-698F709114AD}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Graffiti.Samples.Android.MonoGame.Halloween</RootNamespace>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AssemblyName>Graffiti.Samples.Android.MonoGame.Halloween</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <AndroidLinkMode>None</AndroidLinkMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="OpenTK" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\Halloween\Brushes.cs">
+      <Link>Brushes.cs</Link>
+    </Compile>
+    <Compile Include="..\Halloween\Game.cs">
+      <Link>Game.cs</Link>
+    </Compile>
+    <Compile Include="..\Halloween\Scene.cs">
+      <Link>Scene.cs</Link>
+    </Compile>
+    <Compile Include="Activity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Icon.png" />
+    <AndroidResource Include="Resources\drawable\Splash.png" />
+    <AndroidResource Include="Resources\values\Styles.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\MonoGame\MonoGame.Framework\MonoGame.Framework.Android.csproj">
+      <Project>{BA9476CF-99BA-4D03-92F2-73D2C5E58883}</Project>
+      <Name>MonoGame.Framework.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Graffiti.Core.Android.MonoGame\Graffiti.Core.Android.MonoGame.csproj">
+      <Project>{5B5A921D-E451-4AAC-8297-32286E8885B3}</Project>
+      <Name>Graffiti.Core.Android.MonoGame</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MonoGame\ThirdParty\Lidgren.Network\Lidgren.Network.Android.csproj">
+      <Project>{565129E0-4EE5-4F6F-B403-C3484C9740BE}</Project>
+      <Name>Lidgren.Network.Android</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\Assets\Halloween\Base.png">
+      <Link>Content\Base.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Grass.png">
+      <Link>Content\Grass.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Jack O%27Lantern 1 glow mask.png">
+      <Link>Content\Jack O%252527Lantern 1 glow mask.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Jack O%27Lantern 1.png">
+      <Link>Content\Jack O%252527Lantern 1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Jack O%27Lantern 2 glow mask.png">
+      <Link>Content\Jack O%252527Lantern 2 glow mask.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Jack O%27Lantern 2.png">
+      <Link>Content\Jack O%252527Lantern 2.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Jack O%27Lantern 3 glow mask.png">
+      <Link>Content\Jack O%252527Lantern 3 glow mask.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Jack O%27Lantern 3.png">
+      <Link>Content\Jack O%252527Lantern 3.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Jack O%27Lantern 4 glow mask.png">
+      <Link>Content\Jack O%252527Lantern 4 glow mask.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Jack O%27Lantern 4.png">
+      <Link>Content\Jack O%252527Lantern 4.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Mists1.png">
+      <Link>Content\Mists1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Mists2.png">
+      <Link>Content\Mists2.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Mists3.png">
+      <Link>Content\Mists3.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Mists4.png">
+      <Link>Content\Mists4.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Moon.png">
+      <Link>Content\Moon.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Owl.png">
+      <Link>Content\Owl.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Owl-Eyelids.png">
+      <Link>Content\Owl-Eyelids.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Owl-Eyes.png">
+      <Link>Content\Owl-Eyes.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Owl-Eyes-White.png">
+      <Link>Content\Owl-Eyes-White.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Owl-EyeWhites.png">
+      <Link>Content\Owl-EyeWhites.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Star.png">
+      <Link>Content\Star.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Tree.png">
+      <Link>Content\Tree.png</Link>
+    </AndroidAsset>
+  </ItemGroup>
+</Project>

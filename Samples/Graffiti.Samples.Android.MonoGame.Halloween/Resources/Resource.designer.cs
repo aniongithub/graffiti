@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Graffiti.Samples.Android.MonoGame.Quake3Shader
+namespace Graffiti.Samples.Android.MonoGame.Halloween
 {
 	
 	
