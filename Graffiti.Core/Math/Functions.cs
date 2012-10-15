@@ -18,6 +18,7 @@
 using Graffiti.Core.Animation;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace Graffiti.Math
 {
@@ -93,6 +94,38 @@ namespace Graffiti.Math
             if (b > NoiseTableSize - 1)
                 b = 0;
             return (amplitude * CosineInterpolate(NoiseProfile[a], NoiseProfile[b], lambda)) + baseline;
+        }
+
+        [StructLayout(LayoutKind.Explicit)]
+        private struct IntFloat
+        {
+            [FieldOffset(0)]
+            public int IntValue;
+            [FieldOffset(0)]
+            public float FloatValue;
+        }
+
+        private static readonly Random _random = new Random();
+        private static readonly int _randomSeed = _random.Next(32);
+        private static float Noise(float x)
+        {
+            var intFloat = new IntFloat { FloatValue = x };
+            int xInt = intFloat.IntValue;
+            x = (xInt << 13) ^ xInt;
+            return 0.5f + (1f - ((xInt * (xInt * xInt * 15731 + 789221) + 1376312589) & 0x7fffffff)
+                       / 1073741824f) / 2f;
+        }
+
+        public static float Noise2(float timeMilliSeconds, float baseline, float amplitude, float phase, float spacing = 2000f)
+        {
+            var time = (timeMilliSeconds + phase) / spacing;
+            var a = (int)System.Math.Floor(time);
+            var b = a + 1;
+            var lambda = time - a;
+
+            var aValue = Noise(a);
+            var bValue = Noise(b);
+            return baseline + amplitude * CosineInterpolate(aValue, bValue, lambda);
         }
     }
 }
