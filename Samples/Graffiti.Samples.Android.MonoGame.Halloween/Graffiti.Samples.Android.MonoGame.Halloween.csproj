@@ -93,28 +93,28 @@
       <Link>Content\Grass.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\Assets\Halloween\Jack O%27Lantern 1 glow mask.png">
-      <Link>Content\Jack O%25252527Lantern 1 glow mask.png</Link>
+      <Link>Content\Jack O%27Lantern 1 glow mask.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\Assets\Halloween\Jack O%27Lantern 1.png">
-      <Link>Content\Jack O%25252527Lantern 1.png</Link>
+      <Link>Content\Jack O%27Lantern 1.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\Assets\Halloween\Jack O%27Lantern 2 glow mask.png">
-      <Link>Content\Jack O%25252527Lantern 2 glow mask.png</Link>
+      <Link>Content\Jack O%27Lantern 2 glow mask.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\Assets\Halloween\Jack O%27Lantern 2.png">
-      <Link>Content\Jack O%25252527Lantern 2.png</Link>
+      <Link>Content\Jack O%27Lantern 2.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\Assets\Halloween\Jack O%27Lantern 3 glow mask.png">
-      <Link>Content\Jack O%25252527Lantern 3 glow mask.png</Link>
+      <Link>Content\Jack O%27Lantern 3 glow mask.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\Assets\Halloween\Jack O%27Lantern 3.png">
-      <Link>Content\Jack O%25252527Lantern 3.png</Link>
+      <Link>Content\Jack O%27Lantern 3.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\Assets\Halloween\Jack O%27Lantern 4 glow mask.png">
-      <Link>Content\Jack O%25252527Lantern 4 glow mask.png</Link>
+      <Link>Content\Jack O%27Lantern 4 glow mask.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\Assets\Halloween\Jack O%27Lantern 4.png">
-      <Link>Content\Jack O%25252527Lantern 4.png</Link>
+      <Link>Content\Jack O%27Lantern 4.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\Assets\Halloween\Mists1.png">
       <Link>Content\Mists1.png</Link>
@@ -151,6 +151,15 @@
     </AndroidAsset>
     <AndroidAsset Include="..\Assets\Halloween\Tree.png">
       <Link>Content\Tree.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Bat body.png">
+      <Link>Content\Bat body.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Bat left wing.png">
+      <Link>Content\Bat left wing.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\Assets\Halloween\Bat right wing.png">
+      <Link>Content\Bat right wing.png</Link>
     </AndroidAsset>
   </ItemGroup>
 </Project>
