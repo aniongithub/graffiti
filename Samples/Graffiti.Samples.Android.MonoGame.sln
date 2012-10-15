@@ -51,7 +51,7 @@ Global
 		{D601022C-B6B3-4FE2-B78D-698F709114AD} = {DB900568-CE0B-469A-B13C-FEFDDADCE360}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Graffiti.Samples.Android.MonoGame.Quake3Shader\Graffiti.Samples.Android.MonoGame.Quake3Shader.csproj
+		StartupItem = Graffiti.Samples.Android.MonoGame.Halloween\Graffiti.Samples.Android.MonoGame.Halloween.csproj
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
 		$1.DirectoryNamespaceAssociation = None

@@ -75,20 +75,53 @@ namespace Graffiti.Samples.Halloween
                             }
                         }
                     },
-//                    new Quad(0, 0, 128, 128, 0f) // Bat
-//                    {
-//                        Brush = new Brush
-//                        {
-//                            new Layer
-//                            {
-//                                Texture = content.Load<Texture2D>("Content/Star"),
-//                                Color = (ConstantColor)Color.Black,
-//                                BlendState = BlendState.AlphaBlend
-//                            }
-//                        },
-//
-//                        Transform = TranslateTransform.Procedural(t => new Vector3(Functions.Noise(t, 0f, 1280, 0f, 10f), Functions.Noise(t, 0f, 800, 435f, 10f), 0f))
-//                    },
+                    new Quad(0, 0, 128, 128, 0f) // Bat
+                    {
+                        Brush = new Brush
+                        {
+                            new Layer
+                            {
+                                Texture = content.Load<Texture2D>("Content/Bat body"),
+                                AlphaTestEnable = true,
+                                AlphaFunction = CompareFunction.Greater,
+                                ReferenceAlpha = 128,
+                                Transform = TranslateTransform.Procedural(t => new Vector3(0f, Functions.Sine(t, -0.1f, 0.2f, 0f, 1f), 0f))
+                            },
+                            new Layer
+                            {
+                                Texture = content.Load<Texture2D>("Content/Bat right wing"),
+                                AddressU = TextureAddressMode.Clamp,
+                                AddressV = TextureAddressMode.Clamp,
+                                AlphaTestEnable = true,
+                                AlphaFunction = CompareFunction.Greater,
+                                ReferenceAlpha = 128,
+                                Transform = new TransformGroup
+                                {
+                                    TranslateTransform.Procedural(t => new Vector3(0f, Functions.Sine(t, -0.1f, 0.2f, 0f, 1f), 0f)),
+                                    (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.47f, -0.558f, 0f)),
+                                    RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.3f, 0.6f, 0f, 0.5f))),
+                                    (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.47f, 0.558f, 0f))
+                                }
+                            },
+                            new Layer
+                            {
+                                Texture = content.Load<Texture2D>("Content/Bat left wing"),
+                                AddressU = TextureAddressMode.Clamp,
+                                AddressV = TextureAddressMode.Clamp,
+                                AlphaTestEnable = true,
+                                AlphaFunction = CompareFunction.Greater,
+                                ReferenceAlpha = 128,
+                                Transform = new TransformGroup
+                                {
+                                    TranslateTransform.Procedural(t => new Vector3(0f, Functions.Sine(t, -0.1f, 0.2f, 0f, 1f), 0f)),
+                                    (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.492f, -0.558f, 0f)),
+                                    RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, -Functions.Sine(t, -0.3f, 0.6f, 0f, 0.5f))),
+                                    (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.492f, 0.558f, 0f))
+                                }
+                            },
+                        },
+                        Transform = TranslateTransform.Procedural(t => new Vector3(Functions.Noise(t, 0f, 1280, 3421f, 50f), Functions.Noise(t, 0f, 800, 435f, 50f), 0f))
+                    },
                     new Quad(588, 47, 128, 128, 0)
                     {
                         Brush = new Brush

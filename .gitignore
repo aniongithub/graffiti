@@ -8,3 +8,4 @@ TestResults
 *.suo
 *.userprefs
 .DS_Store
+/Samples/Graffiti.Samples.Android.MonoGame.Halloween/*.apk

@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Halloween", "Halloween", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.WindowsStore.MonoGame.Halloween", "Graffiti.Samples.WindowsStore.MonoGame.Halloween\Graffiti.Samples.WindowsStore.MonoGame.Halloween.csproj", "{EF7DB4D8-179E-411D-A523-15DB0CADD47C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.WindowsStore.MonoGame.Halloween.BrushComposer", "Graffiti.Samples.WindowsStore.MonoGame.Halloween.BrushComposer\Graffiti.Samples.WindowsStore.MonoGame.Halloween.BrushComposer.csproj", "{95EBA021-D16C-42A6-B3AA-449722B054E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +109,30 @@ Global
 		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Release|x86.ActiveCfg = Release|x86
 		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Release|x86.Build.0 = Release|x86
 		{EF7DB4D8-179E-411D-A523-15DB0CADD47C}.Release|x86.Deploy.0 = Release|x86
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Debug|ARM.ActiveCfg = Debug|ARM
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Debug|ARM.Build.0 = Debug|ARM
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Debug|ARM.Deploy.0 = Debug|ARM
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Debug|x64.ActiveCfg = Debug|x64
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Debug|x64.Build.0 = Debug|x64
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Debug|x64.Deploy.0 = Debug|x64
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Debug|x86.ActiveCfg = Debug|x86
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Debug|x86.Build.0 = Debug|x86
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Debug|x86.Deploy.0 = Debug|x86
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Release|ARM.ActiveCfg = Release|ARM
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Release|ARM.Build.0 = Release|ARM
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Release|ARM.Deploy.0 = Release|ARM
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Release|x64.ActiveCfg = Release|x64
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Release|x64.Build.0 = Release|x64
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Release|x64.Deploy.0 = Release|x64
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Release|x86.ActiveCfg = Release|x86
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Release|x86.Build.0 = Release|x86
+		{95EBA021-D16C-42A6-B3AA-449722B054E9}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,5 +141,6 @@ Global
 		{0518563C-ACCA-4A14-8C5D-DDBE93E2605F} = {8661DCE0-833E-4E3F-AAE3-6EFDE37F22E4}
 		{EE075F2F-F45F-44A7-885E-A34774D2F720} = {F39D04D5-0E06-4B55-8B62-80A6DBE9B11F}
 		{EF7DB4D8-179E-411D-A523-15DB0CADD47C} = {E0A7B3E8-B6EB-47AF-ADE2-003D0D631439}
+		{95EBA021-D16C-42A6-B3AA-449722B054E9} = {E0A7B3E8-B6EB-47AF-ADE2-003D0D631439}
 	EndGlobalSection
 EndGlobal

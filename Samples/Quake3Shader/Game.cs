@@ -21,6 +21,7 @@ using Graffiti.Core.Math;
 using Graffiti.Core.Primitives;
 using Graffiti.Core.Rendering;
 using Graffiti.Math;
+using Graffiti.Core.Extensions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -41,7 +42,7 @@ namespace Graffiti.Samples.Quake3Shader
 
         protected override void Initialize()
         {
-            GraphicsDevice.Viewport = new Viewport(0, 0, 800, 480);
+            GraphicsDevice.Viewport = graphics.AdaptViewport(256, 256);
 
             base.Initialize();
 

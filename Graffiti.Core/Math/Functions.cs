@@ -26,6 +26,14 @@ namespace Graffiti.Math
         private const int NoiseTableSize = 512; // Only powers of two!
         private static readonly float[] NoiseProfile;
 
+        private static float CosineInterpolate(float y1, float y2, double mu)
+        {
+            float mu2;
+
+            mu2 = (1 - (float)System.Math.Cos(mu * System.Math.PI)) / 2;
+            return (y1 * (1 - mu2) + y2 * mu2);
+        }
+
         static Functions()
         {
             var random = new Random();
@@ -43,7 +51,7 @@ namespace Graffiti.Math
                 if (next >= NoiseTableSize)
                     next = 0;
                 var lambda = (i % 32) / (float)32;
-                NoiseProfile[i] = ((1f - lambda) * NoiseProfile[prev]) + (lambda * NoiseProfile[next]);
+                NoiseProfile[i] = CosineInterpolate(NoiseProfile[prev], NoiseProfile[next], lambda);
             }
         }
 
@@ -78,12 +86,13 @@ namespace Graffiti.Math
 
         public static float Noise(float timeMilliSeconds, float baseline, float amplitude, float phase, float frequency)
         {
-            float value = Value(timeMilliSeconds, phase, frequency);
-            var a = (int)System.Math.Floor(value * NoiseTableSize);
-            var b = (int)System.Math.Ceiling(value * NoiseTableSize);
-            if (b >= NoiseTableSize)
-                b = NoiseTableSize - 1;
-            return (amplitude * ((1f - value) * NoiseProfile[a] + value * NoiseProfile[b])) + baseline;
+            float value = Value(timeMilliSeconds, phase, frequency) * NoiseTableSize;
+            var a = (int)System.Math.Floor(value);
+            var b = (int)System.Math.Ceiling(value);
+            float lambda = value - a;
+            if (b > NoiseTableSize - 1)
+                b = 0;
+            return (amplitude * CosineInterpolate(NoiseProfile[a], NoiseProfile[b], lambda)) + baseline;
         }
     }
 }
