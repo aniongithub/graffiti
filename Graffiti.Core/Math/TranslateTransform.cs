@@ -18,12 +18,14 @@
 using System;
 using Graffiti.Core.Animation;
 using Microsoft.Xna.Framework;
+using Graffiti.Math;
 
 namespace Graffiti.Core.Math
 {
-    public sealed class TranslateTransform: Transform
+    public class TranslateTransform<T> : Transform
+        where T : IInterpolator<Vector3>, new()
     {
-        private static readonly Vector3Interpolator _interpolator = new Vector3Interpolator();
+        protected static readonly T _interpolator = new T();
         
         private Matrix _current;
         public override Matrix Current
@@ -44,5 +46,13 @@ namespace Graffiti.Core.Math
         {
             return new Animatable<Matrix>(t => Matrix.CreateTranslation(function(t)));
         }
+    }
+    
+    public sealed class TranslateTransform: TranslateTransform<Vector3Interpolator>
+    {
+    }
+
+    public sealed class DiscreteTranslateTransform : TranslateTransform<DiscreteInterpolator<Vector3>>
+    { 
     }
 }

@@ -21,6 +21,20 @@ using Microsoft.Xna.Framework;
 
 namespace Graffiti.Core.Math
 {
+    public sealed class DiscreteInterpolator<T> : IInterpolator<T>
+    {
+        #region IInterpolator<T> Members
+
+        public T Lerp(T value1, T value2, float lambda)
+        {
+            if (lambda >= 0.99f)
+                return value2;
+            return value1;
+        }
+
+        #endregion
+    }
+    
     public sealed class Vector3Interpolator : IInterpolator<Vector3>
     {
         #region IInterpolator<Vector3> Members

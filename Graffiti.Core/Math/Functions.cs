@@ -79,6 +79,13 @@ namespace Graffiti.Math
             return amplitude * Value(timeMilliSeconds, phase, frequency) + baseline;
         }
 
+        public static float Sawtooth(float timeMilliSeconds, float baseline, float amplitude, float phase, float frequency, float dutyCycle)
+        {
+            var value = Value(timeMilliSeconds, phase, frequency);
+            value = value < dutyCycle ? value : 0;
+            return amplitude * value + baseline;
+        }
+
         public static float Square(float time, float baseline, float amplitude, float phase, float frequency, float dutyCycle)
         {
             var value = Value(time, phase, frequency) < dutyCycle ? 1 : 0;
