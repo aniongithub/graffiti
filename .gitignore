@@ -9,3 +9,5 @@ TestResults
 *.userprefs
 .DS_Store
 /Samples/Graffiti.Samples.Android.MonoGame.Halloween/*.apk
+/Samples/Graffiti.Samples.Windows.XNA.Halloween/*.cachefile
+/Samples/Graffiti.Samples.Windows.XNA.Quake3Shader/*.cachefile
