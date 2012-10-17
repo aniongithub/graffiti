@@ -144,22 +144,31 @@ namespace Graffiti.Samples.Halloween
                                 Transform = TranslateTransform.Procedural(t => new Vector3(Functions.Noise(t, -0.03f, 0.06f, 0f, 10f),
                                     Functions.Noise(t, -0.03f, 0.06f, 783f, 10f), 0f))
                             },
-                            // TODO: later!
-                            //new Layer
-                            //{
-                            //    Texture = Content.Load<Texture2D>("Content/Owl-Eyelids"),
-                            //    AddressU = TextureAddressMode.Mirror,
-                            //    AddressV = TextureAddressMode.Mirror,
-                            //    BlendState = BlendState.AlphaBlend,
-                            //    Transform = Animatable<Matrix>.Make(t => Matrix.CreateScale(new Vector3(1f, 0.0625f, 1f)))
-                            //},
                             new Layer
                             {
-                                Texture = content.Load<Texture2D>("Content/Owl"),
+                                Texture = content.Load<Texture2D>("Content/OwlSpriteSheet"),
                                 BlendState = BlendState.AlphaBlend,
                                 AlphaTestEnable = true,
                                 ReferenceAlpha = 128,
-                                AlphaFunction = CompareFunction.Greater
+                                AlphaFunction = CompareFunction.Greater,
+                                Transform = new TransformGroup
+                                {
+                                    (ConstantTransform)Matrix.CreateScale(new Vector3(0.5f, 0.5f, 1f)),
+                                    new DiscreteTranslateTransform
+                                    {
+                                        Mode = Mode.Loop,
+                                        Keyframes = new Keyframes<Vector3>
+                                        {
+                                            { 0f, new Vector3(0f, 0f, 0f) },
+                                            { 3000f, new Vector3(0.5f, 0f, 0f) },
+                                            { 3050f, new Vector3(0.0f, 0.5f, 0f) },
+                                            { 3100f, new Vector3(0.5f, 0.5f, 0f) },
+                                            { 3150f, new Vector3(0.5f, 0.5f, 0f) },
+                                            { 3200f, new Vector3(0.0f, 0.5f, 0f) },
+                                            { 3250f, new Vector3(0.5f, 0f, 0f) },
+                                        }
+                                    }
+                                }
                             }
                         }
                     },

@@ -238,6 +238,10 @@
       <Link>Content\Owl.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\Assets\Halloween\OwlSpriteSheet.png">
+      <Link>Content\OwlSpriteSheet.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\Assets\Halloween\Star.png">
       <Link>Content\Star.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
