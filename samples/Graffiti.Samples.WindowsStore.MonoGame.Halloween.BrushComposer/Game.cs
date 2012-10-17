@@ -56,46 +56,7 @@ namespace Graffiti.Samples.WindowsStore.MonoGame.Halloween.BrushComposer
 
             var brush = new Brush
             {
-                new Layer
-                {
-                    Texture = Content.Load<Texture2D>("Content/Bat body"),
-                    AlphaTestEnable = true,
-                    AlphaFunction = CompareFunction.Greater,
-                    ReferenceAlpha = 128,
-                    Transform = TranslateTransform.Procedural(t => new Vector3(0f, Functions.Sine(t, -0.1f, 0.2f, 0f, 1f), 0f))
-                },
-                new Layer
-                {
-                    Texture = Content.Load<Texture2D>("Content/Bat right wing"),
-                    AddressU = TextureAddressMode.Clamp,
-                    AddressV = TextureAddressMode.Clamp,
-                    AlphaTestEnable = true,
-                    AlphaFunction = CompareFunction.Greater,
-                    ReferenceAlpha = 128,
-                    Transform = new TransformGroup
-                    {
-                        TranslateTransform.Procedural(t => new Vector3(0f, Functions.Sine(t, -0.1f, 0.2f, 0f, 1f), 0f)),
-                        (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.47f, -0.558f, 0f)),
-                        RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.3f, 0.6f, 0f, 0.5f))),
-                        (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.47f, 0.558f, 0f))
-                    }
-                },
-                new Layer
-                {
-                    Texture = Content.Load<Texture2D>("Content/Bat left wing"),
-                    AddressU = TextureAddressMode.Clamp,
-                    AddressV = TextureAddressMode.Clamp,
-                    AlphaTestEnable = true,
-                    AlphaFunction = CompareFunction.Greater,
-                    ReferenceAlpha = 128,
-                    Transform = new TransformGroup
-                    {
-                        TranslateTransform.Procedural(t => new Vector3(0f, Functions.Sine(t, -0.1f, 0.2f, 0f, 1f), 0f)),
-                        (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.492f, -0.558f, 0f)),
-                        RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, -Functions.Sine(t, -0.3f, 0.6f, 0f, 0.5f))),
-                        (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.492f, 0.558f, 0f))
-                    }
-                }
+                // Compose brushes here
             };
 
             _quad = new Quad
