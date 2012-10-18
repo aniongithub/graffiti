@@ -141,8 +141,18 @@ namespace Graffiti.Samples.Halloween
                                 AlphaTestEnable = true,
                                 ReferenceAlpha = 128,
                                 AlphaFunction = CompareFunction.Greater,
-                                Transform = TranslateTransform.Procedural(t => new Vector3(Functions.Noise(t, -0.03f, 0.06f, 0f, 10f),
-                                    Functions.Noise(t, -0.03f, 0.06f, 783f, 10f), 0f))
+                                Transform = TranslateTransform.Procedural(t => 
+                                {
+                                    
+                                    var direction = new Vector3(652, 55, 0) - 
+                                        new Vector3(
+                                        Functions.Noise(t, 0f, 1280, 3421f, 50f),
+                                        Functions.Noise(t, 0f, 800, 435f, 50f),
+                                        0f);
+                                    direction.Normalize();
+
+                                    return new Vector3(-0.020f + direction.X * 0.040f, -0.020f + direction.Y * 0.040f, 0f);
+                                })
                             },
                             new Layer
                             {
