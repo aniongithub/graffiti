@@ -182,146 +182,6 @@ namespace Graffiti.Samples.Halloween
                             }
                         }
                     },
-                    new Quad(123, 167, 260, 260, 0)
-                    {
-                        Brush = new Brush
-                        {
-                            new Layer
-                            {
-                                BlendState = BlendState.AlphaBlend,
-                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 1 glow mask"),
-                                Color = new Animatable<Color>(t => Color.Lerp(Color.Black, Color.OrangeRed, 
-                                    Functions.Noise(t, 0f, 1f, 1356f, 2.5f))),
-                                Transform = new TransformGroup
-                                            {
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
-                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.05f, 0.1f, 1000f, 2.5f))),
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
-                                            }
-                            },
-                            new Layer
-                            {
-                                BlendState = BlendState.AlphaBlend,
-                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 1"),
-                                AddressU = TextureAddressMode.Clamp,
-                                AddressV = TextureAddressMode.Clamp,
-                                AlphaTestEnable = true,
-                                ReferenceAlpha = 128,
-                                AlphaFunction = CompareFunction.Greater,
-                                Transform = new TransformGroup
-                                            {
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
-                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.05f, 0.1f, 1000f, 2.5f))),
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
-                                            }
-                            }
-                        }
-                    },
-                    new Quad(363, 354, 154, 154, 0)
-                    {
-                        Brush = new Brush
-                        {
-                            new Layer
-                            {
-                                BlendState = BlendState.AlphaBlend,
-                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 2 glow mask"),
-                                Color = new Animatable<Color>(t => Color.Lerp(Color.Black, Color.OrangeRed, 
-                                    Functions.Noise(t, 0f, 1f, 821f, 1.5f))),
-                                Transform = new TransformGroup
-                                            {
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
-                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.025f, 0.05f, 650f, 2.5f))),
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
-                                            }
-                            },
-                            new Layer
-                            {
-                                BlendState = BlendState.AlphaBlend,
-                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 2"),
-                                AddressU = TextureAddressMode.Clamp,
-                                AddressV = TextureAddressMode.Clamp,
-                                AlphaTestEnable = true,
-                                ReferenceAlpha = 128,
-                                AlphaFunction = CompareFunction.Greater,
-                                Transform = new TransformGroup
-                                            {
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
-                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.025f, 0.05f, 650f, 2.5f))),
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
-                                            }
-                            }
-                        }
-                    },
-                    new Quad(243, 119, 164, 164, 0)
-                    {
-                        Brush = new Brush
-                        {
-                            new Layer
-                            {
-                                BlendState = BlendState.AlphaBlend,
-                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 3 glow mask"),
-                                Color = new Animatable<Color>(t => Color.Lerp(Color.Black, Color.OrangeRed, 
-                                    Functions.Noise(t, 0f, 1f, 10f, 2f))),
-                                Transform = new TransformGroup
-                                            {
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
-                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.03f, 0.06f, 1235f, 2.5f))),
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
-                                            }
-                            },
-                            new Layer
-                            {
-                                BlendState = BlendState.AlphaBlend,
-                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 3"),
-                                AddressU = TextureAddressMode.Clamp,
-                                AddressV = TextureAddressMode.Clamp,
-                                AlphaTestEnable = true,
-                                ReferenceAlpha = 128,
-                                AlphaFunction = CompareFunction.Greater,
-                                Transform = new TransformGroup
-                                            {
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
-                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.03f, 0.06f, 1235f, 2.5f))),
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
-                                            }
-                            }
-                        }
-                    },
-                    new Quad(667, 457, 170, 170)
-                    {
-                        Brush = new Brush
-                        {
-                            new Layer
-                            {
-                                BlendState = BlendState.AlphaBlend,
-                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 4 glow mask"),
-                                Color = new Animatable<Color>(t => Color.Lerp(Color.Black, Color.OrangeRed, 
-                                    Functions.Noise(t, 0f, 1f, 555f, 1.8f))),
-                                Transform = new TransformGroup
-                                            {
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
-                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.05f, 0.1f, 2387f, 2.5f))),
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
-                                            }
-                            },
-                            new Layer
-                            {
-                                BlendState = BlendState.AlphaBlend,
-                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 4"),
-                                AddressU = TextureAddressMode.Clamp,
-                                AddressV = TextureAddressMode.Clamp,
-                                AlphaTestEnable = true,
-                                ReferenceAlpha = 128,
-                                AlphaFunction = CompareFunction.Greater,
-                                Transform = new TransformGroup
-                                            {
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
-                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.05f, 0.1f, 2387f, 2.5f))),
-                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
-                                            }
-                            }
-                        }
-                    },
 
                     #region Stars
 
@@ -787,6 +647,147 @@ namespace Graffiti.Samples.Halloween
                     } },
                     
                     #endregion
+
+                    new Quad(123, 167, 260, 260, 0)
+                    {
+                        Brush = new Brush
+                        {
+                            new Layer
+                            {
+                                BlendState = BlendState.AlphaBlend,
+                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 1 glow mask"),
+                                Color = new Animatable<Color>(t => Color.Lerp(Color.Black, Color.OrangeRed, 
+                                    Functions.Noise(t, 0f, 1f, 1356f, 2.5f))),
+                                Transform = new TransformGroup
+                                            {
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
+                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.05f, 0.1f, 1000f, 2.5f))),
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
+                                            }
+                            },
+                            new Layer
+                            {
+                                BlendState = BlendState.AlphaBlend,
+                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 1"),
+                                AddressU = TextureAddressMode.Clamp,
+                                AddressV = TextureAddressMode.Clamp,
+                                AlphaTestEnable = true,
+                                ReferenceAlpha = 128,
+                                AlphaFunction = CompareFunction.Greater,
+                                Transform = new TransformGroup
+                                            {
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
+                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.05f, 0.1f, 1000f, 2.5f))),
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
+                                            }
+                            }
+                        }
+                    },
+                    new Quad(363, 354, 154, 154, 0)
+                    {
+                        Brush = new Brush
+                        {
+                            new Layer
+                            {
+                                BlendState = BlendState.AlphaBlend,
+                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 2 glow mask"),
+                                Color = new Animatable<Color>(t => Color.Lerp(Color.Black, Color.OrangeRed, 
+                                    Functions.Noise(t, 0f, 1f, 821f, 1.5f))),
+                                Transform = new TransformGroup
+                                            {
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
+                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.025f, 0.05f, 650f, 2.5f))),
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
+                                            }
+                            },
+                            new Layer
+                            {
+                                BlendState = BlendState.AlphaBlend,
+                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 2"),
+                                AddressU = TextureAddressMode.Clamp,
+                                AddressV = TextureAddressMode.Clamp,
+                                AlphaTestEnable = true,
+                                ReferenceAlpha = 128,
+                                AlphaFunction = CompareFunction.Greater,
+                                Transform = new TransformGroup
+                                            {
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
+                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.025f, 0.05f, 650f, 2.5f))),
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
+                                            }
+                            }
+                        }
+                    },
+                    new Quad(243, 119, 164, 164, 0)
+                    {
+                        Brush = new Brush
+                        {
+                            new Layer
+                            {
+                                BlendState = BlendState.AlphaBlend,
+                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 3 glow mask"),
+                                Color = new Animatable<Color>(t => Color.Lerp(Color.Black, Color.OrangeRed, 
+                                    Functions.Noise(t, 0f, 1f, 10f, 2f))),
+                                Transform = new TransformGroup
+                                            {
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
+                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.03f, 0.06f, 1235f, 2.5f))),
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
+                                            }
+                            },
+                            new Layer
+                            {
+                                BlendState = BlendState.AlphaBlend,
+                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 3"),
+                                AddressU = TextureAddressMode.Clamp,
+                                AddressV = TextureAddressMode.Clamp,
+                                AlphaTestEnable = true,
+                                ReferenceAlpha = 128,
+                                AlphaFunction = CompareFunction.Greater,
+                                Transform = new TransformGroup
+                                            {
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
+                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.03f, 0.06f, 1235f, 2.5f))),
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
+                                            }
+                            }
+                        }
+                    },
+                    new Quad(667, 457, 170, 170)
+                    {
+                        Brush = new Brush
+                        {
+                            new Layer
+                            {
+                                BlendState = BlendState.AlphaBlend,
+                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 4 glow mask"),
+                                Color = new Animatable<Color>(t => Color.Lerp(Color.Black, Color.OrangeRed, 
+                                    Functions.Noise(t, 0f, 1f, 555f, 1.8f))),
+                                Transform = new TransformGroup
+                                            {
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
+                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.05f, 0.1f, 2387f, 2.5f))),
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
+                                            }
+                            },
+                            new Layer
+                            {
+                                BlendState = BlendState.AlphaBlend,
+                                Texture = content.Load<Texture2D>("Content/Jack O'Lantern 4"),
+                                AddressU = TextureAddressMode.Clamp,
+                                AddressV = TextureAddressMode.Clamp,
+                                AlphaTestEnable = true,
+                                ReferenceAlpha = 128,
+                                AlphaFunction = CompareFunction.Greater,
+                                Transform = new TransformGroup
+                                            {
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(-0.5f, 0f, 0f)),
+                                                RotateTransform.Procedural(t => Quaternion.CreateFromAxisAngle(Vector3.UnitZ, Functions.Sine(t, -0.05f, 0.1f, 2387f, 2.5f))),
+                                                (ConstantTransform)Matrix.CreateTranslation(new Vector3(0.5f, 0f, 0f))
+                                            }
+                            }
+                        }
+                    },
 
                     new Quad(706, 663, 600, 137, 0)
                     {

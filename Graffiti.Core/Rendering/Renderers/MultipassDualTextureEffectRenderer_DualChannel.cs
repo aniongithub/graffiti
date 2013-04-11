@@ -133,16 +133,8 @@ namespace Graffiti.Core.Rendering.Renderers
                         _dualTextureEffect.Texture = layer1.Texture;
                         _dualTextureEffect.Texture2 = layer2.Texture;
 
-                        _device.SamplerStates[0] = new SamplerState
-                        {
-                            AddressU = layer1.AddressU,
-                            AddressV = layer1.AddressV
-                        };
-                        _device.SamplerStates[1] = new SamplerState
-                        {
-                            AddressU = layer2.AddressU,
-                            AddressV = layer2.AddressV
-                        };
+                        _device.SamplerStates[0] = (layer1 as Layer).SamplerState;
+                        _device.SamplerStates[1] = (layer2 as Layer).SamplerState;
 
                         var transform1 = dualLayer.Layer1.Transform.Current;
                         var transform2 = dualLayer.Layer2.Transform.Current;
@@ -189,11 +181,7 @@ namespace Graffiti.Core.Rendering.Renderers
                         _alphaTestEffect.Alpha = layer.ReferenceAlpha;
                         _alphaTestEffect.AlphaFunction = layer.AlphaFunction;
 
-                        _device.SamplerStates[0] = new SamplerState
-                        {
-                            AddressU = layer.AddressU,
-                            AddressV = layer.AddressV
-                        };
+                        _device.SamplerStates[0] = (layer as Layer).SamplerState;
                         for (int i = 0; i < kvp.Value.Vertices.Count; i++)
                         {
                             var incomingVertex = bucket.Vertices[i];
@@ -231,11 +219,7 @@ namespace Graffiti.Core.Rendering.Renderers
 
                         _basicEffect.Texture = layer.Texture;
 
-                        _device.SamplerStates[0] = new SamplerState
-                        {
-                            AddressU = layer.AddressU,
-                            AddressV = layer.AddressV
-                        };
+                        _device.SamplerStates[0] = (layer as Layer).SamplerState;
                         for (int i = 0; i < kvp.Value.Vertices.Count; i++)
                         {
                             var incomingVertex = bucket.Vertices[i];
