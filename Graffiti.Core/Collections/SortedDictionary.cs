@@ -656,7 +656,6 @@ namespace Graffiti.Core.Collections
             bool ICollection<TKey>.Remove(TKey item)
             {
                 throw new NotSupportedException();
-                return false;
             }
 
             bool ICollection.IsSynchronized
@@ -844,7 +843,6 @@ namespace Graffiti.Core.Collections
             bool ICollection<TValue>.Remove(TValue item)
             {
                 throw new NotSupportedException();
-                return false;
             }
 
             bool ICollection.IsSynchronized

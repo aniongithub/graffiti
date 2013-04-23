@@ -3,14 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Core.WP7.XNA", "Graffiti.Core.WP7.XNA\Graffiti.Core.WP7.XNA.csproj", "{DE4C3012-70C7-4773-8692-1A9D9277C5E8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0B8B9B0A-EA9B-47C6-80B3-B86A3157E594}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Windows Phone = Debug|Windows Phone
+		NugetPublish|Windows Phone = NugetPublish|Windows Phone
 		Release|Windows Phone = Release|Windows Phone
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{DE4C3012-70C7-4773-8692-1A9D9277C5E8}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
 		{DE4C3012-70C7-4773-8692-1A9D9277C5E8}.Debug|Windows Phone.Build.0 = Debug|Windows Phone
+		{DE4C3012-70C7-4773-8692-1A9D9277C5E8}.NugetPublish|Windows Phone.ActiveCfg = NugetPublish|Windows Phone
+		{DE4C3012-70C7-4773-8692-1A9D9277C5E8}.NugetPublish|Windows Phone.Build.0 = NugetPublish|Windows Phone
 		{DE4C3012-70C7-4773-8692-1A9D9277C5E8}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
 		{DE4C3012-70C7-4773-8692-1A9D9277C5E8}.Release|Windows Phone.Build.0 = Release|Windows Phone
 	EndGlobalSection
