@@ -51,7 +51,14 @@ namespace Graffiti.Samples.Halloween
                 Features.MultiPass | Features.PreTransformed | Features.SingleChannelTexCoords | Features.AlphaTest,
             projection: Matrix.CreateOrthographicOffCenter(0, 1280, 800, 0, 0, 100));
 
+            Window.ClientSizeChanged += Window_ClientSizeChanged;
+
             base.Initialize();
+        }
+
+        private void Window_ClientSizeChanged(object sender, EventArgs e)
+        {
+            GraphicsDevice.Viewport = graphics.AdaptViewport(1280, 800);
         }
 
         protected override void LoadContent()

@@ -71,11 +71,7 @@ namespace Graffiti.Core.Rendering.Renderers
                         _alphaTestEffect.World = World;
                         _alphaTestEffect.View = View;
 
-                        _device.SamplerStates[0] = new SamplerState
-                        {
-                            AddressU = layer.AddressU,
-                            AddressV = layer.AddressV
-                        };
+                        _device.SamplerStates[0] = (layer as Layer).SamplerState;
                         for (int i = 0; i < kvp.Value.Vertices.Count; i++)
                         {
                             var incomingVertex = bucket.Vertices[i];
@@ -113,11 +109,7 @@ namespace Graffiti.Core.Rendering.Renderers
                         _basicEffect.World = World;
                         _basicEffect.View = View;
 
-                        _device.SamplerStates[0] = new SamplerState
-                        {
-                            AddressU = layer.AddressU,
-                            AddressV = layer.AddressV
-                        };
+                        _device.SamplerStates[0] = (layer as Layer).SamplerState;
                         for (int i = 0; i < kvp.Value.Vertices.Count; i++)
                         {
                             var incomingVertex = bucket.Vertices[i];

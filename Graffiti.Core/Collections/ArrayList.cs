@@ -63,7 +63,7 @@ namespace Graffiti.Core.Collections
                 return;
             }
 
-            EnsureCapacity(_count + 1);
+            EnsureCapacity(_count * 2);
             Array.Copy(_items, index, _items, index + 1, _count - index);
 
             _items[index] = item;
@@ -93,7 +93,7 @@ namespace Graffiti.Core.Collections
 
         public void Add(T item)
         {
-            EnsureCapacity(_count + 1);
+            EnsureCapacity(_count * 2);
             _count++;
             _items[_count - 1] = item;
         }

@@ -101,9 +101,6 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Reference Include="MonoGame.Framework.Windows8">
-      <HintPath>..\..\MonoGame\MonoGame.Framework\bin\Debug\MonoGame.Framework.Windows8.dll</HintPath>
-    </Reference>
     <Reference Include="SharpDX">
       <HintPath>$(MSBuildExtensionsPath)\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.dll</HintPath>
     </Reference>
@@ -259,6 +256,10 @@
     <ProjectReference Include="..\..\Graffiti.Core.WindowsStore.MonoGame\Graffiti.Core.WindowsStore.MonoGame.csproj">
       <Project>{bd8393ab-b34d-412d-acde-68aa74b086b8}</Project>
       <Name>Graffiti.Core.WindowsStore.MonoGame</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MonoGame\MonoGame.Framework\MonoGame.Framework.Windows8.csproj">
+      <Project>{0518563c-acca-4a14-8c5d-ddbe93e2605f}</Project>
+      <Name>MonoGame.Framework.Windows8</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

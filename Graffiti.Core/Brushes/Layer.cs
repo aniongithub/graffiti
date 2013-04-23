@@ -50,5 +50,21 @@ namespace Graffiti.Core.Brushes
             Transform.Update(timeInMilliSeconds);
             Color.Update(timeInMilliSeconds);
         }
+
+        private SamplerState _samplerState;
+        internal SamplerState SamplerState 
+        { 
+            get 
+            {
+                if (_samplerState == null)
+                    _samplerState = new SamplerState
+                    {
+                        AddressU = this.AddressU,
+                        AddressV = this.AddressV
+                    };
+
+                return _samplerState;
+            }
+        } 
     }
 }
