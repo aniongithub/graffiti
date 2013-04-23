@@ -17,6 +17,11 @@
 
 using System;
 using System.Collections;
+
+#if WINDOWS_PHONE_7
+using Graffiti.Core.Collections;
+#endif
+
 using System.Collections.Generic;
 
 namespace Graffiti.Core.Animation

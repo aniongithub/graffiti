@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Core.WP7.XNA", "..\Graffiti.Core.WP7.XNA\Graffiti.Core.WP7.XNA.csproj", "{DE4C3012-70C7-4773-8692-1A9D9277C5E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Halloween", "Halloween", "{C624EFE1-E4CE-4AEA-86AC-360B12C67BF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.WP7.XNA.HalloweenContent", "Graffiti.Samples.WP7.XNA.Halloween\Graffiti.Samples.WP7.XNA.HalloweenContent.contentproj", "{7D88B88D-1FED-4A1E-A914-84487EC92C6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Samples.WP7.XNA.Halloween", "Graffiti.Samples.WP7.XNA.Halloween\Graffiti.Samples.WP7.XNA.Halloween.csproj", "{B51A4E87-7561-4D18-B5B6-FE4719736A9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Windows Phone = Debug|Windows Phone
+		Release|Windows Phone = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE4C3012-70C7-4773-8692-1A9D9277C5E8}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{DE4C3012-70C7-4773-8692-1A9D9277C5E8}.Debug|Windows Phone.Build.0 = Debug|Windows Phone
+		{DE4C3012-70C7-4773-8692-1A9D9277C5E8}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{DE4C3012-70C7-4773-8692-1A9D9277C5E8}.Release|Windows Phone.Build.0 = Release|Windows Phone
+		{7D88B88D-1FED-4A1E-A914-84487EC92C6E}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{7D88B88D-1FED-4A1E-A914-84487EC92C6E}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{B51A4E87-7561-4D18-B5B6-FE4719736A9E}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{B51A4E87-7561-4D18-B5B6-FE4719736A9E}.Debug|Windows Phone.Build.0 = Debug|Windows Phone
+		{B51A4E87-7561-4D18-B5B6-FE4719736A9E}.Debug|Windows Phone.Deploy.0 = Debug|Windows Phone
+		{B51A4E87-7561-4D18-B5B6-FE4719736A9E}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{B51A4E87-7561-4D18-B5B6-FE4719736A9E}.Release|Windows Phone.Build.0 = Release|Windows Phone
+		{B51A4E87-7561-4D18-B5B6-FE4719736A9E}.Release|Windows Phone.Deploy.0 = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7D88B88D-1FED-4A1E-A914-84487EC92C6E} = {C624EFE1-E4CE-4AEA-86AC-360B12C67BF8}
+		{B51A4E87-7561-4D18-B5B6-FE4719736A9E} = {C624EFE1-E4CE-4AEA-86AC-360B12C67BF8}
+	EndGlobalSection
+EndGlobal

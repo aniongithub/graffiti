@@ -41,12 +41,34 @@ namespace Graffiti.Core.Text
         Bottom
     }
 
+
+
     public sealed class BitmapText: IBitmapText
     {
         private readonly BitmapFont _bitmapFont;
         private readonly IIndexedMesh[] _textQuads;
         private readonly string _text;
+#if WINDOWS_PHONE_7
+        private abstract class Tuple
+        {
+            public static Tuple<TA, TB> Create<TA, TB>(TA a, TB b)
+            {
+                return new Tuple<TA, TB>(a, b);
+            }
+        }
 
+        private sealed class Tuple<T1, T2>: Tuple
+        {
+            public T1 Item1 { get; set; }
+            public T2 Item2 { get; set; }
+
+            public Tuple(T1 item1, T2 item2)
+            {
+                Item1 = item1;
+                Item2 = item2;
+            }
+        }
+#endif
         public BitmapText(IBitmapFont bitmapFont, IBrush brush, string text, TexcoordGenerationMode uMappingMode = TexcoordGenerationMode.FullBoundingBox, TexcoordGenerationMode vMappingMode = TexcoordGenerationMode.FullBoundingBox, HAlignment hAlignment = HAlignment.Middle, VAlignment vAlignment = VAlignment.Middle)
         {
             Transform = (ConstantMatrix) Matrix.Identity;
@@ -122,10 +144,10 @@ namespace Graffiti.Core.Text
 
                 var saveVertexCount = vertexCount;
 
-                Vector2 quadTopLeft;
-                Vector2 quadTopRight;
-                Vector2 quadBottomRight;
-                Vector2 quadBottomLeft;
+                Vector2 quadTopLeft = Vector2.Zero;
+                Vector2 quadTopRight = Vector2.Zero;
+                Vector2 quadBottomRight = Vector2.Zero;
+                Vector2 quadBottomLeft = Vector2.Zero;
 
                 var left = xPos + ci.XOffset;
                 var top = 0f + ci.YOffset;
