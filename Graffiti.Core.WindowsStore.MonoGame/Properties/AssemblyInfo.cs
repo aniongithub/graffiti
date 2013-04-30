@@ -21,7 +21,7 @@ using System.Reflection;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Graffiti.Core.WindowsStore.MonoGame")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Provides core types and classes to use Graffiti on the Windows 8 (Win RT) platform")]
 [assembly: AssemblyConfiguration("")]
 
 [assembly: AssemblyFileVersion("1.0.0.0")]

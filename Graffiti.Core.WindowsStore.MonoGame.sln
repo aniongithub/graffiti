@@ -7,12 +7,24 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGame.Framework.Windows8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Core.WindowsStore.MonoGame", "Graffiti.Core.WindowsStore.MonoGame\Graffiti.Core.WindowsStore.MonoGame.csproj", "{BD8393AB-B34D-412D-ACDE-68AA74B086B8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{11697424-8ACC-4B41-812E-CF2ED72E6F11}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		NugetPublish|Any CPU = NugetPublish|Any CPU
+		NugetPublish|ARM = NugetPublish|ARM
+		NugetPublish|x64 = NugetPublish|x64
+		NugetPublish|x86 = NugetPublish|x86
 		Release|Any CPU = Release|Any CPU
 		Release|ARM = Release|ARM
 		Release|x64 = Release|x64
@@ -27,6 +39,14 @@ Global
 		{0518563C-ACCA-4A14-8C5D-DDBE93E2605F}.Debug|x64.Build.0 = Debug|x64
 		{0518563C-ACCA-4A14-8C5D-DDBE93E2605F}.Debug|x86.ActiveCfg = Debug|x86
 		{0518563C-ACCA-4A14-8C5D-DDBE93E2605F}.Debug|x86.Build.0 = Debug|x86
+		{0518563C-ACCA-4A14-8C5D-DDBE93E2605F}.NugetPublish|Any CPU.ActiveCfg = Release|Any CPU
+		{0518563C-ACCA-4A14-8C5D-DDBE93E2605F}.NugetPublish|Any CPU.Build.0 = Release|Any CPU
+		{0518563C-ACCA-4A14-8C5D-DDBE93E2605F}.NugetPublish|ARM.ActiveCfg = Release|ARM
+		{0518563C-ACCA-4A14-8C5D-DDBE93E2605F}.NugetPublish|ARM.Build.0 = Release|ARM
+		{0518563C-ACCA-4A14-8C5D-DDBE93E2605F}.NugetPublish|x64.ActiveCfg = Release|x64
+		{0518563C-ACCA-4A14-8C5D-DDBE93E2605F}.NugetPublish|x64.Build.0 = Release|x64
+		{0518563C-ACCA-4A14-8C5D-DDBE93E2605F}.NugetPublish|x86.ActiveCfg = Release|x86
+		{0518563C-ACCA-4A14-8C5D-DDBE93E2605F}.NugetPublish|x86.Build.0 = Release|x86
 		{0518563C-ACCA-4A14-8C5D-DDBE93E2605F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0518563C-ACCA-4A14-8C5D-DDBE93E2605F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0518563C-ACCA-4A14-8C5D-DDBE93E2605F}.Release|ARM.ActiveCfg = Release|ARM
@@ -43,6 +63,14 @@ Global
 		{BD8393AB-B34D-412D-ACDE-68AA74B086B8}.Debug|x64.Build.0 = Debug|x64
 		{BD8393AB-B34D-412D-ACDE-68AA74B086B8}.Debug|x86.ActiveCfg = Debug|x86
 		{BD8393AB-B34D-412D-ACDE-68AA74B086B8}.Debug|x86.Build.0 = Debug|x86
+		{BD8393AB-B34D-412D-ACDE-68AA74B086B8}.NugetPublish|Any CPU.ActiveCfg = NugetPublish|Any CPU
+		{BD8393AB-B34D-412D-ACDE-68AA74B086B8}.NugetPublish|Any CPU.Build.0 = NugetPublish|Any CPU
+		{BD8393AB-B34D-412D-ACDE-68AA74B086B8}.NugetPublish|ARM.ActiveCfg = NugetPublish|ARM
+		{BD8393AB-B34D-412D-ACDE-68AA74B086B8}.NugetPublish|ARM.Build.0 = NugetPublish|ARM
+		{BD8393AB-B34D-412D-ACDE-68AA74B086B8}.NugetPublish|x64.ActiveCfg = NugetPublish|x64
+		{BD8393AB-B34D-412D-ACDE-68AA74B086B8}.NugetPublish|x64.Build.0 = NugetPublish|x64
+		{BD8393AB-B34D-412D-ACDE-68AA74B086B8}.NugetPublish|x86.ActiveCfg = NugetPublish|x86
+		{BD8393AB-B34D-412D-ACDE-68AA74B086B8}.NugetPublish|x86.Build.0 = NugetPublish|x86
 		{BD8393AB-B34D-412D-ACDE-68AA74B086B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD8393AB-B34D-412D-ACDE-68AA74B086B8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BD8393AB-B34D-412D-ACDE-68AA74B086B8}.Release|ARM.ActiveCfg = Release|ARM
